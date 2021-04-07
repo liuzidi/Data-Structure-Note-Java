@@ -1,6 +1,5 @@
 package sparseArray;
 
-import org.jetbrains.annotations.NotNull;
 
 /**
  @author:liuzidi
@@ -15,20 +14,86 @@ import org.jetbrains.annotations.NotNull;
  实现数组和稀疏数组可以互相转换;(以数组类型为int为例子)
  */
 public class SparseArray {
-    private int row;//行
-    private int column;//列
-    private int value;//行列对应的值
-    private int sum = 0; //非0元素个数,初始化为0
-    public void arrayToSparse(int[][]arr){
-        //输出原始的数组
+
+
+    /**
+     *
+     * @param arr:原始数组
+     * @return sparseArray：对应的稀疏数组
+     * 功能：将原始数组转化为对应的稀疏数组并返回
+     */
+    public int[][] arrayToSparse(int[][]arr){
+        int sum = 0; //非0元素个数,初始化为0
+        //输出原始的数组，并记录初始数组有sum个非0元素
         System.out.println("初始数组为:");
+        for(int[]row:arr){
+            for(int data:row){
+                System.out.print(data+"\t");
+                if(data!=0){
+                    sum++;
+                }
+            }
+            System.out.println();
+        }
+        //创建稀疏二维数组，int[sum+1][3]sparseArray
+        int[][]sparseArray=new int[sum+1][3];
+        sparseArray[0][0]=arr.length;//行数
+        sparseArray[0][1]=arr[0].length;//列数
+        sparseArray[0][2]=sum;//非0个数
+        int curColumn =1;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[0].length; j++) {
+                if(arr[i][j]!=0){
+                    sparseArray[curColumn][0]=i;
+                    sparseArray[curColumn][1]=j;
+                    sparseArray[curColumn][2]=arr[i][j];
+                    curColumn++;
+                }
+            }
+        }
+        //输出稀疏数组
+        System.out.println("对应的稀疏数组为:");
+        System.out.println("row\t"+"column\t"+"value");
+        for(int[]row:sparseArray){
+            for(int data:row){
+                System.out.print(data+"\t");
+            }
+            System.out.println();
+        }
+        return sparseArray;
+    }
+
+    /**
+     *
+     * @param sparseArr
+     * @return arr：展开后的数组
+     *功能：将稀疏数组转化为原始数组并返回
+     */
+    public int[][]SparseToArray(int[][]sparseArr){
+        //输出稀疏数组
+        System.out.println("原稀疏数组为");
+        System.out.println("row\t"+"column\t"+"value");
+        for(int[]row:sparseArr){
+            for(int data:row){
+                System.out.print(data+"\t");
+            }
+            System.out.println();
+        }
+        //展开稀疏数组为数组
+        //1.创建数组
+        int[][]arr =new int[sparseArr[0][0]][sparseArr[0][1]];
+        //2.展开数组,其他默认为0
+        for (int i = 1; i < sparseArr[0][0]; i++) {
+                arr[sparseArr[i][0]] [sparseArr[i][1]]=sparseArr[i][2];
+        }
+        System.out.println("展开后的数组为：");
         for(int[]row:arr){
             for(int data:row){
                 System.out.print(data+"\t");
             }
             System.out.println();
         }
-        //计算初始数组有几个非0元素，
+        return arr;
     }
 
 }
