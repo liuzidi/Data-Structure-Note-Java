@@ -1,5 +1,7 @@
 package LinkedList;
 
+import java.util.Objects;
+
 /**
  * @author:liuzidi
  * @Description:
@@ -27,13 +29,16 @@ public class SingleLinkedList {
     public void delElement(PersonNode t) {//删除链表上的t对象
         PersonNode currentPointer = head;
         for (int i = 0; i < SIZE; i++) {
+            if(currentPointer.next == t){
+                currentPointer.next = t.next;
+                SIZE--;
+                break;
+            }
             currentPointer = currentPointer.next;
-            if(currentPointer == t){
-
-
+            if(i == SIZE - 1){
+                throw new RuntimeException("未找到该元素！");
             }
         }
-
     }
 
     public void replaceElement(PersonNode oldT, PersonNode newT) {//用newT替换链表上的oldT元素
@@ -89,7 +94,7 @@ class PersonNode {
 
         if (age != that.age) return false;
         if (!name.equals(that.name)) return false;
-        return next != null ? next.equals(that.next) : that.next == null;
+        return Objects.equals(next, that.next);
     }
 
     @Override
@@ -113,6 +118,18 @@ class Test {
         l.appendElement(p3);
         l.appendElement(p4);
 
+        l.printLinkedList();
+
+        System.out.println();
+        l.delElement(p2);
+        l.printLinkedList();
+
+        System.out.println();
+        l.delElement(p4);
+        l.printLinkedList();
+
+        System.out.println();
+        l.delElement(p1);
         l.printLinkedList();
     }
 }

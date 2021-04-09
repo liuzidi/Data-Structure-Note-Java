@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a8d33956-5387-4a65-b230-ea007695e92f" name="Default Changelist" comment="commit">
-      <change afterPath="$PROJECT_DIR$/src/LinkedList/SingleLinkedList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/queue/LoopQueueByArr.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/queue/LoopQueueByArr.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/queue/LoopQueueByArrTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/queue/LoopQueueByArrTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LinkedList/SingleLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LinkedList/SingleLinkedList.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,6 +101,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Test" />
@@ -122,6 +130,8 @@
       <option name="presentableId" value="Default" />
       <updated>1617802948501</updated>
       <workItem from="1617802950211" duration="46077000" />
+      <workItem from="1617976293907" duration="624000" />
+      <workItem from="1617977745196" duration="1042000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1617805702689</created>
@@ -174,10 +184,22 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit" />
     <option name="LAST_COMMIT_MESSAGE" value="commit" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/LinkedList/SingleLinkedList.java</url>
+          <line>122</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
