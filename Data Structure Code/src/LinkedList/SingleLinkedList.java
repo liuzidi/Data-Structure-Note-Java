@@ -5,6 +5,7 @@ import java.util.Objects;
 /**
  * @author:liuzidi
  * @Description: 一个PersonNode为元素的单链表实现
+ * 功能：增删改查插
  */
 
 public class SingleLinkedList {
@@ -73,13 +74,13 @@ public class SingleLinkedList {
         for (int i = 0; i < SIZE; i++) {
             if (currentPointer.equals(t)) {
                 System.out.println("已找到，其详细信息和位置为：");
-                System.out.println(i+". "+currentPointer);
+                System.out.println(i + ". " + currentPointer);
                 break;
             }
-            if(currentPointer.next != null){
+            if (currentPointer.next != null) {
                 currentPointer = currentPointer.next;
             }
-            if(i == SIZE -1){
+            if (i == SIZE - 1) {
                 throw new RuntimeException("未找到该元素！");
             }
         }
@@ -89,10 +90,10 @@ public class SingleLinkedList {
         PersonNode currentPointer = head;
         System.out.println("\n链表当前成员有：");
         for (int i = 0; i < SIZE; i++) {
-            if (currentPointer.next != null){
-            currentPointer = currentPointer.next;
+            if (currentPointer.next != null) {
+                currentPointer = currentPointer.next;
             }
-            System.out.println((i+1)+". "+currentPointer);
+            System.out.println((i + 1) + ". " + currentPointer);
         }
     }
 
@@ -150,13 +151,13 @@ class Test {
         l.delElement(p2);
         l.printLinkedList();
 
-        l.replaceElement(p4,p5);
+        l.replaceElement(p4, p5);
         l.printLinkedList();
 
         l.appendElement(p6);
         l.printLinkedList();
 
-        l.insertElement(p4,3);
+        l.insertElement(p4, 3);
         l.printLinkedList();
 
         l.SearchElement(p1);
