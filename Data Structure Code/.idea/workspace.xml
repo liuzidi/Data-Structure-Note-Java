@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a8d33956-5387-4a65-b230-ea007695e92f" name="Default Changelist" comment="commit">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestFiles/TestFiles.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestFiles/src/TestFiles/TestUnit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestFiles/src/TestFiles/Rotate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,7 +53,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
-  <component name="RunManager" selected="Application.test">
+  <component name="RunManager" selected="Application.Rotate">
     <configuration name="LoopQueueByArrTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="queue.LoopQueueByArrTest" />
       <module name="Data Structure Code" />
@@ -83,12 +80,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SparseArrayTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="sparseArray.SparseArrayTest" />
-      <module name="Data Structure Code" />
+    <configuration name="Rotate" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TestFiles.Rotate" />
+      <module name="TestFiles" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="sparseArray.*" />
+          <option name="PATTERN" value="TestFiles.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -137,11 +134,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Rotate" />
         <item itemvalue="Application.test" />
         <item itemvalue="Application.Test" />
         <item itemvalue="Application.LoopQueueByArrTest" />
         <item itemvalue="Application.QueueByArrTest" />
-        <item itemvalue="Application.SparseArrayTest" />
       </list>
     </recent_temporary>
   </component>
@@ -156,7 +153,7 @@
       <workItem from="1617802950211" duration="46077000" />
       <workItem from="1617976293907" duration="624000" />
       <workItem from="1617977745196" duration="5256000" />
-      <workItem from="1618044530561" duration="4009000" />
+      <workItem from="1618044530561" duration="5740000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1617805702689</created>
@@ -221,7 +218,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618127546860</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="commit">
+      <created>1618142321634</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1618142321634</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
