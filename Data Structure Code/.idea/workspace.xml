@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a8d33956-5387-4a65-b230-ea007695e92f" name="Default Changelist" comment="commit">
-      <change afterPath="$PROJECT_DIR$/TestFiles/src/TestFiles/Rotate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestFiles/src/TestFiles/getDuplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,22 +53,9 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
-  <component name="RunManager" selected="Application.Rotate">
+  <component name="RunManager" selected="Application.testDay412">
     <configuration name="LoopQueueByArrTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="queue.LoopQueueByArrTest" />
-      <module name="Data Structure Code" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="queue.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="QueueByArrTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="queue.QueueByArrTest" />
       <module name="Data Structure Code" />
       <extension name="coverage">
         <pattern>
@@ -119,26 +106,37 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration name="testDay412" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TestFiles.testDay412" />
+      <module name="TestFiles" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="TestFiles.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.testDay412" />
         <item itemvalue="Application.Rotate" />
         <item itemvalue="Application.test" />
         <item itemvalue="Application.Test" />
         <item itemvalue="Application.LoopQueueByArrTest" />
-        <item itemvalue="Application.QueueByArrTest" />
       </list>
     </recent_temporary>
   </component>
@@ -154,6 +152,7 @@
       <workItem from="1617976293907" duration="624000" />
       <workItem from="1617977745196" duration="5256000" />
       <workItem from="1618044530561" duration="5740000" />
+      <workItem from="1618201141530" duration="2683000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1617805702689</created>
