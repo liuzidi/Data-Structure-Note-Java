@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a8d33956-5387-4a65-b230-ea007695e92f" name="Default Changelist" comment="commit">
-      <change afterPath="$PROJECT_DIR$/TestFiles/src/TestFiles/getDuplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestFiles/src/TestFiles/FindBothHave.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestFiles/src/TestFiles/onePlus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestFiles/src/TestFiles/onePlus2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,13 +55,13 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
-  <component name="RunManager" selected="Application.testDay412">
-    <configuration name="LoopQueueByArrTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="queue.LoopQueueByArrTest" />
-      <module name="Data Structure Code" />
+  <component name="RunManager" selected="Application.onePlus2">
+    <configuration name="FindBothHave" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TestFiles.FindBothHave" />
+      <module name="TestFiles" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="queue.*" />
+          <option name="PATTERN" value="TestFiles.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -80,12 +82,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="LinkedList.Test" />
-      <module name="Data Structure Code" />
+    <configuration name="onePlus" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TestFiles.onePlus" />
+      <module name="TestFiles" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="LinkedList.*" />
+          <option name="PATTERN" value="TestFiles.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -93,8 +95,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="TestFiles.test" />
+    <configuration name="onePlus2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TestFiles.onePlus2" />
       <module name="TestFiles" />
       <extension name="coverage">
         <pattern>
@@ -132,11 +134,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.onePlus2" />
+        <item itemvalue="Application.onePlus" />
+        <item itemvalue="Application.FindBothHave" />
         <item itemvalue="Application.testDay412" />
         <item itemvalue="Application.Rotate" />
-        <item itemvalue="Application.test" />
-        <item itemvalue="Application.Test" />
-        <item itemvalue="Application.LoopQueueByArrTest" />
       </list>
     </recent_temporary>
   </component>
@@ -152,7 +154,7 @@
       <workItem from="1617976293907" duration="624000" />
       <workItem from="1617977745196" duration="5256000" />
       <workItem from="1618044530561" duration="5740000" />
-      <workItem from="1618201141530" duration="2683000" />
+      <workItem from="1618201141530" duration="15492000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1617805702689</created>
@@ -224,7 +226,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618142321634</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="commit">
+      <created>1618206896255</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1618206896255</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -245,6 +254,22 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit" />
     <option name="LAST_COMMIT_MESSAGE" value="commit" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/TestFiles/src/TestFiles/onePlus.java</url>
+          <line>8</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/TestFiles/src/TestFiles/onePlus.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
