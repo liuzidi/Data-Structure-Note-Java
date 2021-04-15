@@ -11,7 +11,5 @@ public class onePlus2 {
         System.out.println(sa);
         System.out.println(sa.charAt(0));
         System.out.println(Integer.parseInt(sa));
-
     }
-
 }
