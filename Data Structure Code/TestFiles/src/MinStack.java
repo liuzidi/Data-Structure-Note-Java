@@ -23,19 +23,9 @@ public class MinStack {
             min = Math.min(min, val);
         }
         public void pop() {
-            if(stack.size() == 1){
-                stack.pop();
-                return;
-            }
-            if(min == stack.peek().intValue()){
-                stack.pop();
-                min = stack.peek().intValue();
-                for(Integer val : stack){
-                    min = Math.min(min,val);
-                }
-                return;
-            }
-            stack.pop();
+           if(stack.pop() == min){
+               min = stack.pop();
+           }
         }
 
         public int top() {
@@ -49,9 +39,15 @@ public class MinStack {
     class Test{
         public static void main(String[] args) {
             MinStack minStack = new MinStack();
-            minStack.push(1);
-            minStack.push(2);
             minStack.push(3);
+            minStack.push(2);
+            minStack.push(1);
+            System.out.println(minStack.top());
+            minStack.pop();
+            System.out.println(minStack.top());
+            minStack.pop();
+            System.out.println(minStack.top());
+            minStack.pop();
 
         }
     }
