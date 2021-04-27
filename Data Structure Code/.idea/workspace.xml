@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a8d33956-5387-4a65-b230-ea007695e92f" name="Default Changelist" comment="commit" />
+    <list default="true" id="a8d33956-5387-4a65-b230-ea007695e92f" name="Default Changelist" comment="commit">
+      <change afterPath="$PROJECT_DIR$/TestFiles/src/countOne.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestFiles/src/newTest2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestFiles/src/stackTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,30 +58,30 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
   </component>
-  <component name="RunManager" selected="Application.test2">
-    <configuration name="RandomTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="RandomTest" />
-      <module name="TestFiles" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SingleTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="SingleTest" />
-      <module name="TestFiles" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Solution" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Solution" />
-      <module name="TestFiles" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.stackTest">
     <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Test" />
+      <module name="TestFiles" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="countOne" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="countOne" />
+      <module name="TestFiles" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="newTest2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="newTest2" />
+      <module name="TestFiles" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="stackTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="stackTest" />
       <module name="TestFiles" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -102,11 +107,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.stackTest" />
+        <item itemvalue="Application.newTest2" />
+        <item itemvalue="Application.countOne" />
         <item itemvalue="Application.test2" />
         <item itemvalue="Application.Test" />
-        <item itemvalue="Application.RandomTest" />
-        <item itemvalue="Application.Solution" />
-        <item itemvalue="Application.SingleTest" />
       </list>
     </recent_temporary>
   </component>
@@ -362,7 +367,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619443698131</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="commit">
+      <created>1619500486057</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1619500486057</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -396,6 +408,11 @@
           <url>file://$PROJECT_DIR$/TestFiles/src/TestFiles/onePlus.java</url>
           <line>26</line>
           <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/TestFiles/src/countOne.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
