@@ -3,8 +3,14 @@
 /**
  * @author:liuzidi
  * @Description:
+ * 注：
+ * 稳定：如果a原本在b前面，而a=b，排序之后a仍然在b的前面。
+ * 不稳定：如果a原本在b的前面，而a=b，排序之后 a 可能会出现在 b 的后面。
+ *
+ *
  * 冒泡算法
  * 时间复杂度：O(n2) ，最坏O(n2)，最优O(n2),稳定
+ * 空间复杂度：O(1)
  */
 public class BubbleSort {
     public static void main(String[] args) {
