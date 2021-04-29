@@ -15,7 +15,6 @@ public class SelectionSort {
         for(int num : nums){
             System.out.println(num);
         }
-
     }
     public static void selectionSort(int[] nums){
         int len = nums.length;
