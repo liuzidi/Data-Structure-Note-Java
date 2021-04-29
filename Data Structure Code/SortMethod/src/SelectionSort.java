@@ -1,11 +1,10 @@
 /**
- * @author:liuzidi
- * @Description:
  * 选择排序
  * 时间复杂度：O(n2) ，最坏O(n2)，最优O(n2),不稳定
  * 空间复杂度：O(1)
  *
  * 每次将最小的放在无需序列的第一位，只需交换一次，但缺点是不稳定；
+ *
  *
  */
 public class SelectionSort {
