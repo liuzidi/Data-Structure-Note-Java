@@ -32,7 +32,7 @@ public class QuickSort {
                 }
             }
         }
-        swap()
+        swap(leftIndex,rightIndex,nums);
     }
 
     public static void swap(int index1, int index2, int[] nums){
