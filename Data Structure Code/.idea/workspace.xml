@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a8d33956-5387-4a65-b230-ea007695e92f" name="Default Changelist" comment="commit">
+      <change afterPath="$PROJECT_DIR$/SortMethod/src/QuickSortNormal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SortMethod/src/QuickSortRandom.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SortMethod/src/TestInstance.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestFiles/src/Test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SortMethod/src/QuickSort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestFiles/src/MinStack.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestFiles/src/MinStack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SortMethod/MergeSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SortMethod/MergeSort.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/Test.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,21 +63,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
   </component>
-  <component name="RunManager" selected="Application.MergeSort">
-    <configuration name="BubbleSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="BubbleSort" />
-      <module name="SortMethod" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="InsertionSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="InsertionSort" />
-      <module name="SortMethod" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.TestInstance">
     <configuration name="MergeSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MergeSort" />
       <module name="SortMethod" />
@@ -77,8 +71,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SelectionSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="SelectionSort" />
+    <configuration name="QuickSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="QuickSort" />
       <module name="SortMethod" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -86,6 +80,20 @@
     </configuration>
     <configuration name="ShellSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ShellSort" />
+      <module name="SortMethod" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Test" />
+      <module name="TestFiles" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestInstance" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TestInstance" />
       <module name="SortMethod" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -104,11 +112,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TestInstance" />
+        <item itemvalue="Application.QuickSort" />
+        <item itemvalue="Application.Test" />
         <item itemvalue="Application.MergeSort" />
         <item itemvalue="Application.ShellSort" />
-        <item itemvalue="Application.InsertionSort" />
-        <item itemvalue="Application.SelectionSort" />
-        <item itemvalue="Application.BubbleSort" />
       </list>
     </recent_temporary>
   </component>
@@ -125,13 +133,6 @@
       <workItem from="1617977745196" duration="5256000" />
       <workItem from="1618044530561" duration="5740000" />
       <workItem from="1618201141530" duration="25801000" />
-    </task>
-    <task id="LOCAL-00009" summary="commit">
-      <created>1618127546860</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1618127546860</updated>
     </task>
     <task id="LOCAL-00010" summary="commit">
       <created>1618142321634</created>
@@ -469,7 +470,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619932748509</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="commit">
+      <created>1619934532810</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1619934532810</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -508,6 +516,11 @@
           <url>file://$PROJECT_DIR$/TestFiles/src/countOne.java</url>
           <line>13</line>
           <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/TestFiles/src/Test.java</url>
+          <line>7</line>
+          <option name="timeStamp" value="42" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
