@@ -29,6 +29,18 @@ public class InsertionSort {
         for(int num : nums){
             System.out.println(num);
         }
+
+
+        int len = 100000;
+        int[] arr = new int[len];
+        for (int i = 0; i < len; i++) {
+            arr[i] = (int) (Math.random() * len); // 生成随机数
+        }
+        long startTime = System.currentTimeMillis();
+        InsertionSort.insertionSort(arr);
+        long endTime = System.currentTimeMillis();
+        long totalTime = endTime - startTime;
+        System.out.println("插入排序运行时间为" + totalTime + "ms");
         
     }
     

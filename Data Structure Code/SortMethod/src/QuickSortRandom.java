@@ -9,8 +9,8 @@
  */
 public class QuickSortRandom {
     public static void main(String[] args) {
-        int[] nums = {6,75,45,25,4,1,5,82,15,82,5,3,41,2};
-        QuickSortNormal.quickSort(nums);
+        int[] nums = {6,75,45,25,4,1,5,82,15,82,5,3,4,54,3,1,2};
+        QuickSortRandom.quickSort(nums);
         for(int num : nums){
             System.out.println(num);
         }
@@ -23,33 +23,23 @@ public class QuickSortRandom {
      * @param nums 需要排序的数组
      */
     public static void quickSort(int leftIndex, int rightIndex, int[] nums){
-        if(nums == null || nums.length <= 1){
-            return;
-        }
         if(leftIndex >= rightIndex){
             return;
         }
-//
         int l = leftIndex;
         int r = rightIndex;
-        //记录左界和右界
-        int Index = (int)(Math.random() * (rightIndex - leftIndex + 1)) + leftIndex;//基准值的设定
-        int pivotVal = nums[Index];
-        swap(Index,leftIndex,nums);//换到最后一个
-
-        while(leftIndex < rightIndex){
-            while(leftIndex < rightIndex && nums[rightIndex] >= pivotVal){
-                rightIndex--;
+        swap(leftIndex, (int)(Math.random() * (rightIndex - leftIndex + 1)) + leftIndex,nums);
+        int value = nums[leftIndex];
+        int j = leftIndex;
+        for(int i = j + 1; i <= rightIndex; i++){
+            if(nums[i] < value){
+                j++;
+                swap(i,j,nums);
             }
-            nums[leftIndex] = nums[rightIndex];
-            while(leftIndex < rightIndex && nums[leftIndex] <= pivotVal){
-                leftIndex++;
-            }
-            nums[rightIndex] = nums[leftIndex];
         }
-        nums[leftIndex] = pivotVal;
-        quickSort(l,leftIndex - 1,nums);
-        quickSort(rightIndex + 1,r,nums);
+        swap(leftIndex,j,nums);
+        quickSort(l,j - 1,nums);
+        quickSort(j + 1,r,nums);
     }
 
     public static void quickSort(int[] nums){
@@ -62,7 +52,6 @@ public class QuickSortRandom {
         if(index1 == index2){
             return;
         }
-
         nums[index1] ^= nums[index2];
         nums[index2] ^= nums[index1];
         nums[index1] ^= nums[index2];

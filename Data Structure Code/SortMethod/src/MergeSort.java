@@ -44,8 +44,8 @@ public class MergeSort {
         while(left2 <= right){
             res[currentIndex++] = nums[left2++];
         }
-        for(int i = left; i <= right; i++){
-            nums[i] = res[i];
+        while(left < right){
+            nums[left++] = res[left++];
         }
     }
 }

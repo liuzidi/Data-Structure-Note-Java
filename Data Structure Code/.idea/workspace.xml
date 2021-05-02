@@ -2,11 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a8d33956-5387-4a65-b230-ea007695e92f" name="Default Changelist" comment="commit">
+      <change afterPath="$PROJECT_DIR$/SortMethod/src/QuickSortDoubleRoad.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SortMethod/src/QuickSortThreeRoad.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SortMethod/src/InsertionSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/SortMethod/src/InsertionSort.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SortMethod/src/MergeSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/SortMethod/src/MergeSort.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SortMethod/src/QuickSortNormal.java" beforeDir="false" afterPath="$PROJECT_DIR$/SortMethod/src/QuickSortNormal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SortMethod/src/QuickSortRandom.java" beforeDir="false" afterPath="$PROJECT_DIR$/SortMethod/src/QuickSortRandom.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SortMethod/src/TestInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/SortMethod/src/TestInstance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SortMethod/InsertionSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SortMethod/InsertionSort.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SortMethod/MergeSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SortMethod/MergeSort.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,9 +64,9 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
   </component>
-  <component name="RunManager" selected="Application.QuickSortNormal">
-    <configuration name="MergeSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MergeSort" />
+  <component name="RunManager" selected="Application.TestInstance">
+    <configuration name="InsertionSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="InsertionSort" />
       <module name="SortMethod" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -82,9 +86,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Test" />
-      <module name="TestFiles" />
+    <configuration name="QuickSortRandom" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="QuickSortRandom" />
+      <module name="SortMethod" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -109,11 +113,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.QuickSortNormal" />
         <item itemvalue="Application.TestInstance" />
+        <item itemvalue="Application.QuickSortRandom" />
+        <item itemvalue="Application.InsertionSort" />
+        <item itemvalue="Application.QuickSortNormal" />
         <item itemvalue="Application.QuickSort" />
-        <item itemvalue="Application.Test" />
-        <item itemvalue="Application.MergeSort" />
       </list>
     </recent_temporary>
   </component>
@@ -130,13 +134,6 @@
       <workItem from="1617977745196" duration="5256000" />
       <workItem from="1618044530561" duration="5740000" />
       <workItem from="1618201141530" duration="25801000" />
-    </task>
-    <task id="LOCAL-00011" summary="commit">
-      <created>1618206896255</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1618206896255</updated>
     </task>
     <task id="LOCAL-00012" summary="commit">
       <created>1618393311596</created>
@@ -474,7 +471,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619954222199</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="commit">
+      <created>1619956247683</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1619956247683</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -58,7 +58,6 @@ public class QuickSortNormal {
         if(index1 == index2){
             return;
         }
-
         nums[index1] ^= nums[index2];
         nums[index2] ^= nums[index1];
         nums[index1] ^= nums[index2];
