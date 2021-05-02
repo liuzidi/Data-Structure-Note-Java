@@ -8,6 +8,13 @@
  *
  */
 public class QuickSortRandom {
+    public static void main(String[] args) {
+        int[] nums = {6,75,45,25,4,1,5,82,15,82,5,3,41,2};
+        QuickSortNormal.quickSort(nums);
+        for(int num : nums){
+            System.out.println(num);
+        }
+    }
 
     /**随机快排
      *
@@ -19,33 +26,30 @@ public class QuickSortRandom {
         if(nums == null || nums.length <= 1){
             return;
         }
-        if(leftIndex >= rightIndex || leftIndex < 0 || rightIndex >= nums.length){
+        if(leftIndex >= rightIndex){
             return;
         }
 //
         int l = leftIndex;
         int r = rightIndex;
         //记录左界和右界
-        int pivotIndex = (int)(Math.random() * (rightIndex - leftIndex + 1)) + leftIndex;//基准值的设定
-        int pivotVal = nums[pivotIndex];
-        swap(pivotIndex,leftIndex,nums);//换到最后一个
-        int currentIndex = l;//记录当前pivotVal所在数组的位置，现在为数组末尾
+        int Index = (int)(Math.random() * (rightIndex - leftIndex + 1)) + leftIndex;//基准值的设定
+        int pivotVal = nums[Index];
+        swap(Index,leftIndex,nums);//换到最后一个
 
         while(leftIndex < rightIndex){
-            if(nums[rightIndex] < pivotVal){
-                swap(rightIndex,currentIndex,nums);
-                currentIndex =rightIndex;
-                while(leftIndex < rightIndex && nums[leftIndex] < pivotVal){
-                    leftIndex++;
-                }
-                swap(leftIndex,currentIndex,nums);
-                currentIndex = leftIndex;
+            while(leftIndex < rightIndex && nums[rightIndex] >= pivotVal){
+                rightIndex--;
             }
-            rightIndex--;
+            nums[leftIndex] = nums[rightIndex];
+            while(leftIndex < rightIndex && nums[leftIndex] <= pivotVal){
+                leftIndex++;
+            }
+            nums[rightIndex] = nums[leftIndex];
         }
-        pivotIndex = leftIndex;
-        quickSort(l,pivotIndex - 1,nums);
-        quickSort(pivotIndex + 1,r,nums);
+        nums[leftIndex] = pivotVal;
+        quickSort(l,leftIndex - 1,nums);
+        quickSort(rightIndex + 1,r,nums);
     }
 
     public static void quickSort(int[] nums){

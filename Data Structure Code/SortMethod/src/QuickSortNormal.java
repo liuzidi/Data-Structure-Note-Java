@@ -3,6 +3,13 @@
  * @Description:
  */
 public class QuickSortNormal {
+    public static void main(String[] args) {
+        int[] nums = {6,75,45,25,4,1,5,82,15,82,5,3,41,2};
+        QuickSortNormal.quickSort(nums);
+        for(int num : nums){
+            System.out.println(num);
+        }
+    }
     /**随机快排
      *
      * @param leftIndex 左索引
@@ -13,7 +20,7 @@ public class QuickSortNormal {
         if(nums == null || nums.length <= 1){
             return;
         }
-        if(leftIndex >= rightIndex || leftIndex < 0 || rightIndex >= nums.length){
+        if(leftIndex >= rightIndex){
             return;
         }
 //

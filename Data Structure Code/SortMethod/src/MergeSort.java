@@ -31,19 +31,17 @@ public class MergeSort {
         }
         int middle = left + ((right - left) >> 1);
         int left1 = left;
-        int right1 = middle;
         int left2 = middle + 1;
-        int right2 = right;
-        mergeSortRecursion(nums,res,left1,right1);
-        mergeSortRecursion(nums,res,left2,right2);
+        mergeSortRecursion(nums,res,left1, middle);
+        mergeSortRecursion(nums,res,left2, right);
         int currentIndex = left;//从给到的数组的最左端开始填入
-        while(left1 <= right1 && left2 <= right2){
+        while(left1 <= middle && left2 <= right){
             res[currentIndex++] = nums[left1] < nums[left2] ? nums[left1++] : nums[left2++];
         }
-        while(left1 <= right1){//右部分已经排好序或者是空
+        while(left1 <= middle){//右部分已经排好序或者是空
             res[currentIndex++] = nums[left1++];
         }
-        while(left2 <= right2){
+        while(left2 <= right){
             res[currentIndex++] = nums[left2++];
         }
         for(int i = left; i <= right; i++){
