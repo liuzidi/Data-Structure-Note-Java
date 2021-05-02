@@ -8,37 +8,52 @@
  *
  */
 public class QuickSort {
-    public static void main(String[] args) {
-        int[] nums = {6,75,45,25,4,1,5,82,15,82,5,3,41,2};
-        quickSort(nums);
-        for(int num : nums){
-            System.out.println(num);
-        }
-    }
-    public static void quickSort(int[] nums){
-        int len = nums.length;
-        if(len == 1){
+    /**
+     *
+     * @param leftIndex 左索引
+     * @param rightIndex 右索引
+     * @param nums 需要排序的数组
+     */
+    public static void quickSort(int leftIndex, int rightIndex, int[] nums){
+        if(nums == null || nums.length <= 1){
             return;
         }
-        int pivotVal = nums[0];
-        int leftIndex = 1;
-        int rightIndex = len - 1;
+        if(leftIndex == rightIndex){
+            return;
+        }
+        if(rightIndex - leftIndex == 1){
+            if(nums[leftIndex] > nums[rightIndex] ){
+                swap(leftIndex,rightIndex,nums);
+            }
+            return;
+        }
+        int pivotIndex = (int)(Math.random() * (rightIndex - leftIndex + 1)) + leftIndex;//基准值的设定
+        quickSort(leftIndex,pivotIndex - 1,nums);
+        quickSort(pivotIndex + 1,rightIndex,nums);
+
+        int pivotVal = nums[pivotIndex];
+        int pivotCurrentIndex = pivotIndex;
         while(leftIndex < rightIndex){
+            if(nums[rightIndex] < pivotVal){
+                swap(pivotCurrentIndex, rightIndex, nums);
+                pivotCurrentIndex = rightIndex;
+            }else{
+                rightIndex--;
+            }
             if(nums[leftIndex] > pivotVal){
-                while(leftIndex < rightIndex && nums[rightIndex] < pivotVal){
-                    swap(leftIndex,rightIndex,nums);
-                    leftIndex++;
-                    rightIndex--;
-                }
+                swap(pivotCurrentIndex, rightIndex, nums);
+                pivotCurrentIndex = leftIndex;
+            }else{
+                leftIndex++;
             }
         }
-        swap(leftIndex,rightIndex,nums);
-
     }
 
-    public static void swap(int index1, int index2, int[] nums){
+    //交换nums数组的两个索引对应的值
+    private static void swap(int index1, int index2, int[] nums){
         nums[index1] ^= nums[index2];
         nums[index2] ^= nums[index1];
         nums[index1] ^= nums[index2];
     }
+
 }
