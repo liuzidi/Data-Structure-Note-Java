@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a8d33956-5387-4a65-b230-ea007695e92f" name="Default Changelist" comment="commit">
-      <change afterPath="$PROJECT_DIR$/SortMethod/src/QuickSortDoubleRoad.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SortMethod/src/QuickSortThreeRoad.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SortMethod/src/InsertionSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/SortMethod/src/InsertionSort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SortMethod/src/MergeSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/SortMethod/src/MergeSort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SortMethod/src/QuickSortNormal.java" beforeDir="false" afterPath="$PROJECT_DIR$/SortMethod/src/QuickSortNormal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SortMethod/src/QuickSortRandom.java" beforeDir="false" afterPath="$PROJECT_DIR$/SortMethod/src/QuickSortRandom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SortMethod/src/TestInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/SortMethod/src/TestInstance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SortMethod/InsertionSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SortMethod/InsertionSort.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SortMethod/MergeSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SortMethod/MergeSort.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SortMethod/src/QuickSortThreeRoad.java" beforeDir="false" afterPath="$PROJECT_DIR$/SortMethod/src/QuickSortThreeRoad.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +51,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -134,13 +127,6 @@
       <workItem from="1617977745196" duration="5256000" />
       <workItem from="1618044530561" duration="5740000" />
       <workItem from="1618201141530" duration="25801000" />
-    </task>
-    <task id="LOCAL-00012" summary="commit">
-      <created>1618393311596</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1618393311596</updated>
     </task>
     <task id="LOCAL-00013" summary="commit">
       <created>1618411579206</created>
@@ -478,7 +464,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619956247683</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="commit">
+      <created>1619963783760</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1619963783760</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

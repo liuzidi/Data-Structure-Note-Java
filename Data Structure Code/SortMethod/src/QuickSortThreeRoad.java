@@ -10,4 +10,8 @@ public class QuickSortThreeRoad {
             System.out.println(num);
         }
     }
+    public static void quickSort(int[] nums, int left, int right){
+
+
+    }
 }
