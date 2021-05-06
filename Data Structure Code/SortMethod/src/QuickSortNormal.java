@@ -23,11 +23,9 @@ public class QuickSortNormal {
         if(leftIndex >= rightIndex){
             return;
         }
-//
         int l = leftIndex;
         int r = rightIndex;
         //记录左界和右界
-
         int pivotVal = nums[l];
         int currentIndex = l;//记录当前pivotVal所在数组的位置，现在为数组末尾
 
