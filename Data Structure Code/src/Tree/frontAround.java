@@ -1,24 +1,31 @@
 package Tree;
 
-import com.sun.source.tree.Tree;
-
 /**
  * @author:liuzidi
  * @Description:
  * 递归写法
  */
 public class frontAround {
-    public void PreOrderTraverse(TreeNode t){
-        if(){
-
-        }
-        TreeNode t = new TreeNode();
-        PreOrderTraverse();
+    public static void PreOrderTraverse(TreeNode t){
+        if(t == null) return;
+        System.out.println(t.val);
+        PreOrderTraverse(t.left);
+        PreOrderTraverse(t.right);
+    }
+    public static void InOrderTraverse(TreeNode t){
+        if(t == null) return;
+        InOrderTraverse(t.left);
+        System.out.println(t.val);
+        InOrderTraverse(t.right);
     }
 
-}
+    public static void PostOrderTraverse(TreeNode t){
+        if(t == null) return;
+        PostOrderTraverse(t.left);
+        PostOrderTraverse(t.right);
+        System.out.println(t.val);
+    }
 
-class test{
     public static void main(String[] args) {
         TreeNode treeNode1 = new TreeNode(1);
         TreeNode treeNode2 = new TreeNode(2);
@@ -28,6 +35,7 @@ class test{
         TreeNode treeNode6 = new TreeNode(6);
         TreeNode treeNode8 = new TreeNode(8);
 
+
         treeNode5.left = treeNode3;
         treeNode5.right = treeNode6;
         treeNode3.left = treeNode2;
@@ -35,5 +43,6 @@ class test{
         treeNode2.left = treeNode1;
         treeNode6.right = treeNode8;
 
+        PostOrderTraverse(treeNode5);
     }
 }
