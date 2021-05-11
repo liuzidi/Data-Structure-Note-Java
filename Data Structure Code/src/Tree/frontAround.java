@@ -1,12 +1,19 @@
 package Tree;
 
+import com.sun.source.tree.Tree;
+
 /**
  * @author:liuzidi
  * @Description:
+ * 递归写法
  */
 public class frontAround {
-    public void PreOrderTraverse(TreeNode head){
+    public void PreOrderTraverse(TreeNode t){
+        if(){
 
+        }
+        TreeNode t = new TreeNode();
+        PreOrderTraverse();
     }
 
 }
