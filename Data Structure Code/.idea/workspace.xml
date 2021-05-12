@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a8d33956-5387-4a65-b230-ea007695e92f" name="Default Changelist" comment="commit">
-      <change afterPath="$PROJECT_DIR$/src/Tree/Instance1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Tree/Instance2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestFiles/src/TestFiles/test512.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/LinkedList/PersonNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/LinkedList/PersonNode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/LinkedList/SingleLinkedList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/LinkedList/SingleLinkedList.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/LinkedList/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/LinkedList/Test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tree/frontAround.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tree/frontAround.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +57,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
   </component>
-  <component name="RunManager" selected="Application.Instance2">
+  <component name="RunManager" selected="Application.test512">
     <configuration name="Instance1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Tree.Instance1" />
       <module name="Data Structure Code" />
@@ -89,13 +84,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="QuickSortRandom" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="QuickSortRandom" />
-      <module name="SortMethod" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="TestInstance" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="TestInstance" />
       <module name="SortMethod" />
@@ -116,6 +104,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="test512" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TestFiles.test512" />
+      <module name="TestFiles" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="TestFiles.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -129,11 +130,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.test512" />
         <item itemvalue="Application.Instance2" />
         <item itemvalue="Application.Instance1" />
         <item itemvalue="Application.frontAround" />
         <item itemvalue="Application.TestInstance" />
-        <item itemvalue="Application.QuickSortRandom" />
       </list>
     </recent_temporary>
   </component>
@@ -151,14 +152,7 @@
       <workItem from="1618044530561" duration="5740000" />
       <workItem from="1618201141530" duration="25801000" />
       <workItem from="1620196476139" duration="2490000" />
-      <workItem from="1620645003231" duration="17537000" />
-    </task>
-    <task id="LOCAL-00024" summary="commit">
-      <created>1618809014711</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1618809014711</updated>
+      <workItem from="1620645003231" duration="19527000" />
     </task>
     <task id="LOCAL-00025" summary="commit">
       <created>1618830517037</created>
@@ -496,7 +490,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620718191368</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="commit">
+      <created>1620814692611</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1620814692611</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -545,6 +546,11 @@
           <url>file://$PROJECT_DIR$/src/Tree/Instance2.java</url>
           <line>29</line>
           <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/TestFiles/src/TestFiles/test512.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="45" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
