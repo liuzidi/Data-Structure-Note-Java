@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a8d33956-5387-4a65-b230-ea007695e92f" name="Default Changelist" comment="commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestFiles/src/TestFiles/AutoBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestFiles/src/TestFiles/AutoBox.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,13 +57,13 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
   </component>
-  <component name="RunManager" selected="Application.Test0519">
-    <configuration name="Instance2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Tree.Instance2" />
-      <module name="Data Structure Code" />
+  <component name="RunManager" selected="Application.AutoBox">
+    <configuration name="AutoBox" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TestFiles.AutoBox" />
+      <module name="TestFiles" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Tree.*" />
+          <option name="PATTERN" value="TestFiles.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -135,11 +136,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.AutoBox" />
         <item itemvalue="Application.Test0519" />
         <item itemvalue="Application.Test0515" />
         <item itemvalue="Application.Test514" />
         <item itemvalue="Application.test512" />
-        <item itemvalue="Application.Instance2" />
       </list>
     </recent_temporary>
   </component>
@@ -157,21 +158,7 @@
       <workItem from="1618044530561" duration="5740000" />
       <workItem from="1618201141530" duration="25801000" />
       <workItem from="1620196476139" duration="2490000" />
-      <workItem from="1620645003231" duration="102268000" />
-    </task>
-    <task id="LOCAL-00032" summary="commit">
-      <created>1619419517080</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1619419517080</updated>
-    </task>
-    <task id="LOCAL-00033" summary="commit">
-      <created>1619424250316</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1619424250316</updated>
+      <workItem from="1620645003231" duration="104467000" />
     </task>
     <task id="LOCAL-00034" summary="commit">
       <created>1619443698131</created>
@@ -502,7 +489,21 @@
       <option name="project" value="LOCAL" />
       <updated>1621262760487</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="commit">
+      <created>1621408508656</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1621408508656</updated>
+    </task>
+    <task id="LOCAL-00082" summary="commit">
+      <created>1621408598802</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1621408598802</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
