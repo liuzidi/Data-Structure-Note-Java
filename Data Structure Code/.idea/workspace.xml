@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a8d33956-5387-4a65-b230-ea007695e92f" name="Default Changelist" comment="commit">
+      <change afterPath="$PROJECT_DIR$/TestFiles/src/TestFiles/TreeNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestFiles/src/TestFiles/test0521.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/AutoBox.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/AutoBox.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +57,11 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="TestFiles" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.AutoBox">
     <configuration name="AutoBox" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -158,14 +164,7 @@
       <workItem from="1618044530561" duration="5740000" />
       <workItem from="1618201141530" duration="25801000" />
       <workItem from="1620196476139" duration="2490000" />
-      <workItem from="1620645003231" duration="106285000" />
-    </task>
-    <task id="LOCAL-00035" summary="commit">
-      <created>1619500486057</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1619500486057</updated>
+      <workItem from="1620645003231" duration="108093000" />
     </task>
     <task id="LOCAL-00036" summary="commit">
       <created>1619526123324</created>
@@ -503,7 +502,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621513579351</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="commit">
+      <created>1621583346984</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1621583346985</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
