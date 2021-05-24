@@ -416,3 +416,349 @@ class Solution {
 空间复杂度 O(1) : 变量占用常数大小额外空间。
 ```
 
+#### 2.考虑大数的打印最大n位数
+
+例题：
+
+```shell
+输入数字 n，按顺序打印出从 1 到最大的 n 位十进制数。比如输入 3，则打印出 1、2、3 一直到最大的 3 位数 999。
+```
+
+不考虑大数解法：
+
+```java
+class Solution {
+    public int[] printNumbers(int n) {
+        int len = 0;
+        for(int i = 0; i < n; i++){
+            len *= 10;
+            len += 9;
+        }      
+        int[] res = new int[len];
+        for(int i = 1; i <= len; i++){
+            res[i - 1] = i;
+        }
+        return res;
+    }
+}
+```
+
+考虑大数算法（用String作为输出）
+
+```java
+class Solution {
+    StringBuilder res;
+    int count = 0, n;
+    char[] num, loop = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+    public String printNumbers(int n) {
+        this.n = n;
+        res = new StringBuilder(); // 数字字符串集
+        num = new char[n]; // 定义长度为 n 的字符列表
+        dfs(0); // 开启全排列递归
+        res.deleteCharAt(res.length() - 1); // 删除最后多余的逗号
+        return res.toString(); // 转化为字符串并返回
+    }
+    void dfs(int x) {
+        if(x == n) { // 终止条件：已固定完所有位
+            res.append(String.valueOf(num) + ","); // 拼接 num 并添加至 res 尾部，使用逗号隔开
+            return;
+        }
+        for(char i : loop) { // 遍历 ‘0‘ - ’9‘
+            num[x] = i; // 固定第 x 位为 i
+            dfs(x + 1); // 开启固定第 x + 1 位
+        }
+    }
+}
+```
+
+
+
+### 链表
+
+#### 1.删除节点
+
+题目：
+
+```shell
+给定单向链表的头指针和一个要删除的节点的值，定义一个函数删除该节点。返回删除后的链表的头节点。
+```
+
+题解：（考虑删除头结点即可）
+
+```java
+class Solution {
+    public ListNode deleteNode(ListNode head, int val) {
+        if(head.val == val)
+        return head.next;
+        ListNode cur = head;
+        ListNode prev = null;
+        while(cur.val != val){
+            prev = cur;
+            cur = cur.next;
+        }
+        prev.next = cur.next;
+        return head;
+    }
+}
+```
+
+
+
+#### <span id="jump">2.链表的倒数第k个节点</span>
+
+题目：
+
+```shell
+输入一个链表，输出该链表中倒数第k个节点。为了符合大多数人的习惯，本题从1开始计数，即链表的尾节点是倒数第1个节点。
+例如，一个链表有 6 个节点，从头节点开始，它们的值依次是 1、2、3、4、5、6。这个链表的倒数第 3 个节点是值为 4 的节点。
+```
+
+我的解法（普通思想）
+
+```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode getKthFromEnd(ListNode head, int k) {
+        int count = 0;
+        ListNode cur = head;
+        while(cur != null){
+            cur = cur.next;
+            count++;
+        }
+        cur = head;
+        for(int i = 0; i < count - k; i++){
+            cur = cur.next;
+        }
+        return cur;
+    }
+}
+```
+
+题解：（不需要知道链表长度，指针1先走k-1步，然后指针2和指针1同时前进，当指针1指向链表最后一个元素时，指针2即为所求。）
+
+```java
+class Solution {
+    public ListNode getKthFromEnd(ListNode head, int k) {
+        ListNode fast = head;
+        ListNode low = head;
+        for(int i = 0; i < k; i++){
+            fast = fast.next;
+        }
+        //快指针先前进k步
+        while(fast != null){
+            low = low.next;
+            fast = fast.next;
+        }
+        return low;
+    }
+}
+```
+
+#### 3.反转链表
+
+题目：
+
+```shell
+定义一个函数，输入一个链表的头节点，反转该链表并输出反转后链表的头节点。
+```
+
+题解：
+
+```java
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        ListNode pre = null;
+        ListNode cur = head;
+        while(cur != null){
+            ListNode next = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = next;
+        }
+        return pre;
+    }
+}
+```
+
+#### <span id="jump1">4.合并两个有序链表</span>
+
+题目：
+
+```shell
+输入两个递增排序的链表，合并这两个链表并使新链表中的节点仍然是递增排序的。
+```
+
+我的题解：（三指针，归并思想）
+
+```java
+class Solution {
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        ListNode cur1 = l1;
+        ListNode cur2 = l2;
+        ListNode newhead = new ListNode();
+        ListNode res = newhead;
+        while(cur1 != null && cur2 != null){
+            if(cur1.val < cur2.val){
+                ListNode next = cur1.next;
+                newhead.next = cur1;
+                newhead = newhead.next;
+                cur1 = next;
+            }else{
+                ListNode next = cur2.next;
+                newhead.next = cur2;
+                newhead = newhead.next;
+                cur2 = next;
+            }
+        }
+        if(cur1 != null){
+            newhead.next = cur1;
+        }
+        if(cur2 != null){
+            newhead.next = cur2;
+        }
+        res = res.next;
+        return res;
+    }
+}
+```
+
+简洁版
+
+```java
+class Solution {
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        ListNode dum = new ListNode(0), cur = dum;
+        while(l1 != null && l2 != null) {
+            if(l1.val < l2.val) {
+                cur.next = l1;
+                l1 = l1.next;
+            }
+            else {
+                cur.next = l2;
+                l2 = l2.next;
+            }
+            cur = cur.next;
+        }
+        cur.next = l1 != null ? l1 : l2;
+        return dum.next;
+    }
+}
+```
+
+
+
+### 双指针
+
+题目：
+
+```shell
+输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有奇数位于数组的前半部分，所有偶数位于数组的后半部分。
+```
+
+1.左右指针
+
+左右交换奇数和偶数，直到全部遍历
+
+```java
+class Solution {
+    public int[] exchange(int[] nums) {
+        int left = 0;
+        int right = nums.length - 1;
+        while(left < right){
+            if((nums[left] & 1) == 1 && (nums[right] & 1) == 0){
+                left++; 
+                right--;
+            }
+            else if((nums[left] & 1) == 0 && (nums[right] & 1) == 1){
+                swap(left++, right--, nums);
+            }
+            else if((nums[left] & 1) == 1){
+               left++; 
+            } 
+            else{
+               right--;
+            }
+        }
+        return nums;
+    }
+     public void swap(int[] nums, int index1, int index2){
+        int temp = nums[index1];
+        nums[index1] = nums[index2];
+        nums[index2] = temp;
+    }
+}
+```
+
+2. 快慢指针
+
+备注：low，fast指针，
+
+low遇到奇数跳过，遇到偶数停止，保存下一个奇数需要交换的位置；
+
+fast在low位置后的第一个奇数处停止，fast寻找下一个奇数；
+
+```java
+class Solution {
+public:
+    public int[] exchange(int[] nums) {
+        int low = 0;
+        int fast = 0;
+        while (fast < nums.length) {
+            if ((nums[fast] & 1) == 1) {
+                swap(nums,fast,low);
+                low ++;
+            }
+            fast ++;
+        }
+        return nums;
+    }
+     public void swap(int[] nums, int index1, int index2){
+        int temp = nums[index1];
+        nums[index1] = nums[index2];
+        nums[index2] = temp;
+    }
+}
+```
+
+我的做法：
+
+```java
+class Solution {
+    public int[] exchange(int[] nums) {
+        int left = 0;
+        int right = nums.length - 1;
+        while(left < right){
+            if((nums[left] & 1) == 1){//左边奇数，left右移
+                left++;
+                continue;
+            }
+            if((nums[right] & 1) == 0){//左边偶数，如果右边为奇数则交换
+                swap(nums,left,right);
+                continue;
+            }
+            while(left < right && (nums[right] & 1) == 0){//左边偶数，右边左移直到寻找到一个奇数
+                right--;
+            }
+        }
+        return nums;
+    }
+    public void swap(int[] nums, int index1, int index2){
+        int temp = nums[index1];
+        nums[index1] = nums[index2];
+        nums[index2] = temp;
+    }
+}
+```
+
+相关题型：
+
+[链表的倒数第k个节点](#jump)
+
+[合并两个有序链表](#jump1)
