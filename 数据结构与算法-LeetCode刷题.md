@@ -55,6 +55,79 @@ class Solution {
 }
 ```
 
+#### 2.树的子结构
+
+题目：
+
+```shell
+输入两棵二叉树A和B，判断B是不是A的子结构。(约定空树不是任意一个树的子结构)
+
+B是A的子结构， 即 A中有出现和B相同的结构和节点值。
+
+例如:
+给定的树 A:
+
+     3
+    / \
+   4   5
+  / \
+ 1   2
+给定的树 B：
+
+   4 
+  /
+ 1
+返回 true，因为 B 与 A 的一个子树拥有相同的结构和节点值。
+```
+
+我的题解：
+
+```java
+class Solution {
+    public boolean isSubStructure(TreeNode A, TreeNode B) {
+        if(A == null || B == null){
+            return false;
+        }
+        if(helper(A,B)){
+            return true;
+        }
+        return isSubStructure(A.left,B) || isSubStructure(A.right,B);
+    }
+    public boolean helper(TreeNode A, TreeNode B){
+        if(B == null)
+            return true;
+        if(A == null && B != null)
+            return false;
+        if(A.val == B.val){
+            return helper(A.left, B.left) && helper(A.right, B.right);
+        }
+        return false;
+    }
+}
+```
+
+优化版
+
+```java
+
+class Solution {
+    public boolean isSubStructure(TreeNode A, TreeNode B) {
+        if(A == null || B == null){
+            return false;
+        }
+        if(helper(A,B)){
+            return true;
+        }
+        return isSubStructure(A.left,B) || isSubStructure(A.right,B);
+    }
+    boolean recur(TreeNode A, TreeNode B) {
+        if(B == null) return true;
+        if(A == null || A.val != B.val) return false;
+        return recur(A.left, B.left) && recur(A.right, B.right);
+    }
+}
+```
+
 
 
 ### 斐波那契数列
@@ -145,7 +218,7 @@ class Solution {
 
 
 
-### 深度优先算法/回溯算法
+### 深度优先算法（DFS）/回溯算法
 
 **迷宫类：**
 
@@ -606,16 +679,13 @@ class Solution {
         ListNode res = newhead;
         while(cur1 != null && cur2 != null){
             if(cur1.val < cur2.val){
-                ListNode next = cur1.next;
                 newhead.next = cur1;
-                newhead = newhead.next;
-                cur1 = next;
+                cur1 = cur1.next;
             }else{
-                ListNode next = cur2.next;
                 newhead.next = cur2;
-                newhead = newhead.next;
-                cur2 = next;
+                cur2 = cur2.next;
             }
+            newhead = newhead.next;
         }
         if(cur1 != null){
             newhead.next = cur1;

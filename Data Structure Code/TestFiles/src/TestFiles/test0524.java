@@ -15,13 +15,23 @@ public class test0524 {
         TreeNode t7 = new TreeNode(7);
         TreeNode t8 = new TreeNode(8);
         TreeNode t9= new TreeNode(9);
-        t1.left = t2;
+        t1.left = t2; t1.right = t3;
+        t2.left = t4; t2.right = t5;
+        t3.left = t6; t3.right = t7;
+        t4.left = t8; t4.right = t9;
+
+        TreeNode b1 = new TreeNode(4);
+        TreeNode b2 = new TreeNode(8);
+        TreeNode b3 = new TreeNode(9);
+        b1.left = b2; b1.right = b3;
+
+        System.out.println(Solution0524.isSubStructure(t1, t4));
     }
 
 
 }
 class Solution0524 {
-    public boolean isSubStructure(TreeNode A, TreeNode B) {
+    public static boolean isSubStructure(TreeNode A, TreeNode B) {
         if(A == null){
             return false;
         }
@@ -30,7 +40,7 @@ class Solution0524 {
         }
         return helper(A.left,B) || helper(A.right,B);
     }
-    public boolean helper(TreeNode A, TreeNode B){
+    public static boolean helper(TreeNode A, TreeNode B){
         if(A == null && B == null)
             return true;
         if(A == null || B == null)

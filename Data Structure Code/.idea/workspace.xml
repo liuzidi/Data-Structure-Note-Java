@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a8d33956-5387-4a65-b230-ea007695e92f" name="Default Changelist" comment="commit">
-      <change afterPath="$PROJECT_DIR$/TestFiles/src/TestFiles/test0524.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestFiles/src/TestFiles/test0524.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestFiles/src/TestFiles/test0524.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../数据结构与算法-LeetCode刷题.md" beforeDir="false" afterPath="$PROJECT_DIR$/../数据结构与算法-LeetCode刷题.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,7 +63,7 @@
       <recent name="TestFiles" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.BinarySearch">
+  <component name="RunManager" selected="Application.test0524">
     <configuration name="AutoBox" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="TestFiles.AutoBox" />
       <module name="TestFiles" />
@@ -116,8 +116,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test514" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="TestFiles.Test514" />
+    <configuration name="test0524" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TestFiles.test0524" />
       <module name="TestFiles" />
       <extension name="coverage">
         <pattern>
@@ -142,11 +142,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.test0524" />
         <item itemvalue="Application.BinarySearch" />
         <item itemvalue="Application.AutoBox" />
         <item itemvalue="Application.Test0519" />
         <item itemvalue="Application.Test0515" />
-        <item itemvalue="Application.Test514" />
       </list>
     </recent_temporary>
   </component>
@@ -164,14 +164,7 @@
       <workItem from="1618044530561" duration="5740000" />
       <workItem from="1618201141530" duration="25801000" />
       <workItem from="1620196476139" duration="2490000" />
-      <workItem from="1620645003231" duration="117680000" />
-    </task>
-    <task id="LOCAL-00042" summary="commit">
-      <created>1619619518540</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1619619518540</updated>
+      <workItem from="1620645003231" duration="119232000" />
     </task>
     <task id="LOCAL-00043" summary="commit">
       <created>1619673983159</created>
@@ -509,7 +502,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621778350354</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="commit">
+      <created>1621843014005</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1621843014005</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -558,6 +558,11 @@
           <url>file://$PROJECT_DIR$/src/Tree/Instance2.java</url>
           <line>29</line>
           <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/TestFiles/src/TestFiles/test0524.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="51" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
