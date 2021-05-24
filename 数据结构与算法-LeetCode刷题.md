@@ -1,8 +1,12 @@
 
 
-## 数据结构与算法 - LeetCode刷题笔记
+## 数据结构与算法刷题笔记
 
-*- write by liuzidi*
+---
+
+#### *- write by liuzidi*
+
+---
 
 
 
@@ -109,7 +113,6 @@ class Solution {
 优化版
 
 ```java
-
 class Solution {
     public boolean isSubStructure(TreeNode A, TreeNode B) {
         if(A == null || B == null){
@@ -128,9 +131,116 @@ class Solution {
 }
 ```
 
+#### 3.二叉树的镜像
 
+题目：
 
-### 斐波那契数列
+```java
+请完成一个函数，输入一个二叉树，该函数输出它的镜像。
+例如输入：
+     4
+   /   \
+  2     7
+ / \   / \
+1   3 6   9
+镜像输出：
+     4
+   /   \
+  7     2
+ / \   / \
+9   6 3   1
+```
+
+题解：
+
+```java
+class Solution {
+    public TreeNode mirrorTree(TreeNode root) {
+        if(root == null){
+            return null;
+        }
+        TreeNode temp = root.left;
+        root.left = root.right;
+        root.right = temp;
+        mirrorTree(root.left);
+      
+        return root;
+    }
+}
+```
+
+舒服的题解：
+
+```java
+public TreeNode mirrorTree(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+        TreeNode leftRoot = mirrorTree(root.right);
+        TreeNode rightRoot = mirrorTree(root.left);
+        root.left = leftRoot;
+        root.right = rightRoot;
+        return root;
+ }
+```
+
+#### 4.判断二叉树对称
+
+题目：
+
+```shell
+请实现一个函数，用来判断一棵二叉树是不是对称的。如果一棵二叉树和它的镜像一样，那么它是对称的。
+例如，二叉树 [1,2,2,3,4,4,3] 是对称的。
+    1
+   / \
+  2   2
+ / \ / \
+3  4 4  3
+但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:
+    1
+   / \
+  2   2
+   \   \
+   3    3
+```
+
+题解：
+
+```java
+class Solution {
+    public boolean isSymmetric(TreeNode root) {
+        if(root == null)
+        return true;
+        return rec(root.left, root.right);
+    }
+    public boolean rec(TreeNode left, TreeNode right){
+        if(left == null && right == null)
+            return true;
+        if(left == null || right == null || left.val != right.val)
+            return false;
+        return rec(left.left, right.right) && rec(left.right, right.left);
+    }
+}
+```
+
+简洁写法：
+
+```java
+class Solution {
+    public boolean isSymmetric(TreeNode root) {
+        return root == null ? true : recur(root.left, root.right);
+    }
+    boolean recur(TreeNode L, TreeNode R) {
+        if(L == null && R == null) return true;
+        if(L == null || R == null || L.val != R.val) return false;
+        return recur(L.left, R.right) && recur(L.right, R.left);
+    }
+}
+```
+
+### 递归
+
+#### 斐波那契数列
 
 相关题型：青蛙跳台阶
 
@@ -218,7 +328,7 @@ class Solution {
 
 
 
-### 深度优先算法（DFS）/回溯算法
+### 深度优先（DFS）
 
 **迷宫类：**
 
@@ -301,7 +411,7 @@ class Solution {
 
 
 
-### 广度优先算法（BFS）
+### 广度优先（BFS）
 
 例题：机器人的运动范围
 
@@ -383,7 +493,6 @@ class Solution {
         return m / 10 + m % 10 + n / 10 + n % 10 <= value;
     }
 }
-
 ```
 
 
@@ -732,7 +841,7 @@ class Solution {
 输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有奇数位于数组的前半部分，所有偶数位于数组的后半部分。
 ```
 
-1.左右指针
+**1.左右指针**
 
 左右交换奇数和偶数，直到全部遍历
 
@@ -766,9 +875,9 @@ class Solution {
 }
 ```
 
-2. 快慢指针
+**2.快慢指针**
 
-备注：low，fast指针，
+low，fast指针
 
 low遇到奇数跳过，遇到偶数停止，保存下一个奇数需要交换的位置；
 
@@ -832,3 +941,151 @@ class Solution {
 [链表的倒数第k个节点](#jump)
 
 [合并两个有序链表](#jump1)
+
+### 栈
+
+#### 1.最小栈
+
+双栈实现可读最小值的功能
+
+题目：
+
+```shell
+定义栈的数据结构，请在该类型中实现一个能够得到栈的最小元素的 min 函数在该栈中，调用 min、push 及 pop 的时间复杂度都是 O(1)。
+```
+
+题解：
+
+```java
+class MinStack {
+    private Stack<Integer> stack1 = new Stack<>();
+    private Stack<Integer> stack2 = new Stack<>();
+    public MinStack() {}   
+    public void push(int x) {
+        if(stack2.isEmpty() || x <= stack2.peek()){
+            stack2.push(x);
+        }
+        stack1.push(x);
+    }    
+    public void pop() {
+        if(stack1.pop().equals(stack2.peek())){//Integer类型不能用==
+            stack2.pop();
+        }
+    } 
+    public int top() {
+        return stack1.peek();
+    }
+    
+    public int min() {
+        return stack2.peek();
+    }
+}
+```
+
+
+
+#### 2.栈的压入弹出序列
+
+题目：
+
+```shell
+输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否为该栈的弹出顺序。假设压入栈的所有数字均不相等。例如，序列 {1,2,3,4,5} 是某栈的压栈序列，序列 {4,5,3,2,1} 是该压栈序列对应的一个弹出序列，但 {4,3,5,1,2} 就不可能是该压栈序列的弹出序列。
+```
+
+我的题解：双指针
+
+```java
+class Solution {
+    public boolean validateStackSequences(int[] pushed, int[] popped) {
+        if(pushed.length == 0 || popped.length == 0)
+            return true; 
+        Stack<Integer> stack = new Stack<>();
+        int pushedIndex = 0;
+        int poppedIndex = 0;
+        while(poppedIndex < popped.length && pushedIndex <= pushed.length){
+            if(!stack.isEmpty() && stack.peek() == popped[poppedIndex]){
+                stack.pop();
+                poppedIndex++;
+                continue;
+            }
+            if(pushedIndex < pushed.length)
+                stack.push(pushed[pushedIndex]);
+            pushedIndex++;         
+        }
+        return stack.isEmpty();
+    }
+}
+```
+
+简洁版：
+
+```java
+class Solution {
+    public boolean validateStackSequences(int[] pushed, int[] popped) {
+        Stack<Integer> stack = new Stack<>();
+        int i = 0;
+        for(int num : pushed) {
+            stack.push(num); 
+            while(!stack.isEmpty() && stack.peek() == popped[i]) { 
+                stack.pop();
+                i++;
+            }
+        }
+        return stack.isEmpty();
+    }
+}
+```
+
+
+
+### 队列
+
+### 矩阵
+
+#### 1.顺时针打印矩阵
+
+题目：
+
+```shell
+输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字。
+```
+
+题解：
+
+```java
+class Solution {
+    public int[] spiralOrder(int[][] matrix) {
+        if(matrix == null || matrix.length == 0){
+            return new int[0];
+        }
+        int top = 0;
+        int bottom = matrix.length - 1;
+        int left = 0;
+        int right = matrix[0].length - 1;
+        int[] res = new int[matrix.length * matrix[0].length];
+        int index = 0;
+        while(left <= right && top <= bottom){
+            for(int i = left; i <= right; i++){
+                res[index++] = matrix[top][i];
+            }
+            for(int i = top + 1; i <= bottom; i++){
+                res[index++] = matrix[i][right];
+            }
+            if(left < right && top < bottom){ //作用是防止最后一层只有一行时，重复打印
+                for(int i = right - 1; i >= left; i--){
+                    res[index++] = matrix[bottom][i];
+                }
+                for(int i = bottom - 1; i >= top + 1; i--){
+                    res[index++] = matrix[i][left];
+                }
+            }
+            left++;
+            right--;
+            top++;
+            bottom--;
+        }
+        return res;
+    }
+}
+```
+
