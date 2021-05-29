@@ -4,7 +4,7 @@
 public class QuickSortDoubleRoad {
     public static void main(String[] args) {
         int[] nums = {6,75,45,25,4,1,5,82,15,82,5,3,41,2};
-        QuickSortNormal.quickSort(nums);
+        QuickSortDoubleRoad.quickSort(nums);
         for(int num : nums){
             System.out.println(num);
         }
@@ -27,19 +27,22 @@ public class QuickSortDoubleRoad {
         int pivotVal = nums[Index];
         swap(Index,leftIndex,nums);//换到最后一个
 
-        while(leftIndex < rightIndex){
-            while(leftIndex < rightIndex && nums[rightIndex] >= pivotVal){
-                rightIndex--;
+        while(l < r){
+            while(l < r && nums[l] <= pivotVal){
+                l++;
             }
-            nums[leftIndex] = nums[rightIndex];
-            while(leftIndex < rightIndex && nums[leftIndex] <= pivotVal){
-                leftIndex++;
+            nums[r] = nums[l];
+            while(l < r && nums[r] >= pivotVal){
+                r--;
             }
-            nums[rightIndex] = nums[leftIndex];
+            nums[l] = nums[r];
         }
+//        System.out.println("-----");
+//        System.out.println(leftIndex);
+//        System.out.println(rightIndex);
         nums[leftIndex] = pivotVal;
-        quickSort(l,leftIndex - 1,nums);
-        quickSort(rightIndex + 1,r,nums);
+        quickSort(leftIndex,l - 1,nums);
+        quickSort(l + 1,r,nums);
     }
 
     public static void quickSort(int[] nums){
