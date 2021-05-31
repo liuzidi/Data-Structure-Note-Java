@@ -842,7 +842,7 @@ class Solution {
 空间复杂度 O(1) : 变量占用常数大小额外空间。
 ```
 
-#### 2.考虑大数的打印最大n位数
+#### 2.打印最大n位数
 
 例题：
 
@@ -909,7 +909,7 @@ class Solution {
 
 我的题解：
 
-（n - 1） % digit表示第几位
+(n - 1) % digit表示第几位
 
 (n - 1) / digit 表示从start开始第几个数
 
@@ -1395,6 +1395,8 @@ class Solution {
 
 [合并两个有序链表](#jump1)
 
+[最长不含重复字符的子字符串](#string0528)
+
 ### 栈
 
 #### 1.最小栈
@@ -1493,17 +1495,114 @@ class Solution {
 
 ### 队列
 
+滑动窗口的最大值
+
 题目：
 
 ```shell
+给定一个数组 nums 和滑动窗口的大小 k，请找出所有滑动窗口里的最大值。
 
+示例:
+
+输入: nums = [1,3,-1,-3,5,3,6,7], 和 k = 3
+输出: [3,3,5,5,6,7] 
+解释: 
+
+  滑动窗口的位置                最大值
+---------------               -----
+[1  3  -1] -3  5  3  6  7       3
+ 1 [3  -1  -3] 5  3  6  7       3
+ 1  3 [-1  -3  5] 3  6  7       5
+ 1  3  -1 [-3  5  3] 6  7       5
+ 1  3  -1  -3 [5  3  6] 7       6
+ 1  3  -1  -3  5 [3  6  7]      7
 ```
 
-题解：
+我的题解：（优先队列）
 
 ```java
-
+class Solution {
+    public int[] maxSlidingWindow(int[] nums, int k) {
+        if(nums.length == 0) return new int[0];
+        Queue<Integer> pq = new PriorityQueue<>(k, Comparator.reverseOrder());
+        int[] res = new int[nums.length - k + 1];
+        for(int i = 0; i < k; i++){
+            pq.add(nums[i]);
+        }
+        res[0] = pq.peek();
+        for(int i = k; i < nums.length; i++){
+            pq.remove(nums[i - k]);
+            pq.add(nums[i]);
+            res[i - k + 1] = pq.peek();
+        }
+        return res;
+    }
+}
 ```
+
+题解2：（构造单调队列）队列为单调递减，队首为最大值，队尾为最小值，每个元素都会入队，保持队列中的元素个数不大于滑动窗口的总个数（原数组上采用left，right指针进行判断即可），right的元素选择入列，并使整个队列一直保持为单调队列的形态。下面用存储下标的方式进行。
+
+```java
+ public int[] maxSlidingWindow(int[] nums, int k) {
+        // 窗口个数
+        int[] res = new int[nums.length - k + 1];
+        LinkedList<Integer> queue = new LinkedList<>();
+        // 遍历数组中元素，right表示滑动窗口右边界
+        for(int right = 0; right < nums.length; right++) {
+            // 如果队列不为空且当前考察元素大于等于队尾元素，则将队尾元素移除。
+            // 直到，队列为空或当前考察元素小于新的队尾元素
+            while (!queue.isEmpty() && nums[right] >= nums[queue.peekLast()]) {
+                queue.removeLast();
+            }
+            // 存储元素下标
+            queue.addLast(right);
+            // 计算窗口左侧边界
+            int left = right - k +1;
+            // 当队首元素的下标小于滑动窗口左侧边界left时
+            // 表示队首元素已经不再滑动窗口内，因此将其从队首移除
+            if (queue.peekFirst() < left) {
+                queue.removeFirst();
+            }
+            // 由于数组下标从0开始，因此当窗口右边界right+1大于等于窗口大小k时
+            // 意味着窗口形成。此时，队首元素就是该窗口内的最大值
+            if (right +1 >= k) {
+                res[left] = nums[queue.peekFirst()];
+            }
+        }
+        return res;
+    }
+```
+
+题解3：
+
+```java
+class Solution {
+    public int[] maxSlidingWindow(int[] nums, int k) {
+        if(nums.length == 0 || k == 0) return new int[0];
+        Deque<Integer> deque = new LinkedList<>();
+        int[] res = new int[nums.length - k + 1];
+        // 未形成窗口
+        for(int i = 0; i < k; i++) {
+            while(!deque.isEmpty() && deque.peekLast() < nums[i])
+                deque.removeLast();
+            deque.addLast(nums[i]);
+        }
+        res[0] = deque.peekFirst();
+        // 形成窗口后
+        for(int i = k; i < nums.length; i++) {
+            if(deque.peekFirst() == nums[i - k])
+                deque.removeFirst();
+            while(!deque.isEmpty() && deque.peekLast() < nums[i])
+                deque.removeLast();
+            deque.addLast(nums[i]);
+            res[i - k + 1] = deque.peekFirst();
+        }
+        return res;
+    }
+}
+```
+
+
 
 [从上往下打印二叉树][#qqq]
 
@@ -1558,7 +1657,9 @@ class Solution {
 
 ### 数组
 
-题目：
+#### 1.寻找超过一半的数字
+
+题目：寻找超过一半的数字
 
 ```shell
 数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字。
@@ -1612,6 +1713,37 @@ class Solution {
     }
 }
 ```
+
+#### 2.把数组排成最小的数
+
+题目：
+
+```shell
+输入一个非负整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。
+```
+
+题解：（快排，重写comparator）
+
+```java
+class Solution {
+    public String minNumber(int[] nums) {
+        String[] nums1 = new String[nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            nums1[i] = String.valueOf(nums[i]);
+        }
+        Arrays.sort(nums1, ((String o1, String o2) ->{
+            return (o1 + o2).compareTo(o2 + o1);
+        }));
+        StringBuilder res = new StringBuilder();
+        for(String s :nums1){
+            res.append(s);
+        }
+        return res.toString();
+    }
+}
+```
+
+
 
 ### TOP k 问题
 
@@ -1833,6 +1965,63 @@ class Solution {
 }
 ```
 
+#### 2.礼物的最大价值
+
+题目：
+
+```shell
+在一个 m*n 的棋盘的每一格都放有一个礼物，每个礼物都有一定的价值（价值大于 0）。你可以从棋盘的左上角开始拿格子里的礼物，并每次向右或者向下移动一格、直到到达棋盘的右下角。给定一个棋盘及其上面的礼物的价值，请计算你最多能拿到多少价值的礼物？
+```
+
+题解
+
+```java
+class Solution {
+    public int maxValue(int[][] grid) {
+        int m = grid.length, n = grid[0].length;
+        for(int j = 1; j < n; j++) // 初始化第一行
+            grid[0][j] += grid[0][j - 1];
+        for(int i = 1; i < m; i++) // 初始化第一列
+            grid[i][0] += grid[i - 1][0];
+        for(int i = 1; i < m; i++)
+            for(int j = 1; j < n; j++) 
+                grid[i][j] += Math.max(grid[i][j - 1], grid[i - 1][j]);
+        return grid[m - 1][n - 1];
+    }
+}
+```
+
+我的题解：
+
+```java
+class Solution {
+    public int maxValue(int[][] grid) {
+        int[][] dp = new int[grid.length][grid[0].length];
+        dp[0][0] = grid[0][0];
+        for(int i = 1; i < grid.length; i++){
+            dp[i][0] = grid[i][0] + dp[i - 1][0];
+        }
+        for(int i = 1; i < grid[0].length; i++){
+            dp[0][i] = grid[0][i] + dp[0][i - 1];
+        }
+        for(int i = 1; i < grid.length; i++){
+            for(int j = 1; j < grid[0].length; j++){
+                dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]) + grid[i][j];
+            }
+        }
+        return dp[grid.length - 1][grid[0].length - 1];
+    }
+}
+```
+
+
+
+相关题型：
+
+[数字翻译成字符串](#a0527)
+
+
+
 ### 字符串
 
 #### 1.第一个只出现一次的字符
@@ -1916,9 +2105,9 @@ class Solution {
 }
 ```
 
-2.字符串的排列
+#### 2.字符串的排列
 
-题目：
+题目：（DFS）
 
 ```shell
 输入一个字符串，打印出该字符串中字符的所有排列。
@@ -1961,6 +2150,194 @@ private void backtrack(String temp, boolean[] visited) {
         backtrack(temp + chars[i], visited);
         //递归往回走的时候要撤销选择
         visited[i] = false;
+    }
+}
+```
+
+#### <span id= "a0527">3.数字翻译成字符串 </span>
+
+题目：
+
+```shell
+给定一个数字，我们按照如下规则把它翻译为字符串：0 翻译成 “a” ，1 翻译成 “b”，……，11 翻译成 “l”，……，25 翻译成 “z”。一个数字可能有多个翻译。请编程实现一个函数，用来计算一个数字有多少种不同的翻译方法
+```
+
+题解：（动态规划）（倒推相关表达式）
+
+![Picture1.png](https://pic.leetcode-cn.com/e231fde16304948251633cfc65d04396f117239ea2d13896b1d2678de9067b42-Picture1.png)
+
+我的题解：
+
+```java
+class Solution {
+    public int translateNum(int num) {
+        String s = String.valueOf(num);
+        int len = s.length();
+        String sArr[] = new String[len];
+        for(int i = 0; i < len; i++){
+            sArr[i] = Character.toString(s.charAt(i));
+        }
+        if(len <= 1)
+            return 1;
+        int[] dp = new int[len];
+        dp[0] = 1;
+        if((sArr[0] + sArr[1]).compareTo("10") >= 0 && (sArr[0] + sArr[1]).compareTo("25") <= 0){
+            dp[1] = 2;
+        }else{
+            dp[1] = 1;
+        }
+        for(int i = 2; i < len; i++){
+            String temp = sArr[i - 1] + sArr[i];
+            if(temp.compareTo("10") >= 0 && temp.compareTo("25") <= 0){
+                dp[i] = dp[i - 2] + dp[i - 1];
+            }else{
+                dp[i] = dp[i - 1];
+            }
+        }
+        return dp[len - 1];
+    }
+}
+```
+
+简洁写法：（dp数组预留一位）
+
+```java
+class Solution {
+    public static int translateNum(int num) {
+        char[] ch = String.valueOf(num).toCharArray();
+        int len = ch.length;
+        int[] dp = new int[len + 1];
+        dp[0] = 1;//预留一位
+        dp[1] = 1;
+        for(int i = 2; i <= len; i++){
+            int n = (ch[i - 2] - '0') * 10 + (ch[i - 1] - '0');
+            if(n >= 10 && n <= 25){
+                dp[i] = dp[i - 1] + dp[i - 2];
+            }else{
+                dp[i] = dp[i - 1];
+            }
+        }
+            return dp[len];
+        }
+}
+```
+
+#### <span id = "string0528">4.最长不含重复字符串的子字符串</span>
+
+题目：
+
+```shell
+请从字符串中找出一个最长的不包含重复字符的子字符串，计算该最长子字符串的长度。
+```
+
+我的题解：双指针
+
+```java
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        if(s.length() == 0){
+            return 0;
+        }
+        char[] chars = s.toCharArray();
+        int start = 0;
+        int end = 0;
+        int maxLen = 0;
+        Set<Character> set = new HashSet<>();
+        while(start <= end && end < chars.length){
+            if(!set.add(chars[end])){
+                maxLen = Math.max(maxLen, set.size());
+                while(chars[start] != chars[end]){
+                    set.remove(chars[start]);
+                    start++;
+                }
+            }
+            end++;
+        }
+        maxLen = Math.max(maxLen, set.size());
+        return maxLen;
+    }
+}
+```
+
+题解2：双指针简洁版
+
+```java
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        Map<Character, Integer> dic = new HashMap<>();
+        int i = -1, res = 0;
+        for(int j = 0; j < s.length(); j++) {
+            if(dic.containsKey(s.charAt(j)))
+                i = Math.max(i, dic.get(s.charAt(j))); // 更新左指针 i
+            dic.put(s.charAt(j), j); // 哈希表记录
+            res = Math.max(res, j - i); // 更新结果
+        }
+        return res;
+    }
+}
+```
+
+题解3：动态规划（效率低）
+
+```java
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        Map<Character, Integer> dic = new HashMap<>();
+        int res = 0, tmp = 0;
+        for(int j = 0; j < s.length(); j++) {
+            int i = j - 1;
+            while(i >= 0 && s.charAt(i) != s.charAt(j)) i--; // 线性查找 i
+            tmp = tmp < j - i ? tmp + 1 : j - i; // dp[j - 1] -> dp[j]
+            res = Math.max(res, tmp); // max(dp[j - 1], dp[j])
+        }
+        return res;
+    }
+}
+```
+
+#### 5.正则表达式匹配
+
+题目：
+
+```
+请实现一个函数用来匹配包含'. '和'*'的正则表达式。模式中的字符'.'表示任意一个字符，而'*'表示它前面的字符可以出现任意次（含0次）。在本题中，匹配是指字符串的所有字符匹配整个模式。例如，字符串"aaa"与模式"a.a"和"ab*ac*a"匹配，但与"aa.a"和"ab*a"均不匹配。
+```
+
+题解：(动态规划）
+
+```java
+class Solution {
+    public boolean isMatch(String s, String p) {
+        int m = s.length();
+        int n = p.length();
+
+        boolean[][] f = new boolean[m + 1][n + 1];
+        f[0][0] = true;
+        for (int i = 0; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                if (p.charAt(j - 1) == '*') {
+                    f[i][j] = f[i][j - 2];
+                    if (matches(s, p, i, j - 1)) {
+                        f[i][j] = f[i][j] || f[i - 1][j];
+                    }
+                } else {
+                    if (matches(s, p, i, j)) {
+                        f[i][j] = f[i - 1][j - 1];
+                    }
+                }
+            }
+        }
+        return f[m][n];
+    }
+
+    public boolean matches(String s, String p, int i, int j) {
+        if (i == 0) {
+            return false;
+        }
+        if (p.charAt(j - 1) == '.') {
+            return true;
+        }
+        return s.charAt(i - 1) == p.charAt(j - 1);
     }
 }
 ```
