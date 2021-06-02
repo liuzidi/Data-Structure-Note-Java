@@ -480,6 +480,35 @@ class Solution {
 }
 ```
 
+#### 8.合并二叉树
+
+题目：
+
+```shell
+给定两个二叉树，想象当你将它们中的一个覆盖到另一个上时，两个二叉树的一些节点便会重叠。
+
+你需要将他们合并为一个新的二叉树。合并的规则是如果两个节点重叠，那么将他们的值相加作为节点合并后的新值，否则不为 NULL 的节点将直接作为新二叉树的节点。。
+```
+
+题解：
+
+```java
+class Solution {
+    public TreeNode mergeTrees(TreeNode root1, TreeNode root2) {
+        if(root1 == null){
+            return root2;
+        }
+        if(root2 == null){
+            return root1;
+        }
+        TreeNode res = new TreeNode(root1.val + root2.val);
+       	res.left = mergeTrees(root1.left, root2.left);
+        res.right = mergeTrees(root1.right, root2.right);
+        return res;
+    }
+}
+```
+
 
 
 ### 递归
@@ -1036,6 +1065,45 @@ class Solution {
 }
 ```
 
+#### 5.三数之和
+
+题目：
+
+```shell
+给你一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？请你找出所有和为 0 且不重复的三元组。
+
+注意：答案中不可以包含重复的三元组。
+```
+
+题解：
+
+```java
+class Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+        Arrays.sort(nums);
+        List<List<Integer>> res = new ArrayList<>();
+        for(int k = 0; k < nums.length - 2; k++){
+            if(nums[k] > 0) break;
+            if(k > 0 && nums[k] == nums[k - 1]) continue;
+            int i = k + 1, j = nums.length - 1;
+            while(i < j){
+                int sum = nums[k] + nums[i] + nums[j];
+                if(sum < 0){
+                    while(i < j && nums[i] == nums[++i]);
+                } else if (sum > 0) {
+                    while(i < j && nums[j] == nums[--j]);
+                } else {
+                    res.add(new ArrayList<Integer>(Arrays.asList(nums[k], nums[i], nums[j])));
+                    while(i < j && nums[i] == nums[++i]);
+                    while(i < j && nums[j] == nums[--j]);
+                }
+            }
+        }
+        return res;
+    }
+}
+```
+
 
 
 ### 链表
@@ -1284,6 +1352,68 @@ class Solution {
 }
 ```
 
+#### <span id = "intersec">6.相交链表</span>>
+
+题目：
+
+```shell
+编写一个程序，找到两个单链表相交的起始节点。
+```
+
+题解：(双指针版)（从链表头一直走，直到相遇，A链表走完走B，B走完走A，如果有相交会相遇在相交节点）
+
+```java
+public class Solution {
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        if (headA == null || headB == null) {
+            return null;
+        }
+        ListNode head1 = headA;
+        ListNode head2 = headB;
+
+        while (head1 != head2) {
+            if (head1 != null) {
+                head1 = head1.next;
+            } else {
+                head1 = headB;
+            }
+            if (head2 != null) {
+                head2 = head2.next;
+            } else {
+                head2 = headA;
+            }
+        }
+        return head1;
+    }
+}
+```
+
+题解：（哈希表）low
+
+```java
+public class Solution {
+
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        Set<ListNode> hashSet = new HashSet<>();
+
+        ListNode curNode = headA;
+        while (curNode != null) {
+            hashSet.add(curNode);
+            curNode = curNode.next;
+        }
+
+        curNode = headB;
+        while (curNode != null) {
+            if(hashSet.contains(curNode)){
+                return curNode;
+            }
+            curNode = curNode.next;
+        }
+        return null;
+    }
+}
+```
+
 
 
 ### 双指针
@@ -1396,6 +1526,8 @@ class Solution {
 [合并两个有序链表](#jump1)
 
 [最长不含重复字符的子字符串](#string0528)
+
+[相交链表](#intersec)
 
 ### 栈
 
@@ -1654,6 +1786,94 @@ class Solution {
     }
 }
 ```
+
+#### 2.矩阵置零
+
+题目：
+
+```shell
+给定一个 m x n 的矩阵，如果一个元素为 0 ，则将其所在行和列的所有元素都设为 0 。请使用 原地 算法。
+
+进阶：
+
+一个直观的解决方案是使用  O(mn) 的额外空间，但这并不是一个好的解决方案。
+一个简单的改进方案是使用 O(m + n) 的额外空间，但这仍然不是最好的解决方案。
+你能想出一个仅使用常量空间的解决方案吗？
+```
+
+题解1：(采用O(m + n)空间)
+
+```java
+class Solution {
+    public void setZeroes(int[][] matrix) {
+        int m = matrix.length;
+        int n = matrix[0].length;
+        boolean[] isZeros = new boolean[m + n];//前m个用来表示row，后n个用来表示column
+        for(int i = 0; i < m; i++){
+            for(int j = 0; j < n; j++){
+                if(matrix[i][j] == 0){
+                    isZeros[i] = true;
+                    isZeros[m + j] = true;
+                }
+            }
+        }
+        for(int i = 0; i < m; i++){
+            if(isZeros[i]){
+                setRows(matrix, i);
+            }
+        }
+        for(int i = m; i < m + n; i++){
+            if(isZeros[i]){
+                setColumns(matrix, i - m);
+            }
+        }
+
+    }
+
+    public void setRows(int[][] matrix, int row){
+        for(int i = 0; i < matrix[row].length; i++){
+            matrix[row][i] = 0;
+        }
+    }
+    public void setColumns(int[][] matrix, int column){
+        for(int i = 0; i < matrix.length; i++){
+            matrix[i][column] = 0;
+        }
+    }    
+}
+```
+
+题解2：采用O(1)空间
+
+关键思想: 用matrix第一行和第一列记录该行该列是否有0,作为标志位
+
+但是对于第一行,和第一列要设置一个标志位,为了防止自己这一行(一列)也有0的情况.注释写在代码里,直接看代码很好理解。
+
+```java
+class Solution {
+    public void setZeroes(int[][] matrix) {
+        Set<Integer> row_zero = new HashSet<>();
+        Set<Integer> col_zero = new HashSet<>();
+        int row = matrix.length;
+        int col = matrix[0].length;
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) { i
+                if (matrix[i][j] == 0) {
+                    row_zero.add(i);
+                    col_zero.add(j);
+                }
+            }
+        }
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                if (row_zero.contains(i) || col_zero.contains(j)) matrix[i][j] = 0;
+            }
+        }  
+    }
+}
+```
+
+
 
 ### 数组
 
@@ -2218,7 +2438,7 @@ class Solution {
             }
         }
             return dp[len];
-        }
+     }
 }
 ```
 
@@ -2230,41 +2450,12 @@ class Solution {
 请从字符串中找出一个最长的不包含重复字符的子字符串，计算该最长子字符串的长度。
 ```
 
-我的题解：双指针
+题解：双指针简洁版（出现重复的最近指针的最大值作为left指针，和当前索引的差值进行判断到当时这个字符的最大长度）
 
 ```java
 class Solution {
     public int lengthOfLongestSubstring(String s) {
-        if(s.length() == 0){
-            return 0;
-        }
-        char[] chars = s.toCharArray();
-        int start = 0;
-        int end = 0;
-        int maxLen = 0;
-        Set<Character> set = new HashSet<>();
-        while(start <= end && end < chars.length){
-            if(!set.add(chars[end])){
-                maxLen = Math.max(maxLen, set.size());
-                while(chars[start] != chars[end]){
-                    set.remove(chars[start]);
-                    start++;
-                }
-            }
-            end++;
-        }
-        maxLen = Math.max(maxLen, set.size());
-        return maxLen;
-    }
-}
-```
-
-题解2：双指针简洁版
-
-```java
-class Solution {
-    public int lengthOfLongestSubstring(String s) {
-        Map<Character, Integer> dic = new HashMap<>();
+        Map<Character, Integer> dic = new HashMap<>();//key:字符，value：记录上次出现的位置
         int i = -1, res = 0;
         for(int j = 0; j < s.length(); j++) {
             if(dic.containsKey(s.charAt(j)))
@@ -2310,7 +2501,6 @@ class Solution {
     public boolean isMatch(String s, String p) {
         int m = s.length();
         int n = p.length();
-
         boolean[][] f = new boolean[m + 1][n + 1];
         f[0][0] = true;
         for (int i = 0; i <= m; ++i) {
@@ -2329,7 +2519,6 @@ class Solution {
         }
         return f[m][n];
     }
-
     public boolean matches(String s, String p, int i, int j) {
         if (i == 0) {
             return false;
@@ -2338,6 +2527,146 @@ class Solution {
             return true;
         }
         return s.charAt(i - 1) == p.charAt(j - 1);
+    }
+}
+```
+
+#### 6.字母异位词分组
+
+题目：
+
+```shell
+给定一个字符串数组，将字母异位词组合在一起。字母异位词指字母相同，但排列不同的字符串。
+
+输入: ["eat", "tea", "tan", "ate", "nat", "bat"]
+输出:
+[
+  ["ate","eat","tea"],
+  ["nat","tan"],
+  ["bat"]
+]
+```
+
+题解：
+
+```java
+class Solution {
+    public List<List<String>> groupAnagrams(String[] strs) {
+        return new ArrayList<>(
+            Arrays.stream(strs).collect(Collectors.groupingBy(
+                str -> {
+                char[] array = str.toCharArray();
+                Arrays.sort(array);
+                return new String(array);
+            })).values());
+    }
+}
+```
+
+题解：
+
+```java
+class Solution {
+    public List<List<String>> groupAnagrams(String[] strs) {
+        Map<String, List<String>> map = new HashMap<String, List<String>>();
+        for (String str : strs) {
+            int[] counts = new int[26];
+            int length = str.length();
+            for (int i = 0; i < length; i++) {
+                counts[str.charAt(i) - 'a']++;
+            }
+            StringBuffer sb = new StringBuffer();
+            for (int i = 0; i < 26; i++) {
+                if (counts[i] != 0) {
+                    sb.append((char)('a' + i));
+                    sb.append(counts[i]);
+                }
+            }
+            String key = sb.toString();
+            List<String> list = map.getOrDefault(key, new ArrayList<String>());
+            list.add(str);
+            map.put(key, list);
+        }
+        return new ArrayList<List<String>>(map.values());
+    }
+}
+```
+
+#### 7.最长回文子串
+
+题目：
+
+```shell
+给你一个字符串 s，找到 s 中最长的回文子串。
+```
+
+题解：（动态规划）
+
+```shell
+中心扩散的方法，其实做了很多重复计算。动态规划就是为了减少重复计算的问题。动态规划听起来很高大上。其实说白了就是空间换时间，将计算结果暂存起来，避免重复计算。作用和工程中用 redis 做缓存有异曲同工之妙。
+我们用一个 boolean dp[l][r] 表示字符串从 i 到 j 这段是否为回文。试想如果 dp[l][r] = true，我们要判断 dp[l-1][r+1] 是否为回文。只需要判断字符串在(l-1)和（r+1)两个位置是否为相同的字符，是不是减少了很多重复计算。
+进入正题，动态规划关键是找到初始状态和状态转移方程。
+初始状态，l = r 时，此时 dp[l][r] = true。
+状态转移方程，dp[l][r] = true 并且(l-1)和（r+1)两个位置为相同的字符，此时 dp[l-1][r+1] = true。
+```
+
+```java
+public String longestPalindrome(String s) {
+        if (s == null || s.length() < 2) {
+            return s;
+        }
+        int strLen = s.length();
+        int maxStart = 0;  //最长回文串的起点
+        int maxEnd = 0;    //最长回文串的终点
+        int maxLen = 1;  //最长回文串的长度
+        boolean[][] dp = new boolean[strLen][strLen];
+        for (int r = 1; r < strLen; r++) {
+            for (int l = 0; l < r; l++) {
+                if (s.charAt(l) == s.charAt(r) && (r - l <= 2 || dp[l + 1][r - 1])) {
+                    dp[l][r] = true;
+                    if (r - l + 1 > maxLen) {
+                        maxLen = r - l + 1;
+                        maxStart = l;
+                        maxEnd = r;
+                    }
+                }
+            }
+        }
+        return s.substring(maxStart, maxEnd + 1);
+    }
+```
+
+题解2：（中心扩散法）遍历每一个字符，并以其为中心向左右扩散
+
+```java
+class Solution {
+    public String longestPalindrome(String s) {
+        if(s.length() < 2){
+            return s;
+        }
+        char[] chars = s.toCharArray();
+        String res = "";
+        for(int i = 0; i < chars.length; i++){
+            int left = i;
+            int right = i;
+            while(left > 0 && chars[left - 1] == chars[i]){
+                left--;
+            }
+            while(right < chars.length - 1 && chars[right + 1] == chars[i]){
+                right++;
+            }
+            while(left > 0 && right < chars.length - 1){
+                if(chars[left - 1] == chars[right + 1]){
+                    left--;
+                    right++;
+                }
+                else break;
+            }
+            if(right - left + 1 > res.length()){
+                res = s.substring(left, right + 1);
+            }
+        }
+        return res;
     }
 }
 ```
