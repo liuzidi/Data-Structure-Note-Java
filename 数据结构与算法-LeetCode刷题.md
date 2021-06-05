@@ -184,6 +184,24 @@ public TreeNode mirrorTree(TreeNode root) {
  }
 ```
 
+新建二叉树返回：
+
+```java
+class Solution {
+    public TreeNode invertTree(TreeNode root) {
+        if(root == null){
+            return null;
+        }
+        TreeNode res = new TreeNode(root.val);
+        res.left = invertTree(root.right);
+        res.right = invertTree(root.left);
+        return res;
+    }
+}
+```
+
+
+
 #### 4.判断二叉树对称
 
 题目：
@@ -509,9 +527,39 @@ class Solution {
 }
 ```
 
+#### 9.二叉树的直径
+
+题目：
+
+```shell
+给定一棵二叉树，你需要计算它的直径长度。一棵二叉树的直径长度是任意两个结点路径长度中的最大值。这条路径可能穿过也可能不穿过根结点。
+```
+
+题解：(在求深度的代码中增加了一行)
+
+```java
+class Solution {
+    private int ans = 0;
+    public int diameterOfBinaryTree(TreeNode root) {
+        if(root == null) return 0;
+        depth(root);
+        return ans - 1;
+    }
+    public int depth(TreeNode node) {
+        if (node == null) {
+            return 0; 
+        }
+        int L = depth(node.left); 
+        int R = depth(node.right); 
+        ans = Math.max(ans, L + R + 1); // 增加的代码
+        return Math.max(L, R) + 1; 
+    }
+}
+```
 
 
-### 递归
+
+### 递归和迭代
 
 #### 斐波那契数列
 
@@ -603,7 +651,7 @@ class Solution {
 
 ### 深度优先（DFS）
 
-**迷宫类：**
+#### 1.迷宫类：
 
 例题：矩阵中的路径
 
@@ -684,6 +732,102 @@ class Solution {
 
 
 
+#### 2.排列组合类
+
+##### 2.1.括号生成
+
+题目：
+
+```shell
+数字n代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且有效的括号组合
+```
+
+题解：(我的)
+
+```java
+class Solution {
+    private List<String> res = new ArrayList<>();
+    public List<String> generateParenthesis(int n) {
+        if(n <= 0) return res;
+        helper(new StringBuffer(""), n, '(');
+        return res;
+    }
+    private void helper(StringBuffer sb, int n, char c){   
+        sb.append(c);
+        String s = sb.toString();
+        if(s.length() == 2 * n && isValid(s, n) == 0){
+            res.add(s);
+            return;
+        }
+        if(isValid(s, n) == -1){
+            return;
+        }
+        if(isValid(s, n) == 1){
+            helper(sb, n , '(');
+            sb.deleteCharAt(sb.length() - 1);
+            helper(sb, n, ')');
+            sb.deleteCharAt(sb.length() - 1);
+        }
+        if(isValid(s, n) == 0){
+            helper(sb, n , '(');
+            sb.deleteCharAt(sb.length() - 1);
+        }        
+    }
+    private int isValid(String s, int n){//返回-1：非法， 返回0：只能添加'('，返回1：两个都能添加
+        char[] chars = s.toCharArray();
+        int leftCount = 0;
+        int rightCount = 0;
+        for(char c : chars){
+            if(c == '(') leftCount++;
+            if(c == ')') rightCount++;
+        }
+        if(leftCount < rightCount || leftCount > n || rightCount > n){
+            return -1;
+        }else if(leftCount == rightCount){
+            return 0;
+        }else{
+            return 1;
+        }
+    }
+}
+```
+
+题解：
+
+```java
+class Solution {
+    List<String> res = new ArrayList<>();
+    public List<String> generateParenthesis(int n) {
+        if(n <= 0){
+            return res;
+        }
+        getParenthesis("",n,n);
+        return res;
+    }
+
+    private void getParenthesis(String str,int left, int right) {
+        if(left == 0 && right == 0 ){
+            res.add(str);
+            return;
+        }
+        if(left == right){
+            //剩余左右括号数相等，下一个只能用左括号
+            getParenthesis(str+"(",left-1,right);
+        }else if(left < right){
+            //剩余左括号小于右括号，下一个可以用左括号也可以用右括号
+            if(left > 0){
+                getParenthesis(str+"(",left-1,right);
+            }
+            getParenthesis(str+")",left,right-1);
+        }
+    }
+}
+```
+
+[字符串的排列](#combine1)
+
+[电话号码的组合](#combine2)
+
 ### 广度优先（BFS）
 
 例题：机器人的运动范围
@@ -740,14 +884,6 @@ class Solution {
     public int movingCount(int m, int n, int k) {
         boolean[][] board = new boolean[m][n];
         helper(board, 0, 0, k);
-        // int count = 0;
-        // for(boolean[] a : board){
-        //     for(boolean b : a){
-        //         if(b){
-        //             count++;
-        //         }
-        //     }
-        // }
         return this.res;
     }
     public void helper(boolean[][] board, int row, int column, int value){
@@ -871,7 +1007,7 @@ class Solution {
 空间复杂度 O(1) : 变量占用常数大小额外空间。
 ```
 
-#### 2.打印最大n位数
+#### <span id= "topninarr">2.打印最大n位数</span>
 
 例题：
 
@@ -1352,7 +1488,7 @@ class Solution {
 }
 ```
 
-#### <span id = "intersec">6.相交链表</span>>
+#### <span id = "intersec">6.相交链表</span>
 
 题目：
 
@@ -1392,16 +1528,13 @@ public class Solution {
 
 ```java
 public class Solution {
-
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         Set<ListNode> hashSet = new HashSet<>();
-
         ListNode curNode = headA;
         while (curNode != null) {
             hashSet.add(curNode);
             curNode = curNode.next;
         }
-
         curNode = headB;
         while (curNode != null) {
             if(hashSet.contains(curNode)){
@@ -1410,6 +1543,84 @@ public class Solution {
             curNode = curNode.next;
         }
         return null;
+    }
+}
+```
+
+#### 7.两数之和
+
+题目：
+
+```
+
+```
+
+题解：
+
+```java
+class Solution {
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        int carry = 0;
+        ListNode cur1 = l1;
+        ListNode cur2 = l2;
+        ListNode res = new ListNode();
+        ListNode resCur = res;
+        while(cur1 != null || cur2 != null){
+            int value;
+            if(cur1 == null){
+                value = cur2.val + carry;
+                cur2 = cur2.next;
+            }else if(cur2 == null){
+                value = cur1.val + carry;
+                cur1 = cur1.next;
+            }
+            else {
+                value = cur1.val + cur2.val + carry;
+                cur1 = cur1.next;
+                cur2 = cur2.next;
+            }
+            carry = value > 9 ? 1 : 0;
+            value %= 10;
+            resCur.next = new ListNode(value);
+            resCur = resCur.next;
+        }
+        if(carry == 1){
+            resCur.next = new ListNode(1);
+        }
+        return res.next;
+    }
+}
+```
+
+简洁版：
+
+```java
+class Solution {
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode head = null, tail = null;
+        int carry = 0;
+        while (l1 != null || l2 != null) {
+            int n1 = l1 != null ? l1.val : 0;
+            int n2 = l2 != null ? l2.val : 0;
+            int sum = n1 + n2 + carry;
+            if (head == null) {
+                head = tail = new ListNode(sum % 10);
+            } else {
+                tail.next = new ListNode(sum % 10);
+                tail = tail.next;
+            }
+            carry = sum / 10;
+            if (l1 != null) {
+                l1 = l1.next;
+            }
+            if (l2 != null) {
+                l2 = l2.next;
+            }
+        }
+        if (carry > 0) {
+            tail.next = new ListNode(carry);
+        }
+        return head;
     }
 }
 ```
@@ -1515,6 +1726,38 @@ class Solution {
         int temp = nums[index1];
         nums[index1] = nums[index2];
         nums[index2] = temp;
+    }
+}
+```
+
+3.盛最多水的容器
+
+题目：
+
+```shell
+给你 n 个非负整数 a1，a2，...，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0) 。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。
+```
+
+题解：只有移动往里面短板，才有可能得到最大的面积
+
+```java
+class Solution {
+    public int maxArea(int[] height) {
+        if(height.length < 2){
+            return 0;
+        }
+        int left = 0;
+        int right = height.length - 1;
+        int res = 0;
+        while(left < right){
+            res = Math.max(res, Math.min(height[left], height[right]) * (right - left));
+           if (height[left] < height[right]) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+        return res;
     }
 }
 ```
@@ -1963,6 +2206,34 @@ class Solution {
 }
 ```
 
+#### 3.找到数组中所有消失的数字（数目大于1）
+
+题目：
+
+```shell
+给你一个含 n 个整数的数组 nums ，其中 nums[i] 在区间 [1, n] 内。请你找出所有在 [1, n] 范围内但没有出现在 nums 中的数字，并以数组的形式返回结果。
+```
+
+题解：
+
+```java
+class Solution {
+    public List<Integer> findDisappearedNumbers(int[] nums) {
+        int n = nums.length;
+        for (int num : nums) {
+            nums[(num - 1) % n] += n;//不交换，只是做一个标记，这里有人了
+        }
+        List<Integer> ret = new ArrayList<Integer>();
+        for (int i = 0; i < n; i++) {
+            if (nums[i] <= n) {
+                ret.add(i + 1);
+            }
+        }
+        return ret;
+    }
+}
+```
+
 
 
 ### TOP k 问题
@@ -2131,6 +2402,10 @@ class Solution {
 第一，算法需要修改原数组，如果原数组不能修改的话，还需要拷贝一份数组，空间复杂度就上去了。
 
 第二，算法需要保存所有的数据。如果把数据看成输入流的话，使用堆的方法是来一个处理一个，不需要保存数据，只需要保存 k 个元素的最大堆。而快速选择的方法需要先保存下来所有的数据，再运行算法。当数据量非常大的时候，甚至内存都放不下的时候，就麻烦了。所以当数据量大的时候还是用基于堆的方法比较好。
+
+相关题型：
+
+[打印最大n位数](#topninarr)
 
 ### 动态规划
 
@@ -2325,7 +2600,7 @@ class Solution {
 }
 ```
 
-#### 2.字符串的排列
+#### <span id="combine1">2.字符串的排列</span>
 
 题目：（DFS）
 
@@ -2667,6 +2942,103 @@ class Solution {
             }
         }
         return res;
+    }
+}
+```
+
+#### <span id="combine2">8.电话号码的字母组合</span>
+
+题目：
+
+```shell
+给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。答案可以按 任意顺序 返回。
+给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。
+
+提示：
+
+0 <= digits.length <= 4
+digits[i] 是范围 ['2', '9'] 的一个数字。
+```
+
+<img src="https://assets.leetcode-cn.com/aliyun-lc-upload/original_images/17_telephone_keypad.png" alt="img" style="zoom: 67%;" />
+
+题解（回溯法）：当题目中出现 “所有组合” 等类似字眼时，我们第一感觉就要想到用回溯。
+
+```java
+class Solution {
+    private String[] letterMap = new String[]{"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+    private char[] digitChars;
+    private List<String> res = new ArrayList<>();
+    public List<String> letterCombinations(String digits) {     
+        if(digits.length() == 0) return res;
+        digitChars = digits.toCharArray();
+        helper(new StringBuffer(""));
+        return res;
+    }
+    private void helper(StringBuffer s){
+        if(s.length() == digitChars.length){
+            res.add(s.toString());
+            return;
+        }
+        int digit = digitChars[s.length()];
+        char[] chars = letterMap[digit - '0'].toCharArray();
+        for(int i = 0; i < chars.length; i++){
+            s.append(chars[i]);
+            helper(s);
+            s.deleteCharAt(s.length() - 1);
+        }
+    }
+}
+```
+
+题解：（队列）
+
+```java
+
+```
+
+
+
+### 位运算
+
+#### 1.比特位计数
+
+题目：
+
+```shell
+给定一个非负整数 num。对于 0 ≤ i ≤ num 范围中的每个数字 i ，计算其二进制数中的 1 的数目并将它们作为数组返回
+```
+
+题解：（普通遍历）
+
+```java
+class Solution {
+    public int[] countBits(int n) {
+        int[] res = new int[n + 1];
+        for(int i = 0; i <= n; i++){
+            int temp = i;
+            for(int j = 0; j < 32; j++){
+                if((temp & 1) == 1){
+                    res[i]++;
+                }
+                temp >>= 1;
+            }
+        }    
+        return res;
+    }
+} 
+```
+
+题解：（动态规划： 最低有效位）
+
+```java
+class Solution {
+    public int[] countBits(int n) {
+        int[] bits = new int[n + 1];
+        for (int i = 1; i <= n; i++) {
+            bits[i] = bits[i >> 1] + (i & 1);
+        }
+        return bits;
     }
 }
 ```

@@ -19,32 +19,26 @@ public class QuickSortDoubleRoad {
         if(leftIndex >= rightIndex){
             return;
         }
-
         int l = leftIndex;
         int r = rightIndex;
         //记录左界和右界
         int Index = (int)(Math.random() * (rightIndex - leftIndex + 1)) + leftIndex;//基准值的设定
         int pivotVal = nums[Index];
-        swap(Index,leftIndex,nums);//换到最后一个
-
+        swap(Index,leftIndex,nums);
         while(l < r){
-            while(l < r && nums[l] <= pivotVal){
-                l++;
-            }
-            nums[r] = nums[l];
             while(l < r && nums[r] >= pivotVal){
                 r--;
             }
-            nums[l] = nums[r];
+            while(l < r && nums[l] <= pivotVal){
+                l++;
+            }
+            if(l < r)
+            swap(l,r,nums);
         }
-//        System.out.println("-----");
-//        System.out.println(leftIndex);
-//        System.out.println(rightIndex);
-        nums[leftIndex] = pivotVal;
+        swap(l,leftIndex,nums);
         quickSort(leftIndex,l - 1,nums);
-        quickSort(l + 1,r,nums);
+        quickSort(l + 1,rightIndex,nums);
     }
-
     public static void quickSort(int[] nums){
         int len = nums.length;
         quickSort(0,len - 1,nums);
@@ -52,7 +46,7 @@ public class QuickSortDoubleRoad {
     //交换nums数组的两个索引对应的值
     private static void swap(int index1, int index2, int[] nums){
         int temp = nums[index1];
-        nums[index2] = nums[index1];
-        nums[index1] = temp;
+        nums[index1] = nums[index2];
+        nums[index2] = temp;
     }
 }
