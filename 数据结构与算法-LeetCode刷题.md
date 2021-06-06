@@ -1240,6 +1240,82 @@ class Solution {
 }
 ```
 
+#### 6.下一个排列
+
+题目：
+
+```shell
+实现获取 下一个排列 的函数，算法需要将给定数字序列重新排列成字典序中下一个更大的排列。
+如果不存在下一个更大的排列，则将数字重新排列成最小的排列（即升序排列）。
+必须 原地 修改，只允许使用额外常数空间。
+
+示例 1：
+输入：nums = [1,2,3]
+输出：[1,3,2]
+
+示例 2：
+输入：nums = [3,2,1]
+输出：[1,2,3]
+
+示例 3：
+输入：nums = [1,1,5]
+输出：[1,5,1]
+
+示例 4：
+输入：nums = [1]
+输出：[1]
+```
+
+题解：
+
+```java
+class Solution {
+    public void nextPermutation(int[] nums) {
+        int left = - 1;
+        int right = nums.length - 1;
+        for(int i = nums.length - 1; i >= 1; i--){
+            if(nums[i] > nums[i - 1]){
+                left = i - 1;
+                break;
+            }
+        }
+        if(left != -1){
+            for(int i = left + 1; i < nums.length; i++){
+                if(nums[i] <= nums[left]){
+                    right = i - 1;
+                    break;
+                }
+            }
+            swap(left, right, nums);
+        }
+        sortPart(left + 1, nums.length - 1, nums);
+    }
+    public void sortPart(int left, int right, int[] nums){
+        if(left >= right) return;
+        int pivot = left + (int)(Math.random() * (right - left + 1));
+        int l = left;
+        int r = right;
+        int value = nums[pivot];
+        swap(left, pivot, nums);
+        while(l < r){
+            while(l < r && nums[r] >= value) r--;
+            while(l < r && nums[l] <= value) l++;
+            if(l < r){
+                swap(l, r, nums);
+            }
+        }
+        swap(left, l, nums);
+        sortPart(left, l - 1, nums);
+        sortPart(l + 1, right, nums);
+    }
+    private void swap(int index1, int index2, int[] nums){
+        int temp = nums[index1];
+        nums[index1] = nums[index2];
+        nums[index2] = temp;
+    }
+}
+```
+
 
 
 ### 链表
