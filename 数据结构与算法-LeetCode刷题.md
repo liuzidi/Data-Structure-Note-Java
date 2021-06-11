@@ -18,6 +18,12 @@
 
 通过前中序遍历或中后序遍历恢复二叉树，例如，给出前序遍历 preorder = [3,9,20,15,7]，中序遍历 inorder = [9,3,15,20,7]，返回如下的二叉树：
 
+前序遍历特点：每棵树的第一个元素必是根节点，用来确定当前树根节点是哪个，存储的是指导根节点是哪个的信息
+
+中序遍历特点：根节点的左边为左子树的内容，右边为右子树的内容，用来区分左右子树的内容，存储的是位置信息
+
+**重建方法：拿着前序遍历查到的根节点，通过map在中序遍历查到位置，以及子树在中序数组中的范围left - root - right**
+
 ```shell
   3
  / \
@@ -42,17 +48,17 @@ class Solution {
     //中序数组是为了帮助前序区分左子树和右子树的分界线的工具
     //前序是用来寻找根节点的工具：每颗子树的最左边元素即为根节点
     public TreeNode helper(int root, int left, int right){
-        // root： 前序数组中的索引（根节点的索引）
+        // root： 前序数组中的根节点的位置（根节点的索引）
         // left：中序数组中的左边界  right ：中序数组中的右边界
         //即给定一个根节点，以及其子树所覆盖的左右边界。可以得出其左子树和右子树的边界，并将其连接
         if(left > right){
             return null;
         }
-        int rootIndexInOrder =  map.get(preorder[root]);//获取根节点在中序数组的位置
+        int mid =  map.get(preorder[root]);//获取根节点在中序数组的位置
         TreeNode rootNode = new TreeNode(preorder[root]);//创建根节点
         //连接左右子树后返回树的根节点
-        rootNode.left = helper(root + 1, left, rootIndexInOrder - 1);
-        rootNode.right = helper(root + 1 + rootIndexInOrder - left, rootIndexInOrder + 1, right);
+        rootNode.left = helper(root + 1, left, mid - 1);
+        rootNode.right = helper(root + 1 + mid - left, mid + 1, right);
         //可以理解为右根节点的位置为：左子树根节点位置（在前序数组中）向右移动左子树覆盖的长度
         return rootNode;
     }
@@ -557,13 +563,41 @@ class Solution {
 }
 ```
 
+#### <span id = "diffTree">10.不同的二叉搜索树</span>
+
+题目：
+
+```shell
+给你一个整数 n ，求恰由 n 个节点组成且节点值从 1 到 n 互不相同的 二叉搜索树 有多少种？返回满足题意的二叉搜索树的种数。
+```
+
+题解：动态规划
+$$
+G（n） = \sum_{i = 1}^{n}{G(i - 1)G(n - i)}
+$$
+
+```java
+class Solution {
+    public int numTrees(int n) {
+        if(n < 1) return -1;
+        int[] dp = new int[n + 1];
+        dp[0] = 1;
+        dp[1] = 1;
+        for(int i = 2; i <= n; i++){
+            for(int j = 1; j <= i; j++){
+                dp[i] += dp[j - 1] * dp[i - j];
+            }
+        }
+        return dp[n];
+    }
+}
+```
 
 
-### 递归和迭代
 
-#### 斐波那契数列
+### 尾递归
 
-相关题型：青蛙跳台阶
+#### 1.青蛙跳台阶
 
 ```shell
 写一个函数，输入 n ，求斐波那契（Fibonacci）数列的第 n 项（即 F(N)）。斐波那契数列的定义如下：
@@ -653,7 +687,7 @@ class Solution {
 
 #### 1.迷宫类：
 
-例题：矩阵中的路径
+##### 1.1.矩阵中的路径
 
 ```shell
 给定一个 m x n 二维字符网格 board 和一个字符串单词 word 。如果 word 存在于网格中，返回 true ；否则，返回 false 。
@@ -729,6 +763,100 @@ class Solution {
    元素还原至初始值，即 word[k] 。
 
 - **返回值**： 返回布尔量 res ，代表是否搜索到目标字符串。
+
+##### 1.2.单词搜索
+
+题目：
+
+```shell
+给定一个 m x n 二维字符网格 board 和一个字符串单词 word 。如果 word 存在于网格中，返回 true ；否则，返回 false 。
+单词必须按照字母顺序，通过相邻的单元格内的字母构成，其中“相邻”单元格是那些水平相邻或垂直相邻的单元格。同一个单元格内的字母不允许被重复使用。
+```
+
+我的题解：
+
+```java
+class Solution {
+    private boolean[][] visited;
+    private char[][] board;
+    public boolean exist(char[][] board, String word) {
+        if(board == null || board.length == 0)
+            return false;
+        this.board = board;
+        this.visited = new boolean[board.length][board[0].length];
+        char[] wordChars = word.toCharArray();
+        for(int i = 0; i < board.length; i++){
+            for(int j = 0; j < board[0].length; j++){
+                if(DFS(0, wordChars, i, j)){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    private boolean DFS(int curIndex, char[] wordChars, int row, int column){
+        if(row < 0 || column < 0 || row >= board.length || column >= board[0].length 
+        || visited[row][column] || wordChars[curIndex] != board[row][column]) return false;
+
+        if(curIndex == wordChars.length - 1) return true;
+
+        visited[row][column] = true;
+        boolean res;
+        res = DFS(curIndex + 1, wordChars, row - 1, column)||
+        DFS(curIndex + 1, wordChars, row + 1, column) ||
+        DFS(curIndex + 1, wordChars, row, column - 1) ||
+        DFS(curIndex + 1, wordChars, row, column + 1);
+        visited[row][column] = false;
+        curIndex--;
+        return res;
+    }
+}
+```
+
+题解2：
+
+```java
+class Solution {
+    public boolean exist(char[][] board, String word) {
+        int h = board.length, w = board[0].length;
+        boolean[][] visited = new boolean[h][w];
+        for (int i = 0; i < h; i++) {
+            for (int j = 0; j < w; j++) {
+                boolean flag = check(board, visited, i, j, word, 0);
+                if (flag) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean check(char[][] board, boolean[][] visited, int i, int j, String s, int k) {
+        if (board[i][j] != s.charAt(k)) {
+            return false;
+        } else if (k == s.length() - 1) {
+            return true;
+        }
+        visited[i][j] = true;
+        int[][] directions = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+        boolean result = false;
+        for (int[] dir : directions) {
+            int newi = i + dir[0], newj = j + dir[1];
+            if (newi >= 0 && newi < board.length && newj >= 0 && newj < board[0].length) {
+                if (!visited[newi][newj]) {
+                    boolean flag = check(board, visited, newi, newj, s, k + 1);
+                    if (flag) {
+                        result = true;
+                        break;
+                    }
+                }
+            }
+        }
+        visited[i][j] = false;
+        return result;
+    }
+}
+```
 
 
 
@@ -824,6 +952,190 @@ class Solution {
 }
 ```
 
+##### 2.2 组合总和
+
+题目：
+
+```shell
+给定一个无重复元素的数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。
+candidates 中的数字可以无限制重复被选取。
+输入：candidates = [2,3,6,7], target = 7,
+所求解集为：
+[
+  [7],
+  [2,2,3]
+]
+```
+
+题解：
+
+```java
+class Solution {
+    private List<List<Integer>> ans = new ArrayList<>();
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        dfs(candidates, target, new ArrayList<Integer>(), 0);
+        return ans;
+    }
+
+    private void dfs(int[] candidates, int target, List<Integer> combine, int idx) {
+        if (idx >= candidates.length) {
+            return;
+        }
+        if (target == 0) {
+            ans.add(new ArrayList<Integer>(combine));
+            return;
+        }
+        // 继续选择当前的数字进行添加
+        if (target - candidates[idx] >= 0) {
+            combine.add(candidates[idx]);
+            dfs(candidates, target - candidates[idx], combine, idx);
+            combine.remove(combine.size() - 1);
+        }
+        // 添加下一个数
+        dfs(candidates, target, combine, idx + 1);
+    }
+}
+
+```
+
+##### 2.3 全排列
+
+题目：
+
+```shell
+给定一个不含重复数字的数组nums，返回其所有可能的全排列。你可以按任意顺序返回答案。
+示例：
+
+输入：nums = [1,2,3]
+输出：[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
+```
+
+题解：（只适合不重复元素的排列，重复的排列考虑进去的话，详见字符串的排列）
+
+```java
+class Solution {
+    private List<List<Integer>> res = new ArrayList<>();
+    public List<List<Integer>> permute(int[] nums) {
+        DFS(nums, new ArrayList<Integer>(), new boolean[nums.length]);
+        return this.res;
+    }
+    private void DFS(int[] nums, List<Integer> list, boolean[] visited){
+        if(list.size() == nums.length){
+            res.add(new ArrayList<Integer>(list));
+            return;
+        }
+        for(int i = 0; i < nums.length; i++){
+            if(visited[i]) continue;
+            list.add(nums[i]);
+            visited[i] = true;
+            DFS(nums, list, visited);
+            visited[i] = false;      
+            list.remove(list.size() - 1);
+        }
+    }
+}
+```
+
+题解：交换法
+
+```java
+class Solution {
+    public List<List<Integer>> permute(int[] nums) {
+        List<List<Integer>> res = new ArrayList<List<Integer>>();
+        List<Integer> output = new ArrayList<Integer>();
+        for (int num : nums) {
+            output.add(num);
+        }
+        int n = nums.length;
+        backtrack(n, output, res, 0);
+        return res;
+    }
+
+    public void backtrack(int n, List<Integer> output, List<List<Integer>> res, int first) {
+        // 所有数都填完了
+        if (first == n) {
+            res.add(new ArrayList<Integer>(output));
+        }
+        for (int i = first; i < n; i++) {
+            // 动态维护数组
+            Collections.swap(output, first, i);
+            // 继续递归填下一个数
+            backtrack(n, output, res, first + 1);
+            // 撤销操作
+            Collections.swap(output, first, i);
+        }
+    }
+}
+```
+
+##### 2.4.子集
+
+题目：
+
+```shell
+给你一个整数数组 nums，数组中的元素互不相同。返回该数组所有可能的子集（幂集）。
+解集不能包含重复的子集。你可以按 任意顺序 返回解集。
+```
+
+题解1：迭代实现
+
+{5，2，9}的子集
+
+| 序列 | 子集    | 序列对应的二进制数 |
+| :--: | ------- | ------------------ |
+| 000  | {}      | 0                  |
+| 001  | {9}     | 1                  |
+| 010  | {2}     | 2                  |
+| 011  | {2,9}   | 3                  |
+| 100  | {5}     | 4                  |
+| 101  | {5,9}   | 5                  |
+| 110  | {5,2}   | 6                  |
+| 111  | {5,2,9} | 7                  |
+
+```java
+class Solution {
+    List<Integer> t = new ArrayList<Integer>();
+    List<List<Integer>> ans = new ArrayList<List<Integer>>();
+    public List<List<Integer>> subsets(int[] nums) {
+        dfs(0, nums);
+        return ans;
+    }
+
+    public void dfs(int cur, int[] nums) {
+        if (cur == nums.length) {
+            ans.add(new ArrayList<Integer>(t));
+            return;
+        }
+        t.add(nums[cur]);
+        dfs(cur + 1, nums);
+        t.remove(t.size() - 1);
+        dfs(cur + 1, nums);
+    }
+}
+```
+
+题解2：回溯算法（每个数字不重复，因此都有选和不选的两种状态，选-下一个DFS ，不选-下一个DFS）
+
+```java
+class Solution {
+    List<Integer> t = new ArrayList<Integer>();
+    List<List<Integer>> ans = new ArrayList<List<Integer>>();
+    public List<List<Integer>> subsets(int[] nums) {
+        int n = nums.length;
+        for (int mask = 0; mask < (1 << n); ++mask) {
+            t.clear();
+            for (int i = 0; i < n; ++i) {
+                if ((mask & (1 << i)) != 0) {
+                    t.add(nums[i]);
+                }
+            }
+            ans.add(new ArrayList<Integer>(t));
+        }
+        return ans;
+    }
+}
+```
+
 [字符串的排列](#combine1)
 
 [电话号码的组合](#combine2)
@@ -903,68 +1215,6 @@ class Solution {
     }
 }
 ```
-
-
-
-### 动态规划
-
-例题：剪绳子I（限制条件 2 <= n <= 58 即总和不会越界）
-
-```shell
-给你一根长度为 n 的绳子，请把绳子剪成整数长度的 m 段（m、n都是整数，n>1并且m>1），每段绳子的长度记为 k[0],k[1]...k[m-1] 。请问 k[0]*k[1]*...*k[m-1] 可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。
-```
-
-题解：
-
-```java
-class Solution {
-    public int cuttingRope(int n) {   
-        int[] dp = new int[n+1];
-        dp[2] = 1;
-        for (int i = 3; i <= n; i++){  //i - j >= 2
-            for (int j = 1; j <= i - 2; j++){
-                //有时候可能是dp[i]被逼无奈还不如不剪短的时候大
-                int temp = Math.max(dp[i - j], i - j) * j;
-                dp[i] = Math.max(temp, dp[i]);
-            }
-        }
-        return dp[n];
-    }
-}
-```
-
-
-
-例题：剪绳子II（限制条件 n <= 1000 即总和会越long界）
-
-```shell
-给你一根长度为 n 的绳子，请把绳子剪成整数长度的 m 段（m、n都是整数，n>1并且m>1），每段绳子的长度记为 k[0],k[1]...k[m - 1] 。请问 k[0]*k[1]*...*k[m - 1] 可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。
-
-答案需要取模 1e9+7（1000000007），如计算初始结果为：1000000008，请返回 1。
-```
-
-题解：贪心算法
-
-```java
-class Solution {
-    public int cuttingRope(int n) {
-        if(n < 4){
-            return n - 1;
-        }
-        long res = 1;
-        while(n > 4){
-            res  = res * 3 % 1000000007;
-            n -= 3;
-        }
-        return (int) (res * n % 1000000007);
-    }
-}
-```
-
-总结：剪绳子问题，实质为找规律题：尽量把绳子分为尽可能多的3，如果剩余1则和最后一个3合并为4，如果剩余2，则原来基础上乘以2即可得到最大；
-
-- **推论一：** 将绳子以相等的长度等分为多段 ，得到的乘积最大。
-- **推论二：** 尽可能将绳子以长度 33 等分为多段时，乘积最大。
 
 
 
@@ -1266,7 +1516,7 @@ class Solution {
 输出：[1]
 ```
 
-题解：
+我的题解：（交换 + 快排）
 
 ```java
 class Solution {
@@ -1312,6 +1562,50 @@ class Solution {
         int temp = nums[index1];
         nums[index1] = nums[index2];
         nums[index2] = temp;
+    }
+}
+```
+
+官方题解：（由于要排序的一定是倒序，所以直接反转就是排序）
+
+```java
+class Solution {
+    public void nextPermutation(int[] nums) {
+        if (nums == null || nums.length == 0) return;
+        int firstIndex = -1;
+        for (int i = nums.length - 2; i >= 0; i--) {
+            if (nums[i] < nums[i + 1]) {
+                firstIndex = i;
+                break;
+            }
+        }
+        if (firstIndex == -1) {
+            reverse(nums, 0, nums.length - 1);
+            return;
+        }
+        int secondIndex = -1;
+        for (int i = nums.length - 1; i >= 0; i--) {
+            if (nums[i] > nums[firstIndex]) {
+                secondIndex = i;
+                break;
+            }
+        }
+        swap(nums, firstIndex, secondIndex);
+        reverse(nums, firstIndex + 1, nums.length - 1);
+        return;
+
+    }
+
+    private void reverse(int[] nums, int i, int j) {
+        while (i < j) {
+            swap(nums, i++, j--);
+        }
+    }
+
+    private void swap(int[] nums, int i, int i1) {
+        int tmp = nums[i];
+        nums[i] = nums[i1];
+        nums[i1] = tmp;
     }
 }
 ```
@@ -1705,13 +1999,15 @@ class Solution {
 
 ### 双指针
 
+#### 1.调整数组顺序使奇数位于偶数前面
+
 题目：
 
 ```shell
 输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有奇数位于数组的前半部分，所有偶数位于数组的后半部分。
 ```
 
-**1.左右指针**
+**题解1.左右指针**
 
 左右交换奇数和偶数，直到全部遍历
 
@@ -1745,7 +2041,7 @@ class Solution {
 }
 ```
 
-**2.快慢指针**
+**题解2.快慢指针**
 
 low，fast指针
 
@@ -1806,7 +2102,7 @@ class Solution {
 }
 ```
 
-3.盛最多水的容器
+#### 2.盛最多水的容器
 
 题目：
 
@@ -1837,6 +2133,81 @@ class Solution {
     }
 }
 ```
+
+#### 3.颜色分类
+
+（不用sort方法）
+
+题目：
+
+```shell
+给定一个包含红色、白色和蓝色，一共 n 个元素的数组，原地对它们进行排序，使得相同颜色的元素相邻，并按照红色、白色、蓝色顺序排列。
+此题中，我们使用整数 0、 1 和 2 分别表示红色、白色和蓝色。
+
+输入：nums = [2,0,2,1,1,0]
+输出：[0,0,1,1,2,2]
+```
+
+题解1：头尾指针
+
+p0指向需要放0的地方，一旦遇到0就把0换到p0位置，p0加一
+
+p2指向需要放2的地方，一旦遇到2就换到p2位置，此时需要循环到直至i指针不为2为止，因为i向前就会遗漏
+
+```java
+class Solution {
+    public void sortColors(int[] nums) {
+        int n = nums.length;
+        int p0 = 0, p2 = n - 1;
+        for (int i = 0; i <= p2; ++i) {
+            while (i <= p2 && nums[i] == 2) {
+                int temp = nums[i];
+                nums[i] = nums[p2];
+                nums[p2] = temp;
+                --p2;
+            }
+            if (nums[i] == 0) {
+                int temp = nums[i];
+                nums[i] = nums[p0];
+                nums[p0] = temp;
+                ++p0;
+            }
+        }
+    }
+}
+```
+
+题解2：快慢指针
+
+```java
+class Solution {
+    public void sortColors(int[] nums) {
+        int n = nums.length;
+        int p0 = 0, p1 = 0;
+        for (int i = 0; i < n; ++i) {
+            if (nums[i] == 1) {
+                int temp = nums[i];
+                nums[i] = nums[p1];
+                nums[p1] = temp;
+                ++p1;
+            } else if (nums[i] == 0) {
+                int temp = nums[i];
+                nums[i] = nums[p0];
+                nums[p0] = temp;
+                if (p0 < p1) {
+                    temp = nums[i];
+                    nums[i] = nums[p1];
+                    nums[p1] = temp;
+                }
+                ++p0;
+                ++p1;
+            }
+        }
+    }
+}
+```
+
+
 
 相关题型：
 
@@ -2114,7 +2485,6 @@ class Solution {
 给定一个 m x n 的矩阵，如果一个元素为 0 ，则将其所在行和列的所有元素都设为 0 。请使用 原地 算法。
 
 进阶：
-
 一个直观的解决方案是使用  O(mn) 的额外空间，但这并不是一个好的解决方案。
 一个简单的改进方案是使用 O(m + n) 的额外空间，但这仍然不是最好的解决方案。
 你能想出一个仅使用常量空间的解决方案吗？
@@ -2146,9 +2516,7 @@ class Solution {
                 setColumns(matrix, i - m);
             }
         }
-
     }
-
     public void setRows(int[][] matrix, int row){
         for(int i = 0; i < matrix[row].length; i++){
             matrix[row][i] = 0;
@@ -2306,6 +2674,91 @@ class Solution {
             }
         }
         return ret;
+    }
+}
+```
+
+4.跳跃游戏
+
+题目：
+
+```shell
+给定一个非负整数数组 nums，你最初位于数组的 第一个下标 。
+数组中的每个元素代表你在该位置可以跳跃的最大长度。
+判断你是否能够到达最后一个下标。
+```
+
+我的题解：（O（n））
+
+```java
+class Solution {
+    public boolean canJump(int[] nums) {
+        if(nums == null || nums.length == 0) return false;
+        int max = -1;
+        for(int i = 0; i < nums.length - 1; i++){
+            max--;
+            max = Math.max(max, nums[i]);
+            if(max == 0 && nums[i] == 0){
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
+
+题解:
+
+```java
+public class Solution {
+    public boolean canJump(int[] nums) {
+        int n = nums.length;
+        int rightmost = 0;
+        for (int i = 0; i < n; ++i) {
+            if (i <= rightmost) {
+                rightmost = Math.max(rightmost, i + nums[i]);
+                if (rightmost >= n - 1) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+}
+```
+
+#### 4.合并空间
+
+题目：
+
+```
+
+```
+
+我的题解：（排序 + 合并）
+
+```java
+class Solution {
+    public int[][] merge(int[][] intervals) {
+        if(intervals == null || intervals.length == 0) return null;
+        Arrays.sort(intervals, (a, b) -> {
+            return a[0] - b[0] == 0 ? a[1] - b[1] : a[0] - b[0];
+        });
+        List<int[]> res = new ArrayList<>();
+        res.add(intervals[0]);
+        for(int i = 1; i < intervals.length; i++){
+            int low =  res.get(res.size() - 1)[0];
+            int high = res.get(res.size() - 1)[1];
+            int newlo = intervals[i][0];
+            int newhi = intervals[i][1];
+            if(newhi > high && newlo <= high){
+                res.get(res.size() - 1)[1] = newhi;
+            }
+            if(newlo > high){ //此时newhi一定大于 high
+                res.add(new int[]{newlo, newhi});
+            }        
+        }
+        return res.toArray(new int[res.size()][]);
     }
 }
 ```
@@ -2585,11 +3038,162 @@ class Solution {
 }
 ```
 
+#### 3.不同路径
+
+题目：
+
+```shell
+一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为 “Start” ）。
+机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为 “Finish” ）。
+问总共有多少条不同的路径？
+```
+
+题解：
+
+```java
+class Solution {
+    public int uniquePaths(int m, int n) {
+        if (m == 0 || n == 0){
+            return 1;
+        }
+        int[][] dp = new int[m][n];
+        for (int i = 0; i < m; i++){
+            dp[i][0] = 1;
+        }
+        for (int i = 0; i < n; i++){
+            dp[0][i] = 1;
+        }
+        for (int i = 1; i < m; i++){
+            for(int j = 1; j < n; j++){
+                dp[i][j] = dp[i][j -1] + dp[i - 1][j];
+            }
+        }
+        return dp[m - 1][n - 1];
+    }
+}
+```
+
+#### 4.最小路径和
+
+题目：
+
+```shell
+给定一个包含非负整数的 m x n 网格 grid ，请找出一条从左上角到右下角的路径，使得路径上的数字总和为最小。
+
+说明：每次只能向下或者向右移动一步。
+```
+
+题解：
+
+```java
+class Solution {
+    public int minPathSum(int[][] grid) {
+        if(grid == null || grid.length == 0 || grid[0].length == 0){
+            return 0;
+        }
+        int[][] dp = new int[grid.length][grid[0].length];
+        dp[0][0] = grid[0][0];
+        for (int i = 1; i < grid.length; i++){
+            dp[i][0] = dp[i - 1][0] + grid[i][0];
+        }
+        for (int i = 1; i < grid[0].length; i++){
+            dp[0][i] = dp[0][i - 1] + grid[0][i];
+        }
+        for (int i = 1; i < grid.length; i++){
+            for (int j = 1; j < grid[0].length; j++){
+                dp[i][j] = Math.min(dp[i][j - 1], dp[i - 1][j]) + grid[i][j];
+            }
+        }
+        return dp[grid.length - 1][grid[0].length - 1];
+    }
+}
+```
+
+题解2：原地变化
+
+```java
+class Solution {
+    public int minPathSum(int[][] grid) {
+        for(int i = 0; i < grid.length; i++) {
+            for(int j = 0; j < grid[0].length; j++) {
+                if(i == 0 && j == 0) continue;
+                else if(i == 0)  grid[i][j] = grid[i][j - 1] + grid[i][j];
+                else if(j == 0)  grid[i][j] = grid[i - 1][j] + grid[i][j];
+                else grid[i][j] = Math.min(grid[i - 1][j], grid[i][j - 1]) + grid[i][j];
+            }
+        }
+        return grid[grid.length - 1][grid[0].length - 1];
+    }
+}
+```
+
+#### 5.剪绳子I
+
+（限制条件 2 <= n <= 58 即总和不会越界）
+
+```shell
+给你一根长度为 n 的绳子，请把绳子剪成整数长度的 m 段（m、n都是整数，n>1并且m>1），每段绳子的长度记为 k[0],k[1]...k[m-1] 。请问 k[0]*k[1]*...*k[m-1] 可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。
+```
+
+题解：
+
+```java
+class Solution {
+    public int cuttingRope(int n) {   
+        int[] dp = new int[n+1];
+        dp[2] = 1;
+        for (int i = 3; i <= n; i++){  //i - j >= 2
+            for (int j = 1; j <= i - 2; j++){
+                //有时候可能是dp[i]被逼无奈还不如不剪短的时候大
+                int temp = Math.max(dp[i - j], i - j) * j;
+                dp[i] = Math.max(temp, dp[i]);
+            }
+        }
+        return dp[n];
+    }
+}
+```
+
+#### 6.剪绳子II
+
+（限制条件 n <= 1000 即总和会越long界）
+
+```shell
+给你一根长度为 n 的绳子，请把绳子剪成整数长度的 m 段（m、n都是整数，n>1并且m>1），每段绳子的长度记为 k[0],k[1]...k[m - 1] 。请问 k[0]*k[1]*...*k[m - 1] 可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。
+
+答案需要取模 1e9+7（1000000007），如计算初始结果为：1000000008，请返回 1。
+```
+
+题解：贪心算法
+
+```java
+class Solution {
+    public int cuttingRope(int n) {
+        if(n < 4){
+            return n - 1;
+        }
+        long res = 1;
+        while(n > 4){
+            res  = res * 3 % 1000000007;
+            n -= 3;
+        }
+        return (int) (res * n % 1000000007);
+    }
+}
+```
+
+总结：剪绳子问题，实质为找规律题：尽量把绳子分为尽可能多的3，如果剩余1则和最后一个3合并为4，如果剩余2，则原来基础上乘以2即可得到最大；
+
+- **推论一：** 将绳子以相等的长度等分为多段 ，得到的乘积最大。
+- **推论二：** 尽可能将绳子以长度 33 等分为多段时，乘积最大。
+
 
 
 相关题型：
 
 [数字翻译成字符串](#a0527)
+
+[不同的二叉搜索树](#diffTree)
 
 
 
@@ -3065,12 +3669,6 @@ class Solution {
         }
     }
 }
-```
-
-题解：（队列）
-
-```java
-
 ```
 
 
