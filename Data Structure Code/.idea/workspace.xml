@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8d33956-5387-4a65-b230-ea007695e92f" name="Default Changelist" comment="LeetCode刷题">
+    <list default="true" id="a8d33956-5387-4a65-b230-ea007695e92f" name="Default Changelist" comment="LeetCode刷题笔记">
+      <change afterPath="$PROJECT_DIR$/src/LeetCode/topHot100_146.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../数据结构与算法-LeetCode刷题.md" beforeDir="false" afterPath="$PROJECT_DIR$/../数据结构与算法-LeetCode刷题.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,6 +35,9 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock://G:/刘子迪的相关文件/Java/Data Structure/Data-Structure-Note-Java/数据结构与算法-LeetCode刷题.md" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1qqN1nZkx0Lsc4rPoqeNkcQ4jLg" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -65,20 +73,7 @@
       <recent name="TestFiles" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.QuickSortDoubleRoad">
-    <configuration name="AutoBox" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="TestFiles.AutoBox" />
-      <module name="TestFiles" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="TestFiles.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.topHot100_146">
     <configuration name="BinarySearch" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="TestFiles.BinarySearch" />
       <module name="TestFiles" />
@@ -119,6 +114,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="topHot100_146" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="LeetCode.topHot100_146" />
+      <module name="Data Structure Code" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="LeetCode.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -132,11 +140,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.topHot100_146" />
         <item itemvalue="Application.QuickSortDoubleRoad" />
         <item itemvalue="Application.Solution" />
         <item itemvalue="Application.test0524" />
         <item itemvalue="Application.BinarySearch" />
-        <item itemvalue="Application.AutoBox" />
       </list>
     </recent_temporary>
   </component>
@@ -159,14 +167,7 @@
       <workItem from="1622283489621" duration="2809000" />
       <workItem from="1622879553069" duration="5441000" />
       <workItem from="1623412223757" duration="970000" />
-      <workItem from="1623741815414" duration="1862000" />
-    </task>
-    <task id="LOCAL-00054" summary="commit">
-      <created>1619836224357</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1619836224357</updated>
+      <workItem from="1623741815414" duration="11843000" />
     </task>
     <task id="LOCAL-00055" summary="commit">
       <created>1619863294112</created>
@@ -504,7 +505,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623746112300</updated>
     </task>
-    <option name="localTasksCounter" value="103" />
+    <task id="LOCAL-00103" summary="LeetCode刷题笔记">
+      <created>1623811658407</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1623811658407</updated>
+    </task>
+    <option name="localTasksCounter" value="104" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -525,7 +533,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit" />
     <MESSAGE value="LeetCode刷题" />
-    <option name="LAST_COMMIT_MESSAGE" value="LeetCode刷题" />
+    <MESSAGE value="LeetCode刷题笔记" />
+    <option name="LAST_COMMIT_MESSAGE" value="LeetCode刷题笔记" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -554,6 +563,11 @@
           <url>file://$PROJECT_DIR$/TestFiles/src/Solution.java</url>
           <line>15</line>
           <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/LeetCode/topHot100_146.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="54" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
