@@ -1917,12 +1917,14 @@ public class Solution {
 }
 ```
 
-#### 7.两数之和
+#### 7.两数相加
 
 题目：
 
-```
-
+```shell
+给你两个 非空 的链表，表示两个非负的整数。它们每位数字都是按照 逆序 的方式存储的，并且每个节点只能存储 一位 数字。
+请你将两个数相加，并以相同形式返回一个表示和的链表。
+你可以假设除了数字 0 之外，这两个数都不会以 0 开头。
 ```
 
 题解：
@@ -1993,6 +1995,91 @@ class Solution {
         return head;
     }
 }
+```
+
+#### 8.环形链表
+
+题目：
+
+```shell
+给定一个链表，返回链表开始入环的第一个节点。 如果链表无环，则返回 null。
+
+为了表示给定链表中的环，我们使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。 如果 pos 是 -1，则在该链表中没有环。注意，pos 仅仅是用于标识环的情况，并不会作为参数传递到函数中。
+```
+
+题解：（哈希表）额外空间O(n)
+
+```java
+public class Solution {
+    public ListNode detectCycle(ListNode head) {
+        Set<ListNode> set = new HashSet<>();
+        while(head != null){
+            if(!set.add(head)){
+                return head;
+            }
+            head = head.next;
+        }
+        return null;
+    }
+}
+```
+
+题解：（双指针法）额外空间O（1）
+
+我们使用两个指针fast 与slow。它们起始都位于链表的头部。随后，slow 指针每次向后移动一个位置，而fast 指针向后移动两个位置。如果链表中存在环，则fast 指针最终将再次与slow 指针在环中相遇
+
+一旦slow指针进入环形结构，则一定会在慢指针不到一圈内的环内某个位置相遇
+
+
+
+从相遇点到入环
+$$
+a=c+(n−1)(b+c)
+$$
+点的距离加上 n-1 圈的环长，恰好等于从链表头部到入环点的距离。
+
+![fig1](https://assets.leetcode-cn.com/solution-static/142/142_fig1.png)
+
+```java
+public class Solution {
+    public ListNode detectCycle(ListNode head) {
+        if (head == null) {
+            return null;
+        }
+        ListNode slow = head, fast = head;
+        while (fast != null) {
+            slow = slow.next;
+            if (fast.next != null) {
+                fast = fast.next.next;
+            } else {
+                return null;
+            }
+            if (fast == slow) {
+                ListNode ptr = head;
+                while (ptr != slow) {
+                    ptr = ptr.next;
+                    slow = slow.next;
+                }
+                return ptr;
+            }
+        }
+        return null;
+    }
+}
+```
+
+9.LRU缓存机制
+
+题目：
+
+```shell
+
+```
+
+题解：
+
+```java
+
 ```
 
 
@@ -3725,6 +3812,38 @@ class Solution {
             helper(s);
             s.deleteCharAt(s.length() - 1);
         }
+    }
+}
+```
+
+#### 9.单词拆分
+
+题目：
+
+```shell
+给定一个非空字符串 s 和一个包含非空单词的列表 wordDict，判定 s 是否可以被空格拆分为一个或多个在字典中出现的单词。
+```
+
+题解：（动态规划）
+
+我们可以得出如下转移方程：
+dp[i]=dp[j] && check(s[j..i−1])
+
+```java
+public class Solution {
+    public boolean wordBreak(String s, List<String> wordDict) {
+        Set<String> wordDictSet = new HashSet(wordDict);
+        boolean[] dp = new boolean[s.length() + 1];
+        dp[0] = true; //代表空字符串
+        for (int i = 1; i <= s.length(); i++) {
+            for (int j = 0; j < i; j++) {
+                if (dp[j] && wordDictSet.contains(s.substring(j, i))) {
+                    dp[i] = true;
+                    break;
+                }
+            }
+        }
+        return dp[s.length()];
     }
 }
 ```
