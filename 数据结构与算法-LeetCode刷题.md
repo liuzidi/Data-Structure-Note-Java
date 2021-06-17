@@ -2100,7 +2100,7 @@ lRUCache.get(4);    // 返回 4
 
 ```
 
-题解：(哈希表+双向链表)
+**题解：(哈希表+双向链表)**
 
 使用链表的原因：删除增加方便
 
@@ -2111,8 +2111,82 @@ lRUCache.get(4);    // 返回 4
 双向链表中为什么同时需要保存key和value的数值，因为删除的链表中元素时候需要同时删除哈希表中的映射，而value是无法找到key的，因此需要记录key，key：门牌号（不可变），value：有用的信息（可变化）
 
 ```java
+class LRUCache {
+    private Map<Integer, Node> map;//哈希表
+    private Node head,tail;//双向链表中的头尾节点
+    private int capacity;//最大容量
+    private int size;//当前大小
+    class Node{
+        int key;
+        int value;
+        Node prev;
+        Node next;
+        public Node(){}
+        public Node(int key,int value){
+            this.key = key;
+            this.value = value;
+        }
+    }
 
+    public LRUCache(int capacity) {
+        this.capacity = capacity;
+        this.size = 0;
+        map = new HashMap<>(capacity);
+        head = new Node();
+        tail = new Node();
+        head.next = tail;
+        tail.prev = head;
+    }
+
+    public int get(int key) {
+        if(map.containsKey(key)){
+            Node node = map.get(key);
+            removeNode(node);
+            addFirst(node);
+            return node.value;
+        }
+        return -1;
+    }
+
+    public void put(int key, int value) {
+        Node node = new Node(key, value);
+        if(map.containsKey(key)){
+            removeNode(map.get(key));
+        }else{
+            if(size == capacity){
+                removeLast();
+            }else{
+                size++;
+            }
+        }
+        addFirst(node);
+    }
+
+    private void removeNode(Node node){
+        Node prevNode = node.prev;
+        Node nextNode = node.next;
+        prevNode.next = nextNode;
+        nextNode.prev = prevNode;
+        map.remove(node.key);
+    }
+    private void addFirst(Node node){
+        Node second = head.next;
+        head.next = node;
+        node.prev = head;
+        node.next = second;
+        second.prev = node;
+        map.put(node.key, node);
+    }
+    private void removeLast(){
+        Node secLast = tail.prev;
+        map.remove(secLast.key);
+        tail.prev = secLast.prev;
+        secLast.prev.next = tail;
+    }
+}
 ```
+
+#### 10.排序链表
 
 
 
@@ -3900,7 +3974,7 @@ class Solution {
         int[] res = new int[n + 1];
         for(int i = 0; i <= n; i++){
             int temp = i;
-            for(int j = 0; j < 32; j++){
+            for(    int j = 0; j < 32; j++){
                 if((temp & 1) == 1){
                     res[i]++;
                 }

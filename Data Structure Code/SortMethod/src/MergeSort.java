@@ -12,12 +12,12 @@
 public class MergeSort {
     public static void main(String[] args){
         int[] nums = {6,75,45,25,4,1,5,82,15,82,5,3,41,2};
-        int[]res = mergeSort(nums);
+        int[] res = mergeSort(nums);
         for(int num : res){
             System.out.println(num);
         }
-
     }
+
     public static int[] mergeSort(int[] nums){
         int len = nums.length;
         int[] res = new int[len];
@@ -48,4 +48,5 @@ public class MergeSort {
             nums[left++] = res[left++];
         }
     }
+
 }
