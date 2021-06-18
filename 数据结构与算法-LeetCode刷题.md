@@ -1,5 +1,3 @@
-
-
 ## 数据结构与算法刷题笔记
 
 ---
@@ -854,6 +852,91 @@ class Solution {
         }
         visited[i][j] = false;
         return result;
+    }
+}
+```
+
+##### 1.3岛屿数量
+
+题目：
+
+```shell
+给你一个由 '1'（陆地）和 '0'（水）组成的的二维网格，请你计算网格中岛屿的数量。
+
+岛屿总是被水包围，并且每座岛屿只能由水平方向和/或竖直方向上相邻的陆地连接形成。
+
+此外，你可以假设该网格的四条边均被水包围。
+
+输入：grid = [
+  ["1","1","0","0","0"],
+  ["1","1","0","0","0"],
+  ["0","0","1","0","0"],
+  ["0","0","0","1","1"]
+]
+输出：3
+```
+
+题解：
+
+```java
+class Solution {
+    private int count = 0;
+    public int numIslands(char[][] grid) {
+        if(grid == null || grid.length == 0) return 0;
+        boolean[][] visited = new boolean[grid.length][grid[0].length];
+        for(int i = 0; i < grid.length; i++){
+            for (int j = 0; j < grid[0].length; j++) {
+                DFS(grid, visited, i ,j, false);
+            }
+        }
+        return count;
+    }
+    public void DFS(char[][] grid, boolean[][] visited, int row, int col, boolean flag){
+        if(row < 0 || row >= visited.length || col < 0 || col >= visited[0].length || visited[row][col]
+    || grid[row][col] == '0') return;
+        if(!flag) count++;
+        visited[row][col] = true;
+        DFS(grid, visited, row + 1, col,true);
+        DFS(grid, visited, row - 1, col,true);
+        DFS(grid, visited, row, col + 1,true);
+        DFS(grid, visited, row, col - 1,true);
+    }
+}
+```
+
+题解2：
+
+```java
+class Solution {
+    void dfs(char[][] grid, int r, int c) {
+        int nr = grid.length;
+        int nc = grid[0].length;
+        if (r < 0 || c < 0 || r >= nr || c >= nc || grid[r][c] == '0') {
+            return;
+        }
+        grid[r][c] = '0';
+        dfs(grid, r - 1, c);
+        dfs(grid, r + 1, c);
+        dfs(grid, r, c - 1);
+        dfs(grid, r, c + 1);
+    }
+
+    public int numIslands(char[][] grid) {
+        if (grid == null || grid.length == 0) {
+            return 0;
+        }
+        int nr = grid.length;
+        int nc = grid[0].length;
+        int num_islands = 0;
+        for (int r = 0; r < nr; ++r) {
+            for (int c = 0; c < nc; ++c) {
+                if (grid[r][c] == '1') {
+                    ++num_islands;
+                    dfs(grid, r, c);
+                }
+            }
+        }
+        return num_islands;
     }
 }
 ```
@@ -3531,7 +3614,35 @@ class Solution {
 - **推论一：** 将绳子以相等的长度等分为多段 ，得到的乘积最大。
 - **推论二：** 尽可能将绳子以长度 33 等分为多段时，乘积最大。
 
+#### 7.乘积最大子数组
 
+题目：（思路和股票II的动态规划一致）
+
+```shell
+给你一个整数数组 nums ，请你找出数组中乘积最大的连续子数组（该子数组中至少包含一个数字），并返回该子数组所对应的乘积。
+```
+
+题解：
+
+我们可以根据正负性进行分类讨论。
+
+考虑当前位置如果是一个负数的话，那么我们希望以它前一个位置结尾的某个段的积也是个负数，这样就可以负负得正，并且我们希望这个积尽可能「负得更多」，即尽可能小。如果当前位置是一个正数的话，我们更希望以它前一个位置结尾的某个段的积也是个正数，并且希望它尽可能地大。于是这里我们可以再维护一个f min(i)，它表示以第i个元素结尾的乘积最小子数组的乘积，那么我们可以得到这样的动态规划转移方程：
+
+```java
+class Solution {
+    public int maxProduct(int[] nums) {
+        int maxF = nums[0], minF = nums[0], ans = nums[0];
+        int length = nums.length;
+        for (int i = 1; i < length; ++i) {
+            int mx = maxF, mn = minF;
+            maxF = Math.max(mx * nums[i], Math.max(nums[i], mn * nums[i]));
+            minF = Math.min(mn * nums[i], Math.min(nums[i], mx * nums[i]));
+            ans = Math.max(maxF, ans);
+        }
+        return ans;
+    }
+}
+```
 
 相关题型：
 
@@ -3549,7 +3660,6 @@ class Solution {
 
 ```shell
 在字符串 s 中找出第一个只出现一次的字符。如果没有，返回一个单空格。 s 只包含小写字母。
-
 示例:
 s = "abaccdeff"
 返回 "b"
