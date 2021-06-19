@@ -4,7 +4,7 @@
  */
 public class MergeSort2 {
     public static void main(String[] args) {
-        int[] nums = {6,75,45,25,4,1,5,82,15,82,5,3,41,2};
+        int[] nums = {56,2,45,25};
         sort(nums);
     }
     public static void sort(int[] nums){
