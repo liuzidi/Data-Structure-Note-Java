@@ -591,6 +591,149 @@ class Solution {
 }
 ```
 
+#### 11.实现前缀树（Trie）
+
+题目：
+
+```shell
+Trie（发音类似 "try"）或者说 前缀树 是一种树形数据结构，用于高效地存储和检索字符串数据集中的键。这一数据结构有相当多的应用情景，例如自动补完和拼写检查。
+
+请你实现 Trie 类：
+
+Trie() 初始化前缀树对象。
+void insert(String word) 向前缀树中插入字符串 word 。
+boolean search(String word) 如果字符串 word 在前缀树中，返回 true（即，在检索之前已经插入）；否则，返回 false 。
+boolean startsWith(String prefix) 如果之前已经插入的字符串 word 的前缀之一为 prefix ，返回 true ；否则，返回 false 。
+
+示例：
+
+输入
+["Trie", "insert", "search", "search", "startsWith", "insert", "search"]
+[[], ["apple"], ["apple"], ["app"], ["app"], ["app"], ["app"]]
+输出
+[null, null, true, false, true, null, true]
+
+解释
+Trie trie = new Trie();
+trie.insert("apple");
+trie.search("apple");   // 返回 True
+trie.search("app");     // 返回 False
+trie.startsWith("app"); // 返回 True
+trie.insert("app");
+trie.search("app");     // 返回 True
+
+```
+
+题解：（我的题解）内部类
+
+```java
+class Trie {
+    class Node{
+        //只要非空即存在，所在的字符值即为上一层的nTree数组的索引
+        public Node[] nTree = new Node[26];//子节点
+        public boolean isWord = false;//到此为止是否为单词
+        public Node(){}
+        public boolean isSonExit(char c){
+            return nTree[c - 'a'] != null;
+        }
+    }
+
+    Node head;
+
+    /** Initialize your data structure here. */
+    public Trie() {
+        head = new Node();
+    }
+
+    /** Inserts a word into the trie. */
+    public void insert(String word) {
+        char[] chars = word.toCharArray();
+        Node cur = head;
+        for (char c : chars){
+            if(cur.nTree[c - 'a'] == null)
+                cur.nTree[c - 'a']= new Node();
+            cur = cur.nTree[c - 'a'];
+        }
+        cur.isWord = true;
+    }
+
+    /** Returns if the word is in the trie. */
+    public boolean search(String word) {
+        char[] chars = word.toCharArray();
+        Node cur = head;
+        for(char c : chars){
+            if(cur.isSonExit((c))){
+                cur = cur.nTree[c - 'a'];
+            }
+            else return false;
+        }
+        return cur.isWord;
+    }
+
+    /** Returns if there is any word in the trie that starts with the given prefix. */
+    public boolean startsWith(String prefix) {
+        char[] chars = prefix.toCharArray();
+        Node cur = head;
+        for(char c : chars){
+            if(cur.isSonExit((c))){
+                cur = cur.nTree[c - 'a'];
+            }
+            else return false;
+        }
+        return true;
+    }
+}
+```
+
+官方题解：
+
+```java
+class Trie {
+    private Trie[] children;
+    private boolean isEnd;
+
+    public Trie() {
+        children = new Trie[26];
+        isEnd = false;
+    }
+    
+    public void insert(String word) {
+        Trie node = this;
+        for (int i = 0; i < word.length(); i++) {
+            char ch = word.charAt(i);
+            int index = ch - 'a';
+            if (node.children[index] == null) {
+                node.children[index] = new Trie();
+            }
+            node = node.children[index];
+        }
+        node.isEnd = true;
+    }
+    
+    public boolean search(String word) {
+        Trie node = searchPrefix(word);
+        return node != null && node.isEnd;
+    }
+    
+    public boolean startsWith(String prefix) {
+        return searchPrefix(prefix) != null;
+    }
+
+    private Trie searchPrefix(String prefix) {
+        Trie node = this;
+        for (int i = 0; i < prefix.length(); i++) {
+            char ch = prefix.charAt(i);
+            int index = ch - 'a';
+            if (node.children[index] == null) {
+                return null;
+            }
+            node = node.children[index];
+        }
+        return node;
+    }
+}
+```
+
 
 
 ### 尾递归
@@ -4231,9 +4374,98 @@ class Solution {
 解释：总共有 2 门课程。学习课程 1 之前，你需要先完成课程 0 ；并且学习课程 0 之前，你还应先完成课程 1 。这是不可能的。
 ```
 
-题解：(有向图的)
+**题解：(有向图的拓扑排序)**
+
+给定一个包含 nn 个节点的有向图 GG，我们给出它的节点编号的一种排列，如果满足：
+对于图 GG 中的任意一条有向边 (u, v)(u,v)，uu 在排列中都出现在 vv 的前面。
+那么称该排列是图 GG 的「拓扑排序」。
+
+对于图中的任意一个节点，它在搜索的过程中有三种状态，即：
+「未搜索」：我们还没有搜索到这个节点；
+「搜索中」：我们搜索过这个节点，但还没有回溯到该节点，即该节点还没有入栈，还有相邻的节点没有搜索完成）；
+「已完成」：我们搜索过并且回溯过这个节点，即该节点已经入栈，并且所有该节点的相邻节点都出现在栈的更底部的位置，满足拓扑排序的要求。
+
+通过上述的三种状态，我们就可以给出使用深度优先搜索得到拓扑排序的算法流程，在每一轮的搜索搜索开始时，我们任取一个「未搜索」的节点开始进行深度优先搜索。
+我们将当前搜索的节点 u 标记为「搜索中」，遍历该节点的每一个相邻节点 v：
+如果 v 为「未搜索」，那么我们开始搜索 v，待搜索完成回溯到 u；
+如果 v为「搜索中」，那么我们就找到了图中的一个环，因此是不存在拓扑排序的；
+如果 v 为「已完成」，那么说明 v 已经在栈中了，而 u 还不在栈中，因此 u 无论何时入栈都不会影响到 (u, v)(u,v) 之前的拓扑关系，以及不用进行任何操作。
+当 u 的所有相邻节点都为「已完成」时，我们将 uu 放入栈中，并将其标记为「已完成」。
+
+**DFS解法**
 
 ```java
+class Solution {
+    private List<List<Integer>> graph = new ArrayList<>();
+    private int[] visited;
+    private boolean valid = true;
+    public boolean canFinish(int numCourses, int[][] prerequisites) {
+        visited = new int[numCourses];
+        for(int i = 0; i < numCourses; i++){
+            graph.add(new ArrayList<Integer>());
+        }
+        for(int[] info : prerequisites){
+            graph.get(info[1]).add(info[0]);
+        }
+        for(int i = 0; i < numCourses && valid; i++){
+            if(visited[i] == 0) DFS(i);
+        }
+        return valid;
+    }
+    // visited = 0 未访问过， = 1 访问过，但未搜索过其相邻的所有的几点， = 2 访问过，且所有相邻节点都搜索过
+    //遍历过程中发现visited = 1,意味着还在搜索过程搜到一个还在处于搜索的元素，也就是形成环
+    private void DFS(int i){
+        visited[i] = 1;
+        for(int value : graph.get(i)){
+            if(visited[value] == 0){
+                DFS(value);
+                if(!valid){
+                    return;
+                }
+            }else if(visited[value] == 1){
+                valid = false;
+                return;
+            }
+        }
+        visited[i] = 2;
+    }
+}
+```
 
+**BFS题解：**
+
+```java
+class Solution {
+	List<List<Integer>> graph = new ArrayList<>();
+    int[] indegree;
+    public boolean canFinish(int numCourses, int[][] prerequisites) {
+        indegree = new int[numCourses];
+        for(int i = 0; i < numCourses; i++){
+            graph.add(new ArrayList<Integer>());
+        }
+        for(int[] info : prerequisites){
+            graph.get(info[1]).add(info[0]);
+            ++indegree[info[0]];
+        }
+        Queue<Integer> queue= new LinkedList<>();
+        for(int i = 0; i < numCourses; i++){
+            if(indegree[i] == 0){
+                queue.offer(i);
+            }
+        }
+        int visited = 0;
+        while(!queue.isEmpty()){
+            ++visited;
+            int u = queue.poll();
+            for(int value : graph.get(u)){
+                --indegree[value];
+                if(indegree[value] == 0){
+                    queue.offer(value);
+                }
+            }
+        }
+        return visited == numCourses;//poll一定次数
+    }
+}
 ```
 
