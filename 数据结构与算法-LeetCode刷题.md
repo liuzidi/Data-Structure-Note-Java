@@ -637,9 +637,7 @@ class Trie {
             return nTree[c - 'a'] != null;
         }
     }
-
     Node head;
-
     /** Initialize your data structure here. */
     public Trie() {
         head = new Node();
