@@ -732,6 +732,56 @@ class Trie {
 }
 ```
 
+#### 12.二叉树最近公共祖先
+
+题目：
+
+```shell
+给定一个二叉树, 找到该树中两个指定节点的最近公共祖先。
+
+百度百科中最近公共祖先的定义为：“对于有根树 T 的两个节点 p、q，最近公共祖先表示为一个节点 x，满足 x 是 p、q 的祖先且 x 的深度尽可能大（一个节点也可以是它自己的祖先）。”
+```
+
+题解：（2679ms）
+
+```java
+class Solution {
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if(root == p || root == q) return root;
+        if(isAncestor(root.left, p) && isAncestor(root.left, q)){
+            return lowestCommonAncestor(root.left, p, q);
+        }
+        if(isAncestor(root.right, p) && isAncestor(root.right, q)){
+            return lowestCommonAncestor(root.right, p, q);
+        }
+        else return root;
+    }
+    private boolean isAncestor(TreeNode t, TreeNode son){
+        if(t == son) return true;
+        else if(t == null) return false;
+        else return isAncestor(t.left, son) || isAncestor(t.right, son);
+    }
+}
+```
+
+官方题解：
+
+核心思想，当p和q在某个根节点的异侧时，这个根节点位p和q的祖先，向下DFS，再往上回溯寻找最接近的祖先
+
+```java
+class Solution {
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if(root == null || root == p || root == q) return root;
+        TreeNode left = lowestCommonAncestor(root.left, p, q);
+        TreeNode right = lowestCommonAncestor(root.right, p, q);
+        if(left == null && right == null) return null; // 1.
+        if(left == null) return right; // 3.
+        if(right == null) return left; // 4.
+        return root; // 2. if(left != null and right != null)
+    }
+}
+```
+
 
 
 ### 尾递归
@@ -3500,6 +3550,61 @@ class Solution {
 
 第二，算法需要保存所有的数据。如果把数据看成输入流的话，使用堆的方法是来一个处理一个，不需要保存数据，只需要保存 k 个元素的最大堆。而快速选择的方法需要先保存下来所有的数据，再运行算法。当数据量非常大的时候，甚至内存都放不下的时候，就麻烦了。所以当数据量大的时候还是用基于堆的方法比较好。
 
+
+
+#### 3.数组中的第k个最大元素
+
+题目：
+
+```shell
+在未排序的数组中找到第 k 个最大的元素。请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。
+```
+
+题解：
+
+```java
+class Solution {
+    public int findKthLargest(int[] nums, int k) {
+        int left = 0, right = nums.length - 1;
+        int target = nums.length - k;
+        while(true){
+            int index = quickSort(nums, left, right);
+            if(index == target){
+                return nums[target];
+            }else if(index < target){
+                left = index + 1;
+            }else{
+                right = index - 1;
+            }
+        }
+    }
+    public int quickSort(int[] nums, int l, int r){
+        int pivot = l + (int)((r - l + 1) * Math.random());
+        int pValue = nums[pivot];
+        swap(nums, l, pivot);
+        int left = l, right = r;
+        while(left < right){
+            while(left < right && nums[right] >= pValue){
+                right--;
+            }
+            while(left < right && nums[left] <= pValue){
+                left++;
+            }
+            if(left < right){
+                swap(nums, left, right);
+            }
+        }
+        swap(nums, l, left);
+        return left;
+    }
+    public void swap(int[] nums, int a, int b){
+        int temp = nums[a];
+        nums[a] = nums[b];
+        nums[b] = temp;
+    }
+}
+```
+
 相关题型：
 
 [打印最大n位数](#topninarr)
@@ -3781,6 +3886,86 @@ class Solution {
             ans = Math.max(maxF, ans);
         }
         return ans;
+    }
+}
+```
+
+#### 8.最大正方形
+
+题目：
+
+```shell
+在一个由 '0' 和 '1' 组成的二维矩阵内，找到只包含 '1' 的最大正方形，并返回其面积。
+输入：matrix = [["1","0","1","0","0"],["1","0","1","1","1"],["1","1","1","1","1"],["1","0","0","1","0"]]
+输出：4
+
+输入：matrix = [["0","1"],["1","0"]]
+输出：1
+```
+
+题解：
+
+```java
+class Solution {
+    public int maximalSquare(char[][] matrix) {
+        if(matrix == null || matrix.length == 0){
+            return 0;
+        }
+        int max = 0;
+        boolean valid = true;
+        for(int i = 0; i < matrix.length; i++){
+            for(int j = 0; j < matrix[0].length; j++){
+                int i0 = i - max;
+                int j0 = j - max;
+                if(matrix[i][j] == '1' && i0 >= 0 && j0 >= 0) {
+                    for(int i1 = i0; i1 <= i; i1++){
+                        for(int j1 = j0; j1 <= j; j1++){
+                            if(matrix[i1][j1] == '0'){
+                                valid = false;
+                                break;
+                            }
+                        }
+                        if(!valid) break;
+                    }
+                    if(valid) max++;
+                    else valid = true;
+                }
+            }
+        }
+        return max * max;
+    }
+}
+```
+
+官方题解：
+$$
+dp(i,j)=min(dp(i−1,j),dp(i−1,j−1),dp(i,j−1))+1
+$$
+
+
+```java
+class Solution {
+    public int maximalSquare(char[][] matrix) {
+        int maxSide = 0;
+        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
+            return maxSide;
+        }
+        int rows = matrix.length, columns = matrix[0].length;
+        int[][] dp = new int[rows][columns];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                if (matrix[i][j] == '1') {
+                    if (i == 0 || j == 0) {
+                        dp[i][j] = 1;
+                    } else {
+                        dp[i][j] = Math.min(Math.min(dp[i - 1][j], dp[i][j - 1]), dp[i - 1][j - 1]) + 1;
+                    }
+                    maxSide = Math.max(maxSide, dp[i][j]);
+                }
+            }
+        }
+        int maxSquare = maxSide * maxSide;
+        return maxSquare;
     }
 }
 ```
