@@ -768,6 +768,24 @@ class Solution {
 
 核心思想，当p和q在某个根节点的异侧时，这个根节点位p和q的祖先，向下DFS，再往上回溯寻找最接近的祖先
 
+![img](https://pic.leetcode-cn.com/0724b87055c4bc4d744ab64775e6eefa348777c0ea0b07a00ff917773f4b494e-Picture18.png)
+
+递归解析：
+终止条件：
+当越过叶节点，则直接返回null ；
+当 root 等于 p,q ，则直接返回root ；
+递推工作：
+开启递归左子节点，返回值记为left ；
+开启递归右子节点，返回值记为right ；
+返回值： 根据 left 和 right ，可展开为四种情况；
+当left 和right 同时为空 ：说明root 的左 / 右子树中都不包含p,q ，返回null ；
+当 left 和 right 同时不为空 ：说明 p,q 分列在root 的 异侧 （分别在 左 / 右子树），因此root 为最近公共祖先，返回root ；
+当 left 为空 ，right 不为空 ：p,q 都不在root 的左子树中，直接返回 right 。具体可分为两种情况：
+p,q 其中一个在root 的 右子树 中，此时 right 指向 p（假设为 p ）；
+p,q 两节点都在 root 的 右子树 中，此时的 right 指向 最近公共祖先节点 ；
+当 left 不为空 ，right 为空 ：与情况 3. 同理；
+观察发现， 情况 1. 可合并至 3. 和 4. 内，详见文章末尾代码。
+
 ```java
 class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
@@ -1880,6 +1898,47 @@ class Solution {
         int tmp = nums[i];
         nums[i] = nums[i1];
         nums[i1] = tmp;
+    }
+}
+```
+
+#### 7.除自身以外数组地乘积
+
+题目：
+
+```shell
+给你一个长度为 n 的整数数组 nums，其中 n > 1，返回输出数组 output ，其中 output[i] 等于 nums 中除 nums[i] 之外其余各元素的乘积
+```
+
+题解：
+
+上三角，下三角
+
+| res         |        |        |        |            |            |
+| ----------- | :----- | ------ | ------ | ---------- | ---------- |
+| res[0]=     | 1      | num[1] | ...... | num[n - 2] | num[n - 1] |
+| res[1]=     | num[0] | 1      | ...... | num[n - 2] | num[n - 1] |
+| ......      | ...... | ...... | ...... | ......     | ......     |
+| res[n - 2]= | num[0] | num[1] | ...... | 1          | num[n - 1] |
+| res[n - 1]= | num[0] | num[1] | ...... | num[n - 2] | 1          |
+
+
+
+```java
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        int[] res = new int[nums.length];
+        int p = 1, q = 1;
+        //延迟乘法，先让其等于 1.再进行合乘
+        for (int i = 0; i < nums.length; i++) {
+            res[i] = p;
+            p *= nums[i];
+        }
+        for (int i = nums.length - 1; i >= 0 ; i--) {
+            res[i] *= q;
+            q *= nums[i];
+        }
+        return res;
     }
 }
 ```
@@ -3116,6 +3175,42 @@ class Solution {
                 if (row_zero.contains(i) || col_zero.contains(j)) matrix[i][j] = 0;
             }
         }  
+    }
+}
+```
+
+3.搜索二维矩阵
+
+题目：
+
+```shell
+编写一个高效的算法来搜索 m x n 矩阵 matrix 中的一个目标值 target 。该矩阵具有以下特性：
+
+每行的元素从左到右升序排列。
+每列的元素从上到下升序排列。
+```
+
+题解：
+
+从右上角的元素看作根节点，类似于二叉搜索树
+
+```java
+class Solution {
+    public boolean searchMatrix(int[][] matrix, int target) {
+        if(matrix == null || matrix.length == 0 || matrix[0].length == 0){
+            return false;
+        }
+        int row = 0, column = matrix[0].length - 1;
+        while(row < matrix.length  && column >= 0){
+            if(matrix[row][column] == target){
+                return true;
+            }else if(matrix[row][column] < target){
+                row++;
+            }else{
+                column--;
+            }
+        }
+        return false;
     }
 }
 ```
