@@ -1943,6 +1943,45 @@ class Solution {
 }
 ```
 
+8.完全平方数
+
+题目：
+
+```shell
+给定正整数 n，找到若干个完全平方数（比如 1, 4, 9, 16, ...）使得它们的和等于 n。你需要让组成和的完全平方数的个数最少。
+
+给你一个整数 n ，返回和为 n 的完全平方数的 最少数量 。
+
+完全平方数 是一个整数，其值等于另一个整数的平方；换句话说，其值等于一个整数自乘的积。例如，1、4、9 和 16 都是完全平方数，而 3 和 11 不是。
+```
+
+题解:动态规划
+
+边界条件dp[0] = 0,虽然不存在，但是可以定义
+
+```java
+class Solution {
+    public int numSquares(int n) {
+        int[] dp = new int[n + 1]; // 默认初始化值都为0 
+        for (int i = 1; i <= n; i++) {
+            dp[i] = i; // 最坏的情况就是每次+1
+            for (int j = 1; i - j * j >= 0; j++) { 
+                dp[i] = Math.min(dp[i], dp[i - j * j] + 1); // 动态转移方程
+            }
+        }
+        return dp[n];
+    }
+}
+```
+
+题解2：数学公式
+
+四平方和定理证明了任意一个正整数都可以被表示为至多四个正整数的平方和。这给出了本题的答案的上界。
+
+```
+
+```
+
 
 
 ### 链表
@@ -2617,6 +2656,12 @@ class Solution {
 
 
 ### 双指针
+
+快慢指针：1快1慢
+
+1.一个符合条件往前，一个一直往前
+
+2.一个走两步，一个走一步
 
 #### 1.调整数组顺序使奇数位于偶数前面
 
@@ -3472,6 +3517,50 @@ class Solution {
             }
         }
         return longestStreak;
+    }
+}
+```
+
+6.寻找重复的数
+
+题目：
+
+```
+给定一个包含 n + 1 个整数的数组 nums ，其数字都在 1 到 n 之间（包括 1 和 n），可知至少存在一个重复的整数。
+假设 nums 只有 一个重复的整数 ，找出 这个重复的数 。
+你设计的解决方案必须不修改数组 nums 且只用常量级 O(1) 的额外空间。
+```
+
+题解：
+
+与环形链表思路一致。以i->num[i]的映射关系形成的链一定存在环结构，可以用快慢指针进行求解
+
+
+
+slow和fast会在环中相遇，先假设一些量：起点到环的入口长度为m，环的周长为c，在fast和slow相遇时slow走了n步。则fast走了2n步，fast比slow多走了n步，而这n步全用在了在环里循环（n%c==0）。
+当fast和last相遇之后，我们设置第三个指针finder，它从起点开始和slow(在fast和slow相遇处)同步前进，当finder和slow相遇时，就是在环的入口处相遇，也就是重复的那个数字相遇。
+
+为什么 finder 和 slow 相遇在入口
+fast 和 slow 相遇时，slow 在环中行进的距离是n-m，其中 n%c==0。这时我们再让 slow 前进 m 步——也就是在环中走了 n 步了。而 n%c==0 即 slow 在环里面走的距离是环的周长的整数倍，就回到了环的入口了，而入口就是重复的数字。
+我们不知道起点到入口的长度m，所以弄个 finder 和 slow 一起走，他们必定会在入口处相遇。
+
+```java
+class Solution {
+    public int findDuplicate(int[] nums) {
+        int slow = 0;
+        int fast = 0;
+        slow = nums[slow];
+        fast = nums[nums[fast]];
+        while(slow != fast){
+            slow = nums[slow];
+            fast = nums[nums[fast]];
+        }
+        int finder= 0;
+        while(finder != slow){
+            finder = nums[finder];
+            slow = nums[slow];
+        }
+        return finder;
     }
 }
 ```
