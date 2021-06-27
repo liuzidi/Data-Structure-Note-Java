@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8d33956-5387-4a65-b230-ea007695e92f" name="Default Changelist" comment="LeetCode刷题笔记">
-      <change afterPath="$PROJECT_DIR$/TestFiles/src/TestFiles/ReflectTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestFiles/src/TestFiles/ReflectTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/TestFiles/src/TestFiles/ReflectTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,14 +69,7 @@
       <recent name="TestFiles" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ReflectTest.test1">
-    <configuration name="QuickSortDoubleRoad" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="QuickSortDoubleRoad" />
-      <module name="SortMethod" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.topHot100_300.test1">
     <configuration name="test0622" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="test0622" />
       <module name="TestFiles" />
@@ -142,13 +135,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="topHot100_300.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Data Structure Code" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="LeetCode.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="LeetCode" />
+      <option name="MAIN_CLASS_NAME" value="LeetCode.topHot100_300" />
+      <option name="METHOD_NAME" value="test1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.topHot100_300.test1" />
         <item itemvalue="JUnit.ReflectTest.test1" />
         <item itemvalue="JUnit.topHot100_279.test1" />
         <item itemvalue="Application.topHot100_221" />
         <item itemvalue="Application.test0622" />
-        <item itemvalue="Application.QuickSortDoubleRoad" />
       </list>
     </recent_temporary>
   </component>
@@ -172,14 +181,7 @@
       <workItem from="1622879553069" duration="5441000" />
       <workItem from="1623412223757" duration="970000" />
       <workItem from="1623741815414" duration="48442000" />
-      <workItem from="1624540074900" duration="6596000" />
-    </task>
-    <task id="LOCAL-00069" summary="commit">
-      <created>1620363672079</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1620363672079</updated>
+      <workItem from="1624540074900" duration="7275000" />
     </task>
     <task id="LOCAL-00070" summary="commit">
       <created>1620651130022</created>
@@ -517,7 +519,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624618852291</updated>
     </task>
-    <option name="localTasksCounter" value="118" />
+    <task id="LOCAL-00118" summary="LeetCode刷题笔记">
+      <created>1624622215788</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1624622215788</updated>
+    </task>
+    <option name="localTasksCounter" value="119" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
