@@ -4154,6 +4154,80 @@ class Solution {
 }
 ```
 
+#### 9.最长递增子序列
+
+题目：
+
+```shell
+给你一个整数数组 nums ，找到其中最长严格递增子序列的长度。
+
+子序列是由数组派生而来的序列，删除（或不删除）数组中的元素而不改变其余元素的顺序。例如，[3,6,2,7] 是数组 [0,3,1,6,2,2,7] 的子序列
+```
+
+题解：动态规划+暴力查找
+
+维护一个数组，保存第i个数作为最大值时的最大子序列的长度
+
+```Java
+class Solution {
+    public int lengthOfLIS(int[] nums) {
+        if(nums == null || nums.length == 0){
+            return 0;
+        }
+        int[] dp = new int[nums.length];
+        int res = 1;
+        for(int i = 0; i < nums.length; i++){
+            int cur = nums[i];
+            dp[i] = 1;
+            int temp = 1;
+            for(int j = i - 1; j >= 0; j--){
+                if(nums[j] < cur){
+                    dp[i] = Math.max(temp + dp[j], dp[i]);
+                }
+            }
+            res = Math.max(res, dp[i]);
+        }
+        return res;
+    }
+}
+```
+
+题解：贪心+二分查找
+
+维护一个数组，保存长度为i的最大子序列的末尾元素的最小值，这个数组是有序数列，可以进行二分查找
+
+```java
+class Solution {
+    public int lengthOfLIS(int[] nums) {
+        int len = 1, n = nums.length;
+        if (n == 0) {
+            return 0;
+        }
+        int[] d = new int[n + 1];
+        d[len] = nums[0];
+        for (int i = 1; i < n; ++i) {
+            if (nums[i] > d[len]) {
+                d[++len] = nums[i];
+            } else {
+                int l = 1, r = len, pos = 0;
+                // 如果找不到说明所有的数都比 nums[i] 大，此时要更新 d[1]，所以这里将 pos 设为 0
+                while (l <= r) {
+                    int mid = (l + r) >> 1;
+                    if (d[mid] < nums[i]) {
+                        pos = mid;
+                        l = mid + 1;
+                    } else {
+                        r = mid - 1;
+                    }
+                }
+                d[pos + 1] = nums[i];
+            }
+        }
+        return len;
+    }
+}
+```
+
 相关题型：
 
 [数字翻译成字符串](#a0527)

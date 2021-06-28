@@ -1,6 +1,7 @@
 package TestFiles;
 
 import org.junit.Test;
+import java.lang.Class;
 
 /**
  * @author:liuzidi
