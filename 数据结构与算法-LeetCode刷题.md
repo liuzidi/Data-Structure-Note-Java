@@ -3521,7 +3521,7 @@ class Solution {
 }
 ```
 
-6.寻找重复的数
+#### 6.寻找重复的数
 
 题目：
 
@@ -3785,6 +3785,92 @@ class Solution {
         int temp = nums[a];
         nums[a] = nums[b];
         nums[b] = temp;
+    }
+}
+```
+
+#### 4.前K个高频元素
+
+题目：
+
+```shell
+给你一个整数数组 nums 和一个整数 k ，请你返回其中出现频率前 k 高的元素。你可以按 任意顺序 返回答案。
+```
+
+题解：（基于大顶堆）
+
+```java
+public int[] topKFrequent(int[] nums, int k) {
+    Map<Integer, Integer> occurrences = new HashMap<>();
+    for (int num : nums) {
+        occurrences.put(num, occurrences.getOrDefault(num, 0) + 1);
+    }
+
+    // int[] 的第一个元素代表数组的值，第二个元素代表了该值出现的次数
+    PriorityQueue<int[]> queue = new PriorityQueue<int[]>((m, n)-> m[1] - n[1]);
+    for (Map.Entry<Integer, Integer> entry : occurrences.entrySet()) {
+        int num = entry.getKey(), count = entry.getValue();
+        if (queue.size() == k) {
+            if (queue.peek()[1] < count) {
+                queue.poll();
+                queue.offer(new int[]{num, count});
+            }
+        } else {
+            queue.offer(new int[]{num, count});
+        }
+    }
+    int[] ret = new int[k];
+    for (int i = 0; i < k; ++i) {
+        ret[i] = queue.poll()[0];
+    }
+    return ret;
+}
+```
+
+题解：（基于快速排序）
+
+```java
+class Solution {
+    public int[] topKFrequent(int[] nums, int k) {
+        Map<Integer, Integer> occurrences = new HashMap<Integer, Integer>();
+        for (int num : nums) {
+            occurrences.put(num, occurrences.getOrDefault(num, 0) + 1);
+        }
+
+        List<int[]> values = new ArrayList<int[]>();
+        for (Map.Entry<Integer, Integer> entry : occurrences.entrySet()) {
+            int num = entry.getKey(), count = entry.getValue();
+            values.add(new int[]{num, count});
+        }
+        int[] ret = new int[k];
+        qsort(values, 0, values.size() - 1, ret, 0, k);
+        return ret;
+    }
+
+    public void qsort(List<int[]> values, int start, int end, int[] ret, int retIndex, int k) {
+        int picked = (int) (Math.random() * (end - start + 1)) + start;
+        Collections.swap(values, picked, start);
+        
+        int pivot = values.get(start)[1];
+        int index = start;
+        for (int i = start + 1; i <= end; i++) {
+            if (values.get(i)[1] >= pivot) {
+                Collections.swap(values, index + 1, i);
+                index++;
+            }
+        }
+        Collections.swap(values, start, index);
+
+        if (k <= index - start) {
+            qsort(values, start, index - 1, ret, retIndex, k);
+        } else {
+            for (int i = start; i <= index; i++) {
+                ret[retIndex++] = values.get(i)[0];
+            }
+            if (k > index - start + 1) {
+                qsort(values, index + 1, end, ret, retIndex, k - (index - start + 1));
+            }
+        }
     }
 }
 ```
@@ -4293,6 +4379,62 @@ class Solution {
             memo[i] = min;
         }
         return memo[amount] == Integer.MAX_VALUE ? -1 : memo[amount];
+    }
+}
+```
+
+#### 12.打家劫舍（树）
+
+题目：
+
+```shell
+在上次打劫完一条街道之后和一圈房屋后，小偷又发现了一个新的可行窃的地区。这个地区只有一个入口，我们称之为“根”。 除了“根”之外，每栋房子有且只有一个“父“房子与之相连。一番侦察之后，聪明的小偷意识到“这个地方的所有房屋的排列类似于一棵二叉树”。 如果两个直接相连的房子在同一天晚上被打劫，房屋将自动报警。
+
+计算在不触动警报的情况下，小偷一晚能够盗取的最高金额。
+```
+
+题解：
+
+```java
+class Solution {
+    Map<TreeNode, Integer> f = new HashMap<TreeNode, Integer>();
+    Map<TreeNode, Integer> g = new HashMap<TreeNode, Integer>();
+
+    public int rob(TreeNode root) {
+        dfs(root);
+        return Math.max(f.getOrDefault(root, 0), g.getOrDefault(root, 0));
+    }
+
+    public void dfs(TreeNode node) {
+        if (node == null) {
+            return;
+        }
+        dfs(node.left);
+        dfs(node.right);
+        f.put(node, node.val + g.getOrDefault(node.left, 0) + g.getOrDefault(node.right, 0));
+        g.put(node, Math.max(f.getOrDefault(node.left, 0), g.getOrDefault(node.left, 0)) + Math.max(f.getOrDefault(node.right, 0), g.getOrDefault(node.right, 0)));
+    }
+}
+```
+
+优化后题解：
+
+```java
+class Solution {
+    public int rob(TreeNode root) {
+        int[] rootStatus = dfs(root);
+        return Math.max(rootStatus[0], rootStatus[1]);
+    }
+
+    public int[] dfs(TreeNode node) {
+        if (node == null) {
+            return new int[]{0, 0};
+        }
+        int[] l = dfs(node.left);
+        int[] r = dfs(node.right);
+        int selected = node.val + l[1] + r[1];
+        int notSelected = Math.max(l[0], l[1]) + Math.max(r[0], r[1]);
+        return new int[]{selected, notSelected};
     }
 }
 ```
