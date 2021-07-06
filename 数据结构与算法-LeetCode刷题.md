@@ -3684,8 +3684,6 @@ int partition(int[] a, int lo, int hi) {
         swap(a, i, j);
     }
     swap(a, lo, j);
-
-    // a[lo .. j-1] <= a[j] <= a[j+1 .. hi]
     return j;
 }
 

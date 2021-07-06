@@ -5,11 +5,10 @@
 public class HeapSort {
     public static void main(String[] args) {
         Person p = new Student();
-        p.study();
     }
 }
 interface Person{
-    public void eat();
+    void eat();
 }
 class Student implements  Person{
 
