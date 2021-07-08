@@ -5,7 +5,102 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8d33956-5387-4a65-b230-ea007695e92f" name="Default Changelist" comment="LeetCode刷题笔记">
+      <change afterPath="$PROJECT_DIR$/TestFiles/src/test0707.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/LRUCache$Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/LRUCache$Node.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/LRUCache.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/LRUCache.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/TreeNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/TreeNode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/Trie$Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/Trie$Node.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/Trie.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/Trie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/topHot100_114.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/topHot100_114.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/topHot100_128.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/topHot100_128.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/topHot100_146.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/topHot100_146.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/topHot100_152.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/topHot100_152.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/topHot100_200.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/topHot100_200.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/topHot100_207.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/topHot100_207.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/topHot100_208.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/topHot100_208.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/topHot100_215.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/topHot100_215.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/topHot100_221.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/topHot100_221.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/topHot100_240.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/topHot100_240.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/topHot100_279.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/topHot100_279.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/topHot100_287.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/topHot100_287.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/topHot100_300.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/topHot100_300.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/topHot100_56.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/topHot100_56.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/topHot100_62.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/topHot100_62.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/topHot100_64.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/topHot100_64.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/topHot100_75.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/topHot100_75.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/topHot100_78.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/topHot100_78.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/topHot100_79.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/topHot100_79.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/LinkedList/PersonNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/LinkedList/PersonNode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/LinkedList/SingleLinkedList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/LinkedList/SingleLinkedList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/LinkedList/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/LinkedList/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/Tree/CreateBT.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/Tree/CreateBT.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/Tree/ThreadBinaryTree.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/Tree/ThreadBinaryTree.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/Tree/TranslateBT2TBT.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/Tree/TranslateBT2TBT.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/Tree/TreeNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/Tree/TreeNode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/queue/LoopQueueByArr.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/queue/LoopQueueByArr.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/queue/LoopQueueByArrTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/queue/LoopQueueByArrTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/queue/QueueByArr.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/queue/QueueByArr.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/queue/QueueByArrTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/queue/QueueByArrTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/sparseArray/SparseArray.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/sparseArray/SparseArray.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/sparseArray/SparseArrayTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/sparseArray/SparseArrayTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SortMethod/BubbleSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SortMethod/BubbleSort.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SortMethod/InsertionSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SortMethod/InsertionSort.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SortMethod/MergeSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SortMethod/MergeSort.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SortMethod/MergeSort2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SortMethod/MergeSort2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SortMethod/QuickSortDoubleRoad.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SortMethod/QuickSortDoubleRoad.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SortMethod/QuickSortNormal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SortMethod/QuickSortNormal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SortMethod/QuickSortRandom.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SortMethod/QuickSortRandom.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SortMethod/QuickSortThreeRoad.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SortMethod/QuickSortThreeRoad.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SortMethod/SelectionSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SortMethod/SelectionSort.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SortMethod/ShellSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SortMethod/ShellSort.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SortMethod/TestInstance.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SortMethod/TestInstance.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/InheritTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/InheritTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/MinStack.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/MinStack.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/Person.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/QS.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/QS.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/RandomTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/RandomTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/SingleTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/SingleTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/Solution.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/Students.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/Students.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/AutoBox.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/AutoBox.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/BinarySearch.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/BinarySearch.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/FindBothHave.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/FindBothHave.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/HashMapTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/HashMapTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/KMP.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/KMP.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/LinkedListTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/LinkedListTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/ListNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/ListNode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/Person.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/ReflectTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/ReflectTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/Rotate.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/Rotate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/Solution.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/Solution0522.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/Solution0522.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/Solution0524.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/Solution0524.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/StringBufferTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/StringBufferTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/StringTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/StringTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/Test0515.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/Test0515.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/Test0519.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/Test0519.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/Test514.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/Test514.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/TestUnit.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/TestUnit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/TreeNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/TreeNode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/diguiTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/diguiTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/getDuplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/getDuplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/onePlus.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/onePlus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/onePlus2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/onePlus2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/test0521.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/test0521.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/test0522.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/test0522.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/test0524.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/test0524.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/test512.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/test512.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/testDay412.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/TestFiles/testDay412.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/TreeNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/TreeNode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/countOne.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/countOne.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/newTest2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/newTest2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/stackTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/stackTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/test0622.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/test0622.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/test2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/test2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TestFiles/test3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TestFiles/test3.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +156,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
+    <property name="settings.editor.selected.configurable" value="preferences.intentionPowerPack" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -88,19 +183,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -187,14 +269,7 @@
       <workItem from="1624778704665" duration="1018000" />
       <workItem from="1624885002524" duration="1414000" />
       <workItem from="1625050578692" duration="7718000" />
-      <workItem from="1625130845671" duration="12481000" />
-    </task>
-    <task id="LOCAL-00080" summary="commit">
-      <created>1621262760487</created>
-      <option name="number" value="00080" />
-      <option name="presentableId" value="LOCAL-00080" />
-      <option name="project" value="LOCAL" />
-      <updated>1621262760487</updated>
+      <workItem from="1625130845671" duration="17260000" />
     </task>
     <task id="LOCAL-00081" summary="commit">
       <created>1621408508656</created>
@@ -532,7 +607,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625569592035</updated>
     </task>
-    <option name="localTasksCounter" value="129" />
+    <task id="LOCAL-00129" summary="LeetCode刷题笔记">
+      <created>1625622135861</created>
+      <option name="number" value="00129" />
+      <option name="presentableId" value="LOCAL-00129" />
+      <option name="project" value="LOCAL" />
+      <updated>1625622135861</updated>
+    </task>
+    <option name="localTasksCounter" value="130" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
