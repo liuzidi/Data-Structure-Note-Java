@@ -6,4 +6,5 @@ package LeetCode;
  */
 public class topHot100_394 {
 
+
 }
