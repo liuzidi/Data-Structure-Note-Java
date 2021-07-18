@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8d33956-5387-4a65-b230-ea007695e92f" name="Default Changelist" comment="LeetCode刷题笔记">
-      <change afterPath="$PROJECT_DIR$/src/LeetCode/topHot100_399.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LeetCode/topHot100_394.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LeetCode/topHot100_394.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../数据结构与算法-LeetCode刷题.md" beforeDir="false" afterPath="$PROJECT_DIR$/../数据结构与算法-LeetCode刷题.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,14 +73,7 @@
       <recent name="TestFiles" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.topHot100_300.test1">
-    <configuration name="test0622" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="test0622" />
-      <module name="TestFiles" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.topHot100_394.test1">
     <configuration name="topHot100_221" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="LeetCode.topHot100_221" />
       <module name="Data Structure Code" />
@@ -93,13 +87,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -152,13 +148,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="topHot100_394.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Data Structure Code" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="LeetCode.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="LeetCode" />
+      <option name="MAIN_CLASS_NAME" value="LeetCode.topHot100_394" />
+      <option name="METHOD_NAME" value="test1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.topHot100_394.test1" />
         <item itemvalue="JUnit.topHot100_300.test1" />
         <item itemvalue="JUnit.ReflectTest.test1" />
         <item itemvalue="JUnit.topHot100_279.test1" />
         <item itemvalue="Application.topHot100_221" />
-        <item itemvalue="Application.test0622" />
       </list>
     </recent_temporary>
   </component>
@@ -190,14 +202,8 @@
       <workItem from="1625709853817" duration="2827000" />
       <workItem from="1625916572909" duration="3894000" />
       <workItem from="1625984469615" duration="13000" />
-      <workItem from="1626270921079" duration="1551000" />
-    </task>
-    <task id="LOCAL-00084" summary="commit">
-      <created>1621583346984</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1621583346985</updated>
+      <workItem from="1626270921079" duration="1568000" />
+      <workItem from="1626571909331" duration="6859000" />
     </task>
     <task id="LOCAL-00085" summary="commit">
       <created>1621660731659</created>
@@ -535,7 +541,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625984431033</updated>
     </task>
-    <option name="localTasksCounter" value="133" />
+    <task id="LOCAL-00133" summary="LeetCode刷题笔记">
+      <created>1626338814004</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1626338814005</updated>
+    </task>
+    <option name="localTasksCounter" value="134" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
