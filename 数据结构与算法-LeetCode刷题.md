@@ -8,7 +8,7 @@
 
 
 
-### 二叉树
+### 一. 二叉树
 
 #### 1.重建二叉树
 
@@ -802,7 +802,7 @@ class Solution {
 
 
 
-### 尾递归
+### 二. 尾递归
 
 #### 1.青蛙跳台阶
 
@@ -859,7 +859,7 @@ class Solution {
 
 
 
-### 二分查找
+### 三. 二分查找
 
 例题：返回旋转有序数组的最小值
 
@@ -890,7 +890,7 @@ class Solution {
 
 
 
-### 深度优先（DFS）
+### 四. 深度优先（DFS）
 
 #### 1.迷宫类：
 
@@ -1287,7 +1287,6 @@ class Solution {
         dfs(candidates, target, combine, idx + 1);
     }
 }
-
 ```
 
 ##### 2.3 全排列
@@ -1432,7 +1431,7 @@ class Solution {
 
 [电话号码的组合](#combine2)
 
-### 广度优先（BFS）
+### 五. 广度优先（BFS）
 
 例题：机器人的运动范围
 
@@ -1510,7 +1509,7 @@ class Solution {
 
 
 
-### 数学
+### 六. 数学
 
 #### 1.快速幂
 
@@ -1984,7 +1983,7 @@ class Solution {
 
 
 
-### 链表
+### 七. 链表
 
 #### 1.删除节点
 
@@ -2655,7 +2654,7 @@ class Solution {
 
 
 
-### 双指针
+### 八. 双指针
 
 快慢指针：1快1慢
 
@@ -2883,7 +2882,7 @@ class Solution {
 
 [相交链表](#intersec)
 
-### 栈
+### 九. 栈
 
 #### 1.最小栈
 
@@ -2977,9 +2976,60 @@ class Solution {
 }
 ```
 
+#### 3.字符串解码
+
+题目：
+
+```shell
+给定一个经过编码的字符串，返回它解码后的字符串。
+
+编码规则为: k[encoded_string]，表示其中方括号内部的 encoded_string 正好重复 k 次。注意 k 保证为正整数。
+
+你可以认为输入字符串总是有效的；输入字符串中没有额外的空格，且输入的方括号总是符合格式要求的。
+
+此外，你可以认为原始数据不包含数字，所有的数字只表示重复的次数 k ，例如不会出现像 3a 或 2[4] 的输入
+```
+
+题解：（双栈辅助法）
+
+```java
+class Solution {    
+    public String decodeString(String s) {
+        char[] charArr = s.toCharArray();
+        StringBuilder res = new StringBuilder();
+        Stack<Integer> curNumStack = new Stack<>();
+        Stack<String> curStringStack =new Stack<>();
+        int curNum = 0;
+        for (char c : charArr) {
+            if (Character.isDigit(c)) {//若是数字
+                curNum = curNum * 10 + c - '0';
+            } else if (c == '[') {//若是 [
+                curNumStack.push(curNum);
+                curStringStack.push(res.toString());
+                curNum = 0;
+                res= new StringBuilder();
+            } else if (Character.isLetter(c)) {//若是字母
+                res.append(c);
+            } else {//若是 ]
+                StringBuilder temp = new StringBuilder();
+                if (!curNumStack.isEmpty()) {
+                    int multi = curNumStack.pop();
+                    for (int j = 0; j < multi; j++) {
+                        temp.append(res);
+                    }
+                    String curString = curStringStack.pop();
+                    res = new StringBuilder(curString + temp.toString());
+                }
+            }
+        }
+        return res.toString();
+    }
+}
+```
 
 
-### 队列
+
+### 十. 队列
 
 滑动窗口的最大值
 
@@ -3092,7 +3142,7 @@ class Solution {
 
 [从上往下打印二叉树][#qqq]
 
-### 矩阵
+### 十一. 矩阵
 
 #### 1.顺时针打印矩阵
 
@@ -3262,7 +3312,7 @@ class Solution {
 
 
 
-### 数组
+### 十二. 数组
 
 #### 1.寻找超过一半的数字
 
@@ -3594,7 +3644,7 @@ class Solution {
 
 
 
-### TOP k 问题
+### 十三. TOP k 问题
 
 题目：（不分顺序）
 
@@ -3904,7 +3954,7 @@ class Solution {
 
 [打印最大n位数](#topninarr)
 
-### 动态规划
+### 十四. 动态规划
 
 #### 1.连续子数组的最大和
 
@@ -4472,7 +4522,7 @@ class Solution {
 
 
 
-### 字符串
+### 十五. 字符串
 
 #### 1.第一个只出现一次的字符
 
@@ -4979,7 +5029,7 @@ public class Solution {
 
 
 
-### 位运算
+### 十六. 位运算
 
 #### 1.比特位计数
 
@@ -5025,7 +5075,7 @@ class Solution {
 
 
 
-### 图
+### 十七. 图
 
 #### 1.课程表
 
@@ -5142,6 +5192,129 @@ class Solution {
             }
         }
         return visited == numCourses;//poll一定次数
+    }
+}
+```
+
+### 十八. 并查集
+
+涉及元素的分组管理问题都可以考虑采用并查集进行维护
+
+#### 1.除法求值
+
+题目：
+
+```shell
+给你一个变量对数组 equations 和一个实数值数组 values 作为已知条件，其中 equations[i] = [Ai, Bi] 和 values[i] 共同表示等式 Ai / Bi = values[i] 。每个 Ai 或 Bi 是一个表示单个变量的字符串。
+
+另有一些以数组 queries 表示的问题，其中 queries[j] = [Cj, Dj] 表示第 j 个问题，请你根据已知条件找出 Cj / Dj = ? 的结果作为答案。
+
+返回 所有问题的答案 。如果存在某个无法确定的答案，则用 -1.0 替代这个答案。如果问题中出现了给定的已知条件中没有出现的字符串，也需要用 -1.0 替代这个答案。
+
+注意：输入总是有效的。你可以假设除法运算中不会出现除数为 0 的情况，且不存在任何矛盾的结果
+```
+
+题解：
+
+```java
+class Solution {
+    public double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
+        int equationsSize = equations.size();
+
+        UnionFind unionFind = new UnionFind(2 * equationsSize);
+        // 第 1 步：预处理，将变量的值与 id 进行映射，使得并查集的底层使用数组实现，方便编码
+        Map<String, Integer> hashMap = new HashMap<>(2 * equationsSize);
+        int id = 0;
+        for (int i = 0; i < equationsSize; i++) {
+            List<String> equation = equations.get(i);
+            String var1 = equation.get(0);
+            String var2 = equation.get(1);
+
+            if (!hashMap.containsKey(var1)) {
+                hashMap.put(var1, id);
+                id++;
+            }
+            if (!hashMap.containsKey(var2)) {
+                hashMap.put(var2, id);
+                id++;
+            }
+            unionFind.union(hashMap.get(var1), hashMap.get(var2), values[i]);
+        }
+
+        // 第 2 步：做查询
+        int queriesSize = queries.size();
+        double[] res = new double[queriesSize];
+        for (int i = 0; i < queriesSize; i++) {
+            String var1 = queries.get(i).get(0);
+            String var2 = queries.get(i).get(1);
+
+            Integer id1 = hashMap.get(var1);
+            Integer id2 = hashMap.get(var2);
+
+            if (id1 == null || id2 == null) {
+                res[i] = -1.0d;
+            } else {
+                res[i] = unionFind.isConnected(id1, id2);
+            }
+        }
+        return res;
+    }
+
+    private class UnionFind {
+
+        private int[] parent;
+
+        /**
+         * 指向的父结点的权值
+         */
+        private double[] weight;
+
+
+        public UnionFind(int n) {
+            this.parent = new int[n];
+            this.weight = new double[n];
+            for (int i = 0; i < n; i++) {
+                parent[i] = i;
+                weight[i] = 1.0d;
+            }
+        }
+
+        public void union(int x, int y, double value) {
+            int rootX = find(x);
+            int rootY = find(y);
+            if (rootX == rootY) {
+                return;
+            }
+
+            parent[rootX] = rootY;
+          	// 关系式的推导请见「参考代码」下方的示意图
+            weight[rootX] = weight[y] * value / weight[x];
+        }
+
+        /**
+         * 路径压缩
+         *
+         * @param x
+         * @return 根结点的 id
+         */
+        public int find(int x) {
+            if (x != parent[x]) {
+                int origin = parent[x];
+                parent[x] = find(parent[x]);
+                weight[x] *= weight[origin];
+            }
+            return parent[x];
+        }
+
+        public double isConnected(int x, int y) {
+            int rootX = find(x);
+            int rootY = find(y);
+            if (rootX == rootY) {
+                return weight[x] / weight[y];
+            } else {
+                return -1.0d;
+            }
+        }
     }
 }
 ```

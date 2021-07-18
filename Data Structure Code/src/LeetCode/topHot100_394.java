@@ -47,4 +47,30 @@ public class topHot100_394 {
         }
         return res.toString();
     }
+
+//    public String decodeString(String s){
+//        char[] cArr = s.toCharArray();
+//        StringBuilder res = new StringBuilder();
+//
+//        return res.toString();
+//    }
+//    public String DFS(int i, char[] cArr){//从i开始的索引，返回第一个[]中的内容
+//        StringBuilder res = new StringBuilder();
+//        int multi = 0;
+//        while(i < cArr.length){
+//            char c = cArr[i];
+//            if(Character.isDigit(c)){
+//                multi = multi * 10 + c - '0';
+//            }else if(Character.isLetter(c)){
+//                res.append(c);
+//            }else if(c == '['){
+//                String temp = DFS(i + 1, cArr);
+//            }else{
+//                return
+//            }
+//            i++;
+//        }
+//
+//        return ;
+//    }
 }

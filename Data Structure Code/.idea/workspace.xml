@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8d33956-5387-4a65-b230-ea007695e92f" name="Default Changelist" comment="LeetCode刷题笔记">
+      <change afterPath="$PROJECT_DIR$/src/LeetCode/topHot100_416.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tips.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LeetCode/topHot100_394.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LeetCode/topHot100_394.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../数据结构与算法-LeetCode刷题.md" beforeDir="false" afterPath="$PROJECT_DIR$/../数据结构与算法-LeetCode刷题.md" afterDir="false" />
@@ -49,6 +51,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
@@ -203,14 +206,7 @@
       <workItem from="1625916572909" duration="3894000" />
       <workItem from="1625984469615" duration="13000" />
       <workItem from="1626270921079" duration="1568000" />
-      <workItem from="1626571909331" duration="6859000" />
-    </task>
-    <task id="LOCAL-00085" summary="commit">
-      <created>1621660731659</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1621660731659</updated>
+      <workItem from="1626571909331" duration="13752000" />
     </task>
     <task id="LOCAL-00086" summary="commit">
       <created>1621675712045</created>
@@ -548,7 +544,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626338814005</updated>
     </task>
-    <option name="localTasksCounter" value="134" />
+    <task id="LOCAL-00134" summary="LeetCode刷题笔记">
+      <created>1626578839381</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1626578839382</updated>
+    </task>
+    <option name="localTasksCounter" value="135" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -567,6 +570,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="commit" />
     <MESSAGE value="LeetCode刷题" />
     <MESSAGE value="LeetCode刷题笔记" />
