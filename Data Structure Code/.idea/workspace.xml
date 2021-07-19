@@ -32,9 +32,6 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedIndex" value="1" />
-  </component>
   <component name="ProjectId" id="1qqN1nZkx0Lsc4rPoqeNkcQ4jLg" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -188,20 +185,7 @@
       <workItem from="1625984469615" duration="13000" />
       <workItem from="1626270921079" duration="1568000" />
       <workItem from="1626571909331" duration="13768000" />
-    </task>
-    <task id="LOCAL-00087" summary="commit">
-      <created>1621756879094</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1621756879094</updated>
-    </task>
-    <task id="LOCAL-00088" summary="commit">
-      <created>1621769830239</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1621769830239</updated>
+      <workItem from="1626702402464" duration="213000" />
     </task>
     <task id="LOCAL-00089" summary="commit">
       <created>1621769859918</created>
@@ -532,7 +516,21 @@
       <option name="project" value="LOCAL" />
       <updated>1626618065293</updated>
     </task>
-    <option name="localTasksCounter" value="136" />
+    <task id="LOCAL-00136" summary="LeetCode刷题笔记">
+      <created>1626702407379</created>
+      <option name="number" value="00136" />
+      <option name="presentableId" value="LOCAL-00136" />
+      <option name="project" value="LOCAL" />
+      <updated>1626702407380</updated>
+    </task>
+    <task id="LOCAL-00137" summary="LeetCode刷题笔记">
+      <created>1626702569111</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1626702569111</updated>
+    </task>
+    <option name="localTasksCounter" value="138" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
