@@ -3675,6 +3675,45 @@ class Solution {
 }
 ```
 
+8.目标和
+
+题目：
+
+```shell
+给你一个整数数组 nums 和一个整数 target 。
+向数组中的每个整数前添加 '+' 或 '-' ，然后串联起所有整数，可以构造一个 表达式 ：
+例如，nums = [2, 1] ，可以在 2 之前添加 '+' ，在 1 之前添加 '-' ，然后串联起来得到表达式 "+2-1" 。
+返回可以通过上述方法构造的、运算结果等于 target 的不同 表达式 的数目。
+```
+
+题解：深度优先搜索
+
+```java
+class Solution {
+    private int res = 0;
+    public int findTargetSumWays(int[] nums, int target) {
+        DFS(nums,target,0,0);
+        return res;
+    }
+    private void DFS(int[] nums, int target, int index, int count){
+        if(index == nums.length) {
+            if(target == count){
+                res++;
+            }
+            return;
+        }
+        DFS(nums, target, index + 1, count + nums[index]);
+        DFS(nums, target, index + 1, count - nums[index]);
+    }
+}
+```
+
+题解2：动态规划：
+
+```
+
+```
+
 
 
 ### 十三. TOP k 问题
@@ -5060,6 +5099,58 @@ public class Solution {
 }
 ```
 
+#### 10.找到字符串所有异位词
+
+题目：
+
+```
+给定两个字符串 s 和 p，找到 s 中所有 p 的 异位词 的子串，返回这些子串的起始索引。不考虑答案输出的顺序。
+异位词 指字母相同，但排列不同的字符串。s 和 p 仅包含小写字母
+```
+
+题解：1滑动窗口 2用数组代替哈希Map（仅包含小写字母的情况）
+
+```java
+class Solution {
+    public List<Integer> findAnagrams(String s, String p) {
+        List<Integer> res = new ArrayList<>();
+        if(s.length() < p.length()) return res;
+        char[] sArr = s.toCharArray();
+        int[] map = new int[26];
+        int[] temp = new int[26];
+        for(char c : p.toCharArray()){
+            map[c - 'a']++;
+        }
+        int start = 0;
+        int end = p.length() - 1;
+        for(int i = start; i <= end; i++){
+            temp[sArr[i] - 'a']++;
+        }
+        if(isEqual(map,temp)){
+            res.add(start);
+        }   
+        while(end < sArr.length - 1){           
+            temp[sArr[start] - 'a']--;
+            start++;
+            end++;
+            temp[sArr[end] - 'a']++;
+            if(isEqual(map, temp)){
+                res.add(start);
+            }
+        }
+        return res;
+    }
+    private boolean isEqual(int[] a, int[] b){
+        for(int i = 0; i < 26; i++){
+            if(a[i] != b[i]){
+                return false;
+            }
+        }
+        return true;
+    }
+}
+```
+
 
 
 ### 十六. 位运算
@@ -5080,7 +5171,7 @@ class Solution {
         int[] res = new int[n + 1];
         for(int i = 0; i <= n; i++){
             int temp = i;
-            for(    int j = 0; j < 32; j++){
+            for(int j = 0; j < 32; j++){
                 if((temp & 1) == 1){
                     res[i]++;
                 }
