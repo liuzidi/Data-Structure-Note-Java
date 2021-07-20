@@ -800,6 +800,39 @@ class Solution {
 }
 ```
 
+#### 13.路径总和II
+
+题目：
+
+```shell
+给定一个二叉树的根节点 root ，和一个整数 targetSum ，求该二叉树里节点值之和等于 targetSum 的 路径 的数目。
+路径 不需要从根节点开始，也不需要在叶子节点结束，但是路径方向必须是向下的（只能从父节点到子节点）。
+```
+
+![img](数据结构与算法-LeetCode刷题.assets/pathsum3-1-tree.jpg)
+
+题解：
+
+```java
+class Solution {
+    private int res = 0;
+    public int pathSum(TreeNode root, int targetSum) {
+        if(root == null) return 0;
+        DFS(root, targetSum);
+        pathSum(root.left, targetSum);
+        pathSum(root.right,targetSum);
+        return res;
+    }
+    private void DFS(TreeNode root, int target){
+        if(root == null) return;
+        target -= root.val;
+        if(target == 0) res++;
+        DFS(root.left, target);
+        DFS(root.right, target);
+    }
+}
+```
+
 
 
 ### 二. 尾递归
