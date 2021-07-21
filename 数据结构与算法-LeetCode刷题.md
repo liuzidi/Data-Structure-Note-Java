@@ -3772,13 +3772,63 @@ public int findTargetSumWays(int[] nums, int target) {
 题目：
 
 ```
-
+给定一个整数数组和一个整数 k，你需要找到该数组中和为 k 的连续的子数组的个数。
 ```
 
-题解：
+题解：前缀和+哈希优化
 
+```java
+public class topHot100_560 {
+    public int subarraySum(int[] nums, int k) {
+        Map<Integer, Integer> map = new HashMap<>();
+        int sum = 0;
+        int res = 0;
+        map.put(0,1);//记录从第一个元素开始满足的解，因为是不计算第一个元素开始的
+        for(int num : nums){
+            sum += num;
+            if(map.containsKey(sum - k)){
+                res += map.get(sum - k);
+            }
+            map.put(sum, map.getOrDefault(sum, 0) + 1);
+        }
+        return res;
+    }
+}
 ```
 
+#### 10.最短无序连续子数组
+
+题目：
+
+```shell
+给你一个整数数组 nums ，你需要找出一个 连续子数组 ，如果对这个子数组进行升序排序，那么整个数组都会变为升序排序。
+请你找出符合题意的 最短子数组，并输出它的长度。
+```
+
+题解：双指针，寻找到区域的最小（大）值所在位置
+
+```java
+class Solution {
+    public int findUnsortedSubarray(int[] nums) {
+        int minNum = nums[nums.length - 1];
+        int left = nums.length;
+        for (int i = nums.length - 1; i >= 0; i--) {
+            if(nums[i] > minNum){
+                left = i;
+            }
+            minNum = Math.min(minNum, nums[i]);
+        }
+        int maxNum = nums[0];
+        int right = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if(nums[i] < maxNum){
+                right = i;
+            }
+            maxNum = Math.max(maxNum, nums[i]);
+        }
+        return Math.max(right - left + 1, 0);
+    }
+}
 ```
 
 
