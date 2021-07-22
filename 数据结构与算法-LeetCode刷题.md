@@ -3089,6 +3089,33 @@ class Solution {
 }
 ```
 
+#### 4.每日温度
+
+题目：
+
+```shell
+请根据每日 气温 列表 temperatures ，请计算在每一天需要等几天才会有更高的温度。如果气温在这之后都不会升高，请在该位置用 0 来代替。
+```
+
+题解：单调栈
+
+```java
+   public int[] dailyTemperatures(int[] temperatures) {
+        int[] res = new int[temperatures.length];
+        Stack<Integer> queue = new Stack<>();
+        for(int i = 0; i < temperatures.length; i++){
+            if (!queue.isEmpty()) {
+                while (!queue.isEmpty() && temperatures[i] > temperatures[queue.peek()]) {
+                    int index = queue.pop();
+                    res[index] = i - index;//即为天数
+                }
+            }
+            queue.push(i);
+        }
+        return res;
+    }
+```
+
 
 
 ### 十. 队列
@@ -5264,6 +5291,34 @@ class Solution {
             }
         }
         return true;
+    }
+}
+```
+
+#### 11.回文子串
+
+题目：
+
+```shell
+给定一个字符串，你的任务是计算这个字符串中有多少个回文子串。
+具有不同开始位置或结束位置的子串，即使是由相同的字符组成，也会被视作不同的子串。
+```
+
+题解：中心扩展法
+
+```java
+class Solution {
+    public int countSubstrings(String s) {
+        int n = s.length(), ans = 0;
+        for (int i = 0; i < 2 * n - 1; ++i) {
+            int l = i / 2, r = i / 2 + i % 2;
+            while (l >= 0 && r < n && s.charAt(l) == s.charAt(r)) {
+                --l;
+                ++r;
+                ++ans;
+            }
+        }
+        return ans;
     }
 }
 ```
