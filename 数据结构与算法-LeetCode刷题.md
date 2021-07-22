@@ -923,6 +923,8 @@ class Solution {
 
 ### 三. 二分查找
 
+应用场合：两个有序数组合并的操作，一般要优先考虑二分查找法
+
 例题：返回旋转有序数组的最小值
 
 限制条件：只能在有序的数组中（或半有序）进行，且如果数组存在重复的数字，返回的结果不确定。
@@ -948,6 +950,55 @@ class Solution {
         }
         return -1;
     }
+```
+
+#### 1.寻找两个正序数组的中位数
+
+题目：
+
+```shell
+给定两个大小分别为 m 和 n 的正序（从小到大）数组 nums1 和 nums2。请你找出并返回这两个正序数组的 中位数 。
+```
+
+题解：二分查找+尾递归
+
+```java
+class Solution {
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        int sum = nums1.length + nums2.length;
+        int index1 = (sum + 1)/2;
+        int index2 = (sum + 2)/2;
+        if(index1 == index2){
+            return getKth(nums1,0,nums2,0,index1);
+        }else return (double)(getKth(nums1,0,nums2,0,index1) +
+                getKth(nums1,0,nums2,0,index2)) /2;
+    }
+    private int getKth(int[] nums1,int start1, int[] nums2, int start2, int k){
+        if(start1 >= nums1.length){
+            return nums2[start2 + k - 1];
+        }
+        if(start2 >= nums2.length){
+            return nums1[start1 + k - 1];
+        }
+        if(k == 1){
+            return Math.min(nums1[start1], nums2[start2]);
+        }
+        int halfK = k / 2;
+        if(halfK + start1 > nums1.length){
+            return getKth(nums1, start1,nums2, start2 + halfK, k -halfK);
+        }
+        if(halfK + start2 > nums2.length){
+            return getKth(nums1, start1 + halfK, nums2,start2, k -halfK);
+        }
+        int value1 = nums1[halfK + start1 - 1];
+        int value2 = nums2[halfK + start2 - 1];
+        if(value1 < value2){
+            return getKth(nums1, start1 + halfK, nums2,start2, k -halfK);
+        }else{
+            return getKth(nums1, start1,nums2, start2 + halfK, k -halfK);
+        }
+    }
+}
 ```
 
 
