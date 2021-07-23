@@ -11,7 +11,7 @@ public class TreeNode {
     TreeNode(int x){
         val = x;
     }
-    TreeNode(){}
+    public TreeNode(){}
     TreeNode(int x, TreeNode l, TreeNode r){
         val = x;
         this.left = l;
