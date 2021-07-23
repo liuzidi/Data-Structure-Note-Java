@@ -329,6 +329,10 @@ P操作放在后操作代码之前，V操作放在前操作代码之后，
 
 30.一个DAO对应着一个sql语句，一个事务业务对应多条DAO即多个sql语句
 
+31.Comparator和Comparable接口的区别
+Comparator 类似于一个现有的比较器，是一种函数型接口，现创建现用的工具，如sort方法可以放入一个新重写的比较器。
+Comparable是一个类可以继承的接口，代表这个类可以用来比较，比如包装类Integer，Double等都继承热这个接口，意味着直接调用sort方法是，就会调用内部的Comparable重写的compareTo方法
 
+32.跳出循环渐进的语句容易忘写，如cur = cur.next等，全局变量和局部变量一般没有考虑周全，比如循环过后置0等，重置min=Integer.MAX_VALUE
 
 

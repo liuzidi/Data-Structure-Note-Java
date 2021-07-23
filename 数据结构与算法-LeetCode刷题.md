@@ -2765,6 +2765,93 @@ class Solution {
 }
 ```
 
+11.合并k个链表
+
+题目：
+
+```shell
+给你一个链表数组，每个链表都已经按升序排列。
+请你将所有链表合并到一个升序链表中，返回合并后的链表。
+```
+
+题解：优先队列
+
+```java
+
+class Solution {
+    public ListNode mergeKLists(ListNode[] lists) {
+        class InnerClass implements Comparable<InnerClass>{
+            ListNode node;
+            InnerClass(){}
+            InnerClass(ListNode node){
+                this.node = node;
+            }
+            @Override
+            public int compareTo(InnerClass o) {
+                return this.node.val - o.node.val;
+            }
+        }
+        PriorityQueue<InnerClass> queue = new PriorityQueue<>();
+        for(ListNode node : lists){
+            if(node != null)
+            queue.offer(new InnerClass(node));
+        }
+        ListNode resHead = new ListNode();
+        ListNode cur = resHead;
+        while(!queue.isEmpty()){
+            ListNode minNode = queue.poll().node;
+            cur.next = minNode;
+            cur = cur.next;
+            if(minNode.next != null){
+                queue.offer(new InnerClass(minNode.next));
+            }
+        }
+        return resHead.next;
+    }
+}
+```
+
+题解2：归并算法（两两链表合并，时间复杂度O（k logk n）
+
+```java
+
+class Solution {
+    public ListNode mergeKLists(ListNode[] lists){
+        ListNode res = mergeSort(lists, 0 , lists.length - 1);
+        return res;
+    }
+    public ListNode mergeSort(ListNode[] lists, int l, int r){
+        if(l > r) return null;
+        if(l == r){
+            return lists[l];
+        }
+        int mid = (l + r) / 2;
+        ListNode leftNode = mergeSort(lists,l,mid);
+        ListNode rightNode = mergeSort(lists,mid + 1,r);
+        return mergeTwoListNode(leftNode,rightNode);
+
+    }
+    private ListNode mergeTwoListNode(ListNode l1, ListNode l2){
+        if (l1 == null) return l2;
+        if (l2 == null) return l1;
+        ListNode head = new ListNode();
+        ListNode cur = head;
+        while(l1 != null && l2 != null){
+            if(l1.val < l2.val){
+                cur.next = l1;
+                l1 = l1.next;
+            }else{
+                cur.next = l2;
+                l2 = l2.next;
+            }
+            cur = cur.next;
+        }
+        cur.next = l1 == null ? l2 : l1;
+        return head.next;
+    }
+}
+```
+
 
 
 ### 八. 双指针
@@ -5370,6 +5457,51 @@ class Solution {
             }
         }
         return ans;
+    }
+}
+```
+
+12.正则表达式匹配
+
+题目
+
+```shell
+给你一个字符串 s 和一个字符规律 p，请你来实现一个支持 '.' 和 '*' 的正则表达式匹配。
+
+'.' 匹配任意单个字符
+'*' 匹配零个或多个前面的那一个元素
+所谓匹配，是要涵盖 整个 字符串 s的，而不是部分字符串。
+```
+
+题解：
+
+```java
+class Solution {
+     public boolean isMatch(String s, String p) {
+        if(s == null || p == null) return false;
+        boolean[][] dp = new boolean[s.length() + 1][p.length() + 1];
+        char[] cs = s.toCharArray();
+        char[] cp = p.toCharArray();
+        dp[0][0] = true;
+        for(int j = 1; j <= p.length(); j++){
+            if(cp[j - 1] == '*')
+            dp[0][j] = dp[0][j - 2];
+        }
+        //dp[0][j] 和 dp[i][0]已经初始化完成
+        for(int i = 1; i <= s.length(); i++){
+            for (int j = 1; j <= p.length(); j++) {
+                if(cs[i - 1] == cp[j - 1] || cp[j - 1] == '.'){
+                    dp[i][j] = dp[i - 1][j - 1];
+                }else if(cp[j - 1] == '*'){
+                    if(cs[i - 1] == cp[j - 2] || cp[j - 2] == '.')
+                        dp[i][j] = dp[i][j - 2] || dp[i - 1][j - 2] || dp[i - 1][j];
+                    else
+                        dp[i][j] = dp[i][j - 2];
+                }
+            }
+
+        }
+        return dp[s.length()][p.length()];
     }
 }
 ```
