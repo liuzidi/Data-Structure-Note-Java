@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8d33956-5387-4a65-b230-ea007695e92f" name="Default Changelist" comment="LeetCode刷题笔记">
-      <change afterPath="$PROJECT_DIR$/src/LeetCode/topHot100_239.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/LeetCode/topHot100_42.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tips.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../tips.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../数据结构与算法-LeetCode刷题.md" beforeDir="false" afterPath="$PROJECT_DIR$/../数据结构与算法-LeetCode刷题.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LeetCode/topHot100_239.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LeetCode/topHot100_239.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,14 +201,7 @@
       <workItem from="1626270921079" duration="1568000" />
       <workItem from="1626571909331" duration="13768000" />
       <workItem from="1626702402464" duration="213000" />
-      <workItem from="1627025683267" duration="18087000" />
-    </task>
-    <task id="LOCAL-00090" summary="commit">
-      <created>1621778350354</created>
-      <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
-      <option name="project" value="LOCAL" />
-      <updated>1621778350354</updated>
+      <workItem from="1627025683267" duration="25485000" />
     </task>
     <task id="LOCAL-00091" summary="commit">
       <created>1621843014005</created>
@@ -547,7 +539,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627034347106</updated>
     </task>
-    <option name="localTasksCounter" value="139" />
+    <task id="LOCAL-00139" summary="LeetCode刷题笔记">
+      <created>1627098908551</created>
+      <option name="number" value="00139" />
+      <option name="presentableId" value="LOCAL-00139" />
+      <option name="project" value="LOCAL" />
+      <updated>1627098908551</updated>
+    </task>
+    <option name="localTasksCounter" value="140" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

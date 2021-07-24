@@ -29,18 +29,17 @@ public class topHot100_239 {
         LinkedList<Integer> queue = new LinkedList<>();
         int[] res = new int[nums.length - k + 1];
         for (int i = 0; i < nums.length; i++) {
-            if (queue.isEmpty()) {
-                queue.addLast(i);
-            }else{
-                if(queue.size() == k || i - k == queue.peekFirst()){
+            int left = i - k + 1;
+            if (!queue.isEmpty()) {
+                if (queue.size() == k || i - k == queue.peekFirst()) {
                     queue.removeFirst();
                 }
-                while(!queue.isEmpty() && nums[i] > nums[queue.peekLast()]){
+                while (!queue.isEmpty() && nums[i] > nums[queue.peekLast()]) {
                     queue.removeLast();
                 }
-                queue.addLast(i);
             }
-            if(i >= k - 1){
+            queue.addLast(i);
+            if(left >= 0){
                 res[i - k + 1] = nums[queue.peekFirst()];
             }
         }
