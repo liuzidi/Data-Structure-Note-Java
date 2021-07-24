@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8d33956-5387-4a65-b230-ea007695e92f" name="Default Changelist" comment="LeetCode刷题笔记">
-      <change afterPath="$PROJECT_DIR$/src/LeetCode/topHot100_32.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/TestFile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/LeetCode/topHot100_239.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data Structure Code.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Data Structure Code.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LeetCode/ListNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LeetCode/ListNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LeetCode/TreeNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LeetCode/TreeNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tree/TreeNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tree/TreeNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tips.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../tips.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../数据结构与算法-LeetCode刷题.md" beforeDir="false" afterPath="$PROJECT_DIR$/../数据结构与算法-LeetCode刷题.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -206,14 +202,7 @@
       <workItem from="1626270921079" duration="1568000" />
       <workItem from="1626571909331" duration="13768000" />
       <workItem from="1626702402464" duration="213000" />
-      <workItem from="1627025683267" duration="7397000" />
-    </task>
-    <task id="LOCAL-00089" summary="commit">
-      <created>1621769859918</created>
-      <option name="number" value="00089" />
-      <option name="presentableId" value="LOCAL-00089" />
-      <option name="project" value="LOCAL" />
-      <updated>1621769859918</updated>
+      <workItem from="1627025683267" duration="18087000" />
     </task>
     <task id="LOCAL-00090" summary="commit">
       <created>1621778350354</created>
@@ -551,7 +540,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626702569111</updated>
     </task>
-    <option name="localTasksCounter" value="138" />
+    <task id="LOCAL-00138" summary="LeetCode刷题笔记">
+      <created>1627034347106</created>
+      <option name="number" value="00138" />
+      <option name="presentableId" value="LOCAL-00138" />
+      <option name="project" value="LOCAL" />
+      <updated>1627034347106</updated>
+    </task>
+    <option name="localTasksCounter" value="139" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
