@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8d33956-5387-4a65-b230-ea007695e92f" name="Default Changelist" comment="LeetCode刷题笔记">
-      <change afterPath="$PROJECT_DIR$/src/LeetCode/topHot100_42.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LeetCode/topHot100_239.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LeetCode/topHot100_239.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,17 +79,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -201,14 +188,8 @@
       <workItem from="1626270921079" duration="1568000" />
       <workItem from="1626571909331" duration="13768000" />
       <workItem from="1626702402464" duration="213000" />
-      <workItem from="1627025683267" duration="25485000" />
-    </task>
-    <task id="LOCAL-00091" summary="commit">
-      <created>1621843014005</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
-      <option name="project" value="LOCAL" />
-      <updated>1621843014005</updated>
+      <workItem from="1627025683267" duration="25720000" />
+      <workItem from="1627181653389" duration="530000" />
     </task>
     <task id="LOCAL-00092" summary="commit">
       <created>1621848824676</created>
@@ -546,7 +527,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627098908551</updated>
     </task>
-    <option name="localTasksCounter" value="140" />
+    <task id="LOCAL-00140" summary="LeetCode刷题笔记">
+      <created>1627129570890</created>
+      <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
+      <option name="project" value="LOCAL" />
+      <updated>1627129570891</updated>
+    </task>
+    <option name="localTasksCounter" value="141" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
