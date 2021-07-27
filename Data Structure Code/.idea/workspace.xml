@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8d33956-5387-4a65-b230-ea007695e92f" name="Default Changelist" comment="LeetCode刷题笔记" />
+    <list default="true" id="a8d33956-5387-4a65-b230-ea007695e92f" name="Default Changelist" comment="LeetCode刷题笔记">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -189,20 +191,8 @@
       <workItem from="1627025683267" duration="25720000" />
       <workItem from="1627181653389" duration="530000" />
       <workItem from="1627209704151" duration="30000" />
-    </task>
-    <task id="LOCAL-00093" summary="commit">
-      <created>1621860872330</created>
-      <option name="number" value="00093" />
-      <option name="presentableId" value="LOCAL-00093" />
-      <option name="project" value="LOCAL" />
-      <updated>1621860872330</updated>
-    </task>
-    <task id="LOCAL-00094" summary="commit">
-      <created>1621922652747</created>
-      <option name="number" value="00094" />
-      <option name="presentableId" value="LOCAL-00094" />
-      <option name="project" value="LOCAL" />
-      <updated>1621922652747</updated>
+      <workItem from="1627297740254" duration="34000" />
+      <workItem from="1627395003035" duration="596000" />
     </task>
     <task id="LOCAL-00095" summary="commit">
       <created>1622289421460</created>
@@ -533,7 +523,21 @@
       <option name="project" value="LOCAL" />
       <updated>1627209706587</updated>
     </task>
-    <option name="localTasksCounter" value="142" />
+    <task id="LOCAL-00142" summary="LeetCode刷题笔记">
+      <created>1627297747982</created>
+      <option name="number" value="00142" />
+      <option name="presentableId" value="LOCAL-00142" />
+      <option name="project" value="LOCAL" />
+      <updated>1627297747982</updated>
+    </task>
+    <task id="LOCAL-00143" summary="commit">
+      <created>1627297760235</created>
+      <option name="number" value="00143" />
+      <option name="presentableId" value="LOCAL-00143" />
+      <option name="project" value="LOCAL" />
+      <updated>1627297760235</updated>
+    </task>
+    <option name="localTasksCounter" value="144" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -553,10 +557,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="commit" />
     <MESSAGE value="LeetCode刷题" />
     <MESSAGE value="LeetCode刷题笔记" />
-    <option name="LAST_COMMIT_MESSAGE" value="LeetCode刷题笔记" />
+    <MESSAGE value="commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
