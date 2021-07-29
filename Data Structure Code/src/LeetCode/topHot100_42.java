@@ -5,6 +5,7 @@ package LeetCode;
  * @Description:
  */
 public class topHot100_42 {
+
     public int trap(int[] height) {
         int[] dp = new int[height.length];
         for(int i = 1; i < height.length; i++){
@@ -24,4 +25,5 @@ public class topHot100_42 {
         }
         return dp[height.length - 1];
     }
+
 }

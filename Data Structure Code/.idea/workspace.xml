@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a8d33956-5387-4a65-b230-ea007695e92f" name="Default Changelist" comment="LeetCode刷题笔记">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LeetCode/topHot100_42.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LeetCode/topHot100_42.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,6 +194,7 @@
       <workItem from="1627209704151" duration="30000" />
       <workItem from="1627297740254" duration="34000" />
       <workItem from="1627395003035" duration="596000" />
+      <workItem from="1627466166197" duration="1074000" />
     </task>
     <task id="LOCAL-00095" summary="commit">
       <created>1622289421460</created>
