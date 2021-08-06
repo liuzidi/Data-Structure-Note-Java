@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8d33956-5387-4a65-b230-ea007695e92f" name="Default Changelist" comment="LeetCode刷题笔记">
-      <change afterPath="$PROJECT_DIR$/src/LeetCode/topHot100_72.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/LeetCode/topHot100_76.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data Structure Code.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Data Structure Code.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../数据结构与算法-LeetCode刷题.md" beforeDir="false" afterPath="$PROJECT_DIR$/../数据结构与算法-LeetCode刷题.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/ListNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/ListNode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/TreeNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/TreeNode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/Tree/TreeNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/Tree/TreeNode.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,19 +72,6 @@
     </key>
   </component>
   <component name="RunManager" selected="JUnit.topHot100_76.test">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="ReflectTest.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TestFiles" />
       <extension name="coverage">
@@ -214,14 +199,7 @@
       <workItem from="1627297740254" duration="34000" />
       <workItem from="1627395003035" duration="596000" />
       <workItem from="1627466166197" duration="1074000" />
-      <workItem from="1628173775896" duration="17810000" />
-    </task>
-    <task id="LOCAL-00095" summary="commit">
-      <created>1622289421460</created>
-      <option name="number" value="00095" />
-      <option name="presentableId" value="LOCAL-00095" />
-      <option name="project" value="LOCAL" />
-      <updated>1622289421461</updated>
+      <workItem from="1628173775896" duration="17862000" />
     </task>
     <task id="LOCAL-00096" summary="commit">
       <created>1622881450594</created>
@@ -559,7 +537,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627297760235</updated>
     </task>
-    <option name="localTasksCounter" value="144" />
+    <task id="LOCAL-00144" summary="LeetCode刷题笔记">
+      <created>1628235545519</created>
+      <option name="number" value="00144" />
+      <option name="presentableId" value="LOCAL-00144" />
+      <option name="project" value="LOCAL" />
+      <updated>1628235545519</updated>
+    </task>
+    <option name="localTasksCounter" value="145" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -580,9 +565,9 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="LeetCode刷题" />
-    <MESSAGE value="LeetCode刷题笔记" />
     <MESSAGE value="commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit" />
+    <MESSAGE value="LeetCode刷题笔记" />
+    <option name="LAST_COMMIT_MESSAGE" value="LeetCode刷题笔记" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
