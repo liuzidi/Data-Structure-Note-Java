@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8d33956-5387-4a65-b230-ea007695e92f" name="Default Changelist" comment="LeetCode刷题笔记">
-      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/ListNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/ListNode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/TreeNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/TreeNode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/Tree/TreeNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/Tree/TreeNode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LeetCode/topHot100_76.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LeetCode/topHot100_76.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +71,17 @@
     </key>
   </component>
   <component name="RunManager" selected="JUnit.topHot100_76.test">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ReflectTest.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TestFiles" />
       <extension name="coverage">
@@ -200,13 +210,7 @@
       <workItem from="1627395003035" duration="596000" />
       <workItem from="1627466166197" duration="1074000" />
       <workItem from="1628173775896" duration="17862000" />
-    </task>
-    <task id="LOCAL-00096" summary="commit">
-      <created>1622881450594</created>
-      <option name="number" value="00096" />
-      <option name="presentableId" value="LOCAL-00096" />
-      <option name="project" value="LOCAL" />
-      <updated>1622881450594</updated>
+      <workItem from="1628255176580" duration="2537000" />
     </task>
     <task id="LOCAL-00097" summary="commit">
       <created>1622963309442</created>
@@ -544,7 +548,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628235545519</updated>
     </task>
-    <option name="localTasksCounter" value="145" />
+    <task id="LOCAL-00145" summary="LeetCode刷题笔记">
+      <created>1628255183163</created>
+      <option name="number" value="00145" />
+      <option name="presentableId" value="LOCAL-00145" />
+      <option name="project" value="LOCAL" />
+      <updated>1628255183164</updated>
+    </task>
+    <option name="localTasksCounter" value="146" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -596,6 +607,11 @@
           <url>file://$PROJECT_DIR$/src/LeetCode/topHot100_76.java</url>
           <line>16</line>
           <option name="timeStamp" value="54" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/LeetCode/topHot100_76.java</url>
+          <line>56</line>
+          <option name="timeStamp" value="55" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

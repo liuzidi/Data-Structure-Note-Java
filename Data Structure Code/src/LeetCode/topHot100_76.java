@@ -12,54 +12,45 @@ import java.util.Map;
 public class topHot100_76 {
     @Test
     public void test(){
-        String s = "a";
-        String t = "b";
+        String s = "ADOBECODEBANC" ;
+        String t = "ABC";
         System.out.println(minWindow(s, t));
     }
     public String minWindow(String s, String t) {
         if(s.length() < t.length()) return "";
-        if(s.length() == t.length() && s.equals(t)) return s;
         Map<Character,Integer> map = new HashMap<>();
         char[] sChars = s.toCharArray();
         char[] tChars = t.toCharArray();
         for(char c : tChars){
             map.put(c, map.getOrDefault(c,0) + 1);
         }
-        int len = 0;
-        String minString = "";
         int left = 0, right = 0;
-        while(right < sChars.length){
-             if(isValid(map)) break;
-             char cur = sChars[right];
-             if(map.containsKey(cur)){
-                 map.put(cur,map.get(cur) - 1);
-             }
-             right++;
-        }
-        if(right >= sChars.length) return "";
-        minString = s.substring(left,right);
-        right--;
-        len = right - left + 1;
-
-        while(left <= right && right < sChars.length){
-            char cLeft = sChars[left];
-            if(map.containsKey(cLeft)){
-                map.put(cLeft, map.get(cLeft) + 1);
-                if(map.get(cLeft) > 0) {
-                    right++;
-                    while(right < sChars.length){
-                        char cRight = sChars[right];
-                        if(map.containsKey(cRight)){
-                            map.put(cRight, map.get(cRight) - 1);
-                            if(cRight == cLeft) break;
-                        }
-                        right++;
-                    }
+        String minString = "";
+        int minLen = s.length();
+        while(right < s.length()){
+            if(!isValid(map)){
+                if(map.containsKey(sChars[right])){
+                    map.put(sChars[right], map.get(sChars[right]) - 1);
                 }
+                right++;
+            }else{
+                if(right - left < minLen){
+                    minLen = right - left;
+                    minString = s.substring(left,right);
+                }
+                if(map.containsKey(sChars[left])){
+                    map.put(sChars[left], map.get(sChars[left]) + 1);
+                }
+                left++;
             }
-            if(right - left < len){
-                len = right - left + 1;
-                minString = s.substring(left, right);
+        }
+        while(isValid(map)){
+            if(right - left < minLen){
+                minLen = right - left;
+                minString = s.substring(left,right);
+            }
+            if(map.containsKey(sChars[left])){
+                map.put(sChars[left], map.get(sChars[left]) + 1);
             }
             left++;
         }

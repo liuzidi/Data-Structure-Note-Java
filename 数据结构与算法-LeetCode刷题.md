@@ -5576,7 +5576,6 @@ class Solution {
                         dp[i][j] = dp[i][j - 2];
                 }
             }
-
         }
         return dp[s.length()][p.length()];
     }
@@ -5587,8 +5586,64 @@ class Solution {
 
 题目：
 
+```shell
+给你一个字符串 s 、一个字符串 t 。返回 s 中涵盖 t 所有字符的最小子串。如果 s 中不存在涵盖 t 所有字符的子串，则返回空字符串 "" 
+注意：
+对于 t 中重复字符，我们寻找的子字符串中该字符数量必须不少于 t 中该字符数量。
+如果 s 中存在这样的子串，我们保证它是唯一的答案。
 ```
 
+题解：双指针，滑动窗口
+
+```java
+class Solution {
+    public String minWindow(String s, String t) {
+        if(s.length() < t.length()) return "";
+        Map<Character,Integer> map = new HashMap<>();
+        char[] sChars = s.toCharArray();
+        char[] tChars = t.toCharArray();
+        for(char c : tChars){
+            map.put(c, map.getOrDefault(c,0) + 1);
+        }
+        int left = 0, right = 0;
+        String minString = "";
+        int minLen = s.length();
+        while(right < s.length()){
+            if(!isValid(map)){
+                if(map.containsKey(sChars[right])){
+                    map.put(sChars[right], map.get(sChars[right]) - 1);
+                }
+                right++;
+            }else{
+                if(right - left < minLen){
+                    minLen = right - left;
+                    minString = s.substring(left,right);
+                }
+                if(map.containsKey(sChars[left])){
+                    map.put(sChars[left], map.get(sChars[left]) + 1);
+                }
+                left++;
+            }
+        }
+        while(isValid(map)){
+            if(right - left <= minLen){
+                minLen = right - left;
+                minString = s.substring(left,right);
+            }
+            if(map.containsKey(sChars[left])){
+                map.put(sChars[left], map.get(sChars[left]) + 1);
+            }
+            left++;
+        }
+        return minString;
+    }
+    public boolean isValid(Map<Character,Integer> map){
+        for(Integer value : map.values()){
+            if(value > 0) return false;
+        }
+        return true;
+    }
+}
 ```
 
 
@@ -5784,7 +5839,6 @@ class Solution {
 class Solution {
     public double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
         int equationsSize = equations.size();
-
         UnionFind unionFind = new UnionFind(2 * equationsSize);
         // 第 1 步：预处理，将变量的值与 id 进行映射，使得并查集的底层使用数组实现，方便编码
         Map<String, Integer> hashMap = new HashMap<>(2 * equationsSize);
@@ -5849,7 +5903,6 @@ class Solution {
             if (rootX == rootY) {
                 return;
             }
-
             parent[rootX] = rootY;
           	// 关系式的推导请见「参考代码」下方的示意图
             weight[rootX] = weight[y] * value / weight[x];
