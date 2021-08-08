@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8d33956-5387-4a65-b230-ea007695e92f" name="Default Changelist" comment="LeetCode刷题笔记">
-      <change afterPath="$PROJECT_DIR$/src/LeetCode/topHot100_84.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/LeetCode/topHot100_85.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../数据结构与算法-LeetCode刷题.md" beforeDir="false" afterPath="$PROJECT_DIR$/../数据结构与算法-LeetCode刷题.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +71,7 @@
       <recent name="TestFiles" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.topHot100_84.test1">
+  <component name="RunManager" selected="JUnit.topHot100_85.test">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -80,22 +81,6 @@
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ReflectTest.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TestFiles" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="TestFiles.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="TestFiles" />
-      <option name="MAIN_CLASS_NAME" value="TestFiles.ReflectTest" />
-      <option name="METHOD_NAME" value="test1" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -164,13 +149,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="topHot100_85.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Data Structure Code" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="LeetCode.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="LeetCode" />
+      <option name="MAIN_CLASS_NAME" value="LeetCode.topHot100_85" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.topHot100_85.test" />
         <item itemvalue="JUnit.topHot100_84.test1" />
         <item itemvalue="JUnit.topHot100_76.test" />
         <item itemvalue="JUnit.topHot100_394.test1" />
         <item itemvalue="JUnit.topHot100_300.test1" />
-        <item itemvalue="JUnit.ReflectTest.test1" />
       </list>
     </recent_temporary>
   </component>
@@ -213,14 +214,7 @@
       <workItem from="1627466166197" duration="1074000" />
       <workItem from="1628173775896" duration="17862000" />
       <workItem from="1628255176580" duration="2915000" />
-      <workItem from="1628319491490" duration="5342000" />
-    </task>
-    <task id="LOCAL-00099" summary="LeetCode刷题">
-      <created>1623412412007</created>
-      <option name="number" value="00099" />
-      <option name="presentableId" value="LOCAL-00099" />
-      <option name="project" value="LOCAL" />
-      <updated>1623412412007</updated>
+      <workItem from="1628319491490" duration="15925000" />
     </task>
     <task id="LOCAL-00100" summary="LeetCode刷题">
       <created>1623412568520</created>
@@ -558,7 +552,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628319493691</updated>
     </task>
-    <option name="localTasksCounter" value="148" />
+    <task id="LOCAL-00148" summary="LeetCode刷题笔记">
+      <created>1628327578368</created>
+      <option name="number" value="00148" />
+      <option name="presentableId" value="LOCAL-00148" />
+      <option name="project" value="LOCAL" />
+      <updated>1628327578368</updated>
+    </task>
+    <option name="localTasksCounter" value="149" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -605,11 +606,6 @@
           <url>file://$PROJECT_DIR$/TestFiles/src/Solution.java</url>
           <line>15</line>
           <option name="timeStamp" value="49" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/LeetCode/topHot100_84.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="57" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

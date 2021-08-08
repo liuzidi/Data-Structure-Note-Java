@@ -3254,6 +3254,109 @@ class Solution {
     }
 ```
 
+#### 5.单调栈专题
+
+##### 5.1 柱状图中最大的矩形
+
+题目：
+
+```shell
+给定 n 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。
+求在该柱状图中，能够勾勒出来的矩形的最大面积。
+```
+
+![img](https://assets.leetcode.com/uploads/2021/01/04/histogram.jpg)
+
+题解：
+
+```java
+class Solution {
+    public int largestRectangleArea(int[] heights) {
+        int res = 0;
+        LinkedList<Integer> queue = new LinkedList<>();
+        //头：下标-1，值为0，尾：下标heights.length 值为0
+        int[] newArr = new int[heights.length + 2];
+        System.arraycopy(heights,0,newArr,1,heights.length);
+        newArr[0] = 0;
+        newArr[newArr.length - 1] = 0;
+        for(int i = 0; i < newArr.length; i++){
+            if (!queue.isEmpty() &&newArr[i] < newArr[queue.peekLast()]) {
+                while (queue.size() > 1 && newArr[i] < newArr[queue.peekLast()]) {
+                    int h = queue.pollLast();
+                    if (!queue.isEmpty()) {
+                        int width = i - queue.peekLast() - 1;
+                        res = Math.max(res, newArr[h] * (width));
+                    }
+                }
+            }
+            queue.addLast(i);
+        }
+        return res;
+    }
+}
+```
+
+##### 5.2 最大矩形
+
+题目：利用柱状图最大矩形的思想进行扩充
+
+```shell
+给定一个仅包含 0 和 1 、大小为 rows x cols 的二维二进制矩阵，找出只包含 1 的最大矩形，并返回其面积。
+```
+
+题解：
+
+```java
+class Solution {
+    public int maximalRectangle(char[][] matrix) {
+        if(matrix == null || matrix.length == 0) return 0;
+        int[][] newMatrix = new int[matrix.length][matrix[0].length + 2];
+        //第一排初始化
+        for(int j = 1; j <= matrix[0].length; j++){
+            newMatrix[0][j] = matrix[0][j - 1] - '0';
+        }
+        for (int i = 1; i < matrix.length; i++) {
+            for(int j = 1; j < matrix[0].length + 1; j++){
+                if(newMatrix[i - 1][j] > 0){
+                    if(matrix[i][j - 1] == '1')
+                        newMatrix[i][j] = newMatrix[i - 1][j] + 1;
+                }else{
+                    newMatrix[i][j] = matrix[i][j - 1] - '0';
+                }
+            }
+        }
+        int max = 0;
+        for(int[] a : newMatrix){
+            int temp = largestRectangleArea(a);
+            max =Math.max(max, temp);
+        }
+        return max;
+    }
+
+    public int largestRectangleArea(int[] heights) {
+        int res = 0;
+        LinkedList<Integer> queue = new LinkedList<>();
+        int[] newArr = new int[heights.length + 2];
+        System.arraycopy(heights,0,newArr,1,heights.length);
+        newArr[0] = 0;
+        newArr[newArr.length - 1] = 0;
+        for(int i = 0; i < newArr.length; i++){
+            if (!queue.isEmpty() &&newArr[i] < newArr[queue.peekLast()]) {
+                while (queue.size() > 1 && newArr[i] < newArr[queue.peekLast()]) {
+                    int h = queue.pollLast();
+                    if (!queue.isEmpty()) {
+                        int width = i - queue.peekLast() - 1;
+                        res = Math.max(res, newArr[h] * (width));
+                    }
+                }
+            }
+            queue.addLast(i);
+        }
+        return res;
+    }
+}
+```
+
 
 
 ### 十. 队列
@@ -3501,7 +3604,7 @@ class Solution {
 }
 ```
 
-3.搜索二维矩阵
+#### 3.搜索二维矩阵
 
 题目：
 
@@ -5538,7 +5641,7 @@ class Solution {
 }
 ```
 
-12.正则表达式匹配
+#### 12.正则表达式匹配
 
 题目
 
@@ -5582,7 +5685,7 @@ class Solution {
 }
 ```
 
-#### 12.最小覆盖子串
+#### 13.最小覆盖子串
 
 题目：
 
