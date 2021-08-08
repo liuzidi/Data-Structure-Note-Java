@@ -862,6 +862,37 @@ class Solution {
 }
 ```
 
+#### 15.二叉树中的最大路径和
+
+题目：
+
+```shell
+路径 被定义为一条从树中任意节点出发，沿父节点-子节点连接，达到任意节点的序列。同一个节点在一条路径序列中 至多出现一次 。该路径 至少包含一个 节点，且不一定经过根节点。
+
+路径和 是路径中各节点值的总和。
+
+给你一个二叉树的根节点 root ，返回其 最大路径和 
+```
+
+题解：
+
+```java
+class Solution {
+    private int max = Integer.MIN_VALUE;
+    public int maxPathSum(TreeNode root) {
+        maxGain(root);
+        return max;
+    }
+    public int maxGain(TreeNode node){
+        if(node == null) return 0;
+        int leftGain = Math.max(maxGain(node.left), 0);
+        int rightGain = Math.max(maxGain(node.right), 0);
+        max = Math.max(max, leftGain + rightGain + node.val);
+        return Math.max(leftGain, rightGain) + node.val;
+    }
+}
+```
+
 
 
 ### 二. 尾递归
@@ -3353,6 +3384,97 @@ class Solution {
             queue.addLast(i);
         }
         return res;
+    }
+}
+```
+
+##### 5.3 接雨水
+
+题目：
+
+```shell
+给定 n 个非负整数表示每个宽度为 1 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。
+```
+
+题解1：两次遍历，提前存储左右的最大值和最小值
+
+```java
+public int trap(int[] height) {
+    if (height == null || height.length == 0)
+        return 0;
+    int ans = 0;
+    int size = height.length;
+    int[] left_max = new int[size];
+    int[] right_max = new int[size];
+    left_max[0] = height[0];
+    for (int i = 1; i < size; i++) {
+        left_max[i] = Math.max(height[i], left_max[i - 1]);
+    }
+    right_max[size - 1] = height[size - 1];
+    for (int i = size - 2; i >= 0; i--) {
+        right_max[i] = Math.max(height[i], right_max[i + 1]);
+    }
+    for (int i = 1; i < size - 1; i++) {
+        ans += Math.min(left_max[i], right_max[i]) - height[i];
+    }
+    return ans;
+}
+```
+
+题解2：双指针（1次遍历）
+
+定理一：在某个位置`i`处，它能存的水，取决于它左右两边的最大值中较小的一个。
+
+定理二：当我们从左往右处理到left下标时，左边的最大值left_max对它而言是可信的，但right_max对它而言是不可信的。
+
+定理三：当我们从右往左处理到right下标时，右边的最大值right_max对它而言是可信的，但left_max对它而言是不可信的。
+
+对于位置`left`而言，它左边最大值一定是left_max，右边最大值“大于等于”right_max，这时候，如果`left_max<right_max`成立，那么它就知道自己能存多少水了。无论右边将来会不会出现更大的right_max，都不影响这个结果。 所以当`left_max<right_max`时，我们就希望去处理left下标，反之，我们希望去处理right下标。
+
+```java
+class Solution {
+    public int trap(int[] height) {
+        int left = 0, right = height.length - 1;
+        int res = 0;
+        int left_max = height[left];
+        int right_max = height[right];
+        while(left < right){
+            if(left_max < right_max){
+                res += (left_max - height[left]);
+                left++;
+                left_max = Math.max(left_max, height[left]);
+            }else{
+                res += (right_max - height[right]);
+                right--;
+                right_max = Math.max(right_max, height[right]);
+            }
+        }
+        return res;
+    }
+}
+```
+
+题解3：单调栈
+
+递减的单调栈，当新加入的大于栈顶时，左邻边 和 新加入的 > 当前栈顶的高度，必然构成局部的雨水聚集，横向分割计算
+
+```java
+class Solution {
+    public int trap(int[] height) {
+        int ans = 0, current = 0;
+        Deque<Integer> stack = new LinkedList<Integer>();
+        while (current < height.length) {
+            while (!stack.isEmpty() && height[current] > height[stack.peek()]) {
+                int top = stack.pop();
+                if (stack.isEmpty())
+                    break;
+                int distance = current - stack.peek() - 1;
+                int bounded_height = Math.min(height[current], height[stack.peek()]) - height[top];
+                ans += distance * bounded_height;
+            }
+            stack.push(current++);
+        }
+        return ans;
     }
 }
 ```

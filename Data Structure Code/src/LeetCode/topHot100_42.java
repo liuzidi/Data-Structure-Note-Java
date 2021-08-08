@@ -5,25 +5,26 @@ package LeetCode;
  * @Description:
  */
 public class topHot100_42 {
-
-    public int trap(int[] height) {
-        int[] dp = new int[height.length];
-        for(int i = 1; i < height.length; i++){
-            if(height[i] <= height[i - 1]){
-                dp[i] = dp[i - 1];
+    /**
+     *  双指针写法
+     */
+    public int trap1(int[] height) {
+        int left = 0, right = height.length - 1;
+        int res = 0;
+        int left_max = height[left];
+        int right_max = height[right];
+        while(left <= right){
+            left_max = Math.max(left_max, height[left]);
+            right_max = Math.max(right_max, height[right]);
+            if(left_max < right_max){
+                res += (left_max - height[left]);
+                left++;
             }else{
-                int index = i - 1;
-                int sum = 0;
-                while(index >= 1 && height[index] <= height[index - 1] && height[index] <= height[i]){
-                    index--;
-                    sum += height[index];
-                }
-                sum -= height[index];
-                int minHeight = Math.min(height[i], height[index]);
-                dp[i] = minHeight * (i - index) + dp[index] - sum;
+                res += (right_max - height[right]);
+                right--;
             }
         }
-        return dp[height.length - 1];
+        return res;
     }
 
 }
