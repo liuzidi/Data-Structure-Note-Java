@@ -5168,6 +5168,41 @@ class Solution {
     }
 ```
 
+15.戳气球
+
+题目：
+
+```shell
+有 n 个气球，编号为0 到 n - 1，每个气球上都标有一个数字，这些数字存在数组 nums 中。
+
+现在要求你戳破所有的气球。戳破第 i 个气球，你可以获得 nums[i - 1] * nums[i] * nums[i + 1] 枚硬币。 这里的 i - 1 和 i + 1 代表和 i 相邻的两个气球的序号。如果 i - 1或 i + 1 超出了数组的边界，那么就当它是一个数字为 1 的气球。
+
+求所能获得硬币的最大数量。
+```
+
+题解：
+
+```java
+class Solution {
+    public int maxCoins(int[] nums) {
+        int[] newNums = new int[nums.length + 2];
+        newNums[0] = 1;
+        newNums[newNums.length - 1] = 1;
+        System.arraycopy(nums,0,newNums,1,nums.length);
+        int[][] dp = new int[nums.length + 2][nums.length + 2];
+        for(int i = 0; i < nums.length + 2; i++){
+            for(int j = i + 2; j < newNums.length; j++){
+                for(int k = i + 1; k < j; k++){
+                    int sum = dp[i][k] + dp[k][j] + newNums[k] * newNums[i] * newNums[j];
+                    dp[i][j] = Math.max(sum, dp[i][j]);
+                }
+            }
+        }
+        return dp[0][nums.length + 1];
+    }
+}
+```
+
 相关题型：
 
 [数字翻译成字符串](#a0527)
@@ -6213,7 +6248,7 @@ class Solution {
 
 然而，两个 相同种类 的任务之间必须有长度为整数 n 的冷却时间，因此至少有连续 n 个单位时间内 CPU 在执行不同的任务，或者在待命状态。
 
-你需要计算完成所有任务所需要的 最短时间 。。
+你需要计算完成所有任务所需要的最短时间
 ```
 
 题解：
@@ -6233,6 +6268,98 @@ class Solution {
         }
         int max = map[map.length - 1];
         return Math.max(tasks.length,(max - 1) * (n + 1) + cnt);
+    }
+}
+```
+
+### 二十一. 括号匹配问题
+
+#### 1.删除无效的括号
+
+题目:
+
+```shell
+给你一个由若干括号和字母组成的字符串 s ，删除最小数量的无效括号，使得输入的字符串有效。
+
+返回所有可能的结果。答案可以按 任意顺序 返回。
+```
+
+题解：
+
+```java
+class Solution {
+private int len;
+    private char[] charArray;
+    private Set<String> validExpressions = new HashSet<>();
+
+    public List<String> removeInvalidParentheses(String s) {
+        this.len = s.length();
+        this.charArray = s.toCharArray();
+
+        // 第 1 步：遍历一次，计算多余的左右括号
+        int leftRemove = 0;
+        int rightRemove = 0;
+        for (int i = 0; i < len; i++) {
+            if (charArray[i] == '(') {
+                leftRemove++;
+            } else if (charArray[i] == ')') {
+                // 遇到右括号的时候，须要根据已经存在的左括号数量决定
+                if (leftRemove == 0) {
+                    rightRemove++;
+                }
+                if (leftRemove > 0) {
+                    // 关键：一个右括号出现可以抵销之前遇到的左括号
+                    leftRemove--;
+                }
+            }
+        }
+
+        // 第 2 步：回溯算法，尝试每一种可能的删除操作
+        StringBuilder path = new StringBuilder();
+        dfs(0, 0, 0, leftRemove, rightRemove, path);
+        return new ArrayList<>(this.validExpressions);
+    }
+
+    /**
+     * @param index       当前遍历到的下标
+     * @param leftCount   已经遍历到的左括号的个数
+     * @param rightCount  已经遍历到的右括号的个数
+     * @param leftRemove  最少应该删除的左括号的个数
+     * @param rightRemove 最少应该删除的右括号的个数
+     * @param path        一个可能的结果
+     */
+    private void dfs(int index, int leftCount, int rightCount, int leftRemove, int rightRemove, StringBuilder path) {
+        if (index == len) {
+            if (leftRemove == 0 && rightRemove == 0) {
+                validExpressions.add(path.toString());
+            }
+            return;
+        }
+
+        char character = charArray[index];
+        // 可能的操作 1：删除当前遍历到的字符
+        if (character == '(' && leftRemove > 0) {
+            // 由于 leftRemove > 0，并且当前遇到的是左括号，因此可以尝试删除当前遇到的左括号
+            dfs(index + 1, leftCount, rightCount, leftRemove - 1, rightRemove, path);
+        }
+        if (character == ')' && rightRemove > 0) {
+            // 由于 rightRemove > 0，并且当前遇到的是右括号，因此可以尝试删除当前遇到的右括号
+            dfs(index + 1, leftCount, rightCount, leftRemove, rightRemove - 1, path);
+        }
+
+        // 可能的操作 2：保留当前遍历到的字符
+        path.append(character);
+        if (character != '(' && character != ')') {
+            // 如果不是括号，继续深度优先遍历
+            dfs(index + 1, leftCount, rightCount, leftRemove, rightRemove, path);
+        } else if (character == '(') {
+            // 考虑左括号
+            dfs(index + 1, leftCount + 1, rightCount, leftRemove, rightRemove, path);
+        } else if (rightCount < leftCount) {
+            // 考虑右括号
+            dfs(index + 1, leftCount, rightCount + 1, leftRemove, rightRemove, path);
+        }
+        path.deleteCharAt(path.length() - 1);
     }
 }
 ```
