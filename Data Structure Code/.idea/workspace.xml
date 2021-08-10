@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8d33956-5387-4a65-b230-ea007695e92f" name="Default Changelist" comment="LeetCode刷题笔记">
-      <change afterPath="$PROJECT_DIR$/src/LeetCode/topHot100_301.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../tips.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../tips.txt" afterDir="false" />
     </list>
@@ -72,27 +71,16 @@
       <recent name="TestFiles" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.topHot100_301.test">
-    <configuration name="topHot100_297" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="LeetCode.topHot100_297" />
-      <module name="Data Structure Code" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="LeetCode.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -113,7 +101,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="topHot100_301.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="topHot100_394.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Data Structure Code" />
       <extension name="coverage">
         <pattern>
@@ -122,7 +110,23 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="LeetCode" />
-      <option name="MAIN_CLASS_NAME" value="LeetCode.topHot100_301" />
+      <option name="MAIN_CLASS_NAME" value="LeetCode.topHot100_394" />
+      <option name="METHOD_NAME" value="test1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="topHot100_76.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Data Structure Code" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="LeetCode.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="LeetCode" />
+      <option name="MAIN_CLASS_NAME" value="LeetCode.topHot100_76" />
       <option name="METHOD_NAME" value="test" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -163,11 +167,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.topHot100_301.test" />
-        <item itemvalue="Application.topHot100_297" />
         <item itemvalue="JUnit.topHot100_124_01.test1" />
         <item itemvalue="JUnit.topHot100_85.test" />
         <item itemvalue="JUnit.topHot100_84.test1" />
+        <item itemvalue="JUnit.topHot100_76.test" />
+        <item itemvalue="JUnit.topHot100_394.test1" />
       </list>
     </recent_temporary>
   </component>
@@ -210,10 +214,28 @@
       <workItem from="1627466166197" duration="1074000" />
       <workItem from="1628173775896" duration="17862000" />
       <workItem from="1628255176580" duration="2915000" />
-      <workItem from="1628319491490" duration="25306000" />
-      <workItem from="1628491887436" duration="10890000" />
-      <workItem from="1628509322238" duration="27000" />
-      <workItem from="1628517994742" duration="8884000" />
+      <workItem from="1628319491490" duration="25179000" />
+    </task>
+    <task id="LOCAL-00102" summary="LeetCode刷题">
+      <created>1623746112297</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1623746112300</updated>
+    </task>
+    <task id="LOCAL-00103" summary="LeetCode刷题笔记">
+      <created>1623811658407</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1623811658407</updated>
+    </task>
+    <task id="LOCAL-00104" summary="LeetCode刷题笔记">
+      <created>1623839710469</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1623839710469</updated>
     </task>
     <task id="LOCAL-00105" summary="LeetCode刷题笔记">
       <created>1623915380296</created>
@@ -537,28 +559,7 @@
       <option name="project" value="LOCAL" />
       <updated>1628422031101</updated>
     </task>
-    <task id="LOCAL-00151" summary="LeetCode刷题笔记">
-      <created>1628427075128</created>
-      <option name="number" value="00151" />
-      <option name="presentableId" value="LOCAL-00151" />
-      <option name="project" value="LOCAL" />
-      <updated>1628427075128</updated>
-    </task>
-    <task id="LOCAL-00152" summary="LeetCode刷题笔记">
-      <created>1628505219560</created>
-      <option name="number" value="00152" />
-      <option name="presentableId" value="LOCAL-00152" />
-      <option name="project" value="LOCAL" />
-      <updated>1628505219561</updated>
-    </task>
-    <task id="LOCAL-00153" summary="LeetCode刷题笔记">
-      <created>1628509334026</created>
-      <option name="number" value="00153" />
-      <option name="presentableId" value="LOCAL-00153" />
-      <option name="project" value="LOCAL" />
-      <updated>1628509334026</updated>
-    </task>
-    <option name="localTasksCounter" value="154" />
+    <option name="localTasksCounter" value="151" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -615,26 +616,6 @@
           <url>file://$PROJECT_DIR$/src/LeetCode/topHot100_124_01.java</url>
           <line>31</line>
           <option name="timeStamp" value="62" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/LeetCode/topHot100_297.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="69" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/LeetCode/topHot100_297.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="71" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/LeetCode/topHot100_301.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="75" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/LeetCode/topHot100_301.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="76" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
