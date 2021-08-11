@@ -2136,7 +2136,7 @@ class Solution {
 }
 ```
 
-8.完全平方数
+#### 8.完全平方数
 
 题目：
 
@@ -2171,7 +2171,53 @@ class Solution {
 
 四平方和定理证明了任意一个正整数都可以被表示为至多四个正整数的平方和。这给出了本题的答案的上界。
 
+```java
+class Solution {
+    public int numSquares(int n) {
+        if (isPerfectSquare(n)) {
+            return 1;
+        }
+        if (checkAnswer4(n)) {
+            return 4;
+        }
+        for (int i = 1; i * i <= n; i++) {
+            int j = n - i * i;
+            if (isPerfectSquare(j)) {
+                return 2;
+            }
+        }
+        return 3;
+    }
+
+    // 判断是否为完全平方数
+    public boolean isPerfectSquare(int x) {
+        int y = (int) Math.sqrt(x);
+        return y * y == x;
+    }
+
+    // 判断是否能表示为 4^k*(8m+7)
+    public boolean checkAnswer4(int x) {
+        while (x % 4 == 0) {
+            x /= 4;
+        }
+        return x % 8 == 7;
+    }
+}
 ```
+
+#### 9.1到n整数中1出现的次数
+
+题目：
+
+```shell
+输入一个整数 n ，求1～n这n个整数的十进制表示中1出现的次数。
+
+例如，输入12，1～12这些整数中包含1 的数字有1、10、11和12，1一共出现了5次。。
+```
+
+题解：按位计算，每一位按照<0, =0, >0进行分类计算
+
+```java
 
 ```
 

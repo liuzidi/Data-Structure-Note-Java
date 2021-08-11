@@ -4,14 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * @author:liuzidi
- * @Description:
- */
+
 public class SwordOffer_37 {
-    // Encodes a tree to a single string.
+
     public String serialize(TreeNode root) {
-        StringBuffer sb = new StringBuffer();
         return serDFS(root, "");
     }
     public String serDFS(TreeNode root, String s){
@@ -25,7 +21,7 @@ public class SwordOffer_37 {
         return s ;
     }
 
-    // Decodes your encoded data to tree.
+
     public TreeNode deserialize(String data) {
         String[] sArr = data.split(",");
         List<String> list = new ArrayList<>(Arrays.asList(sArr));
@@ -45,5 +41,4 @@ public class SwordOffer_37 {
         root.right = rightTree;
         return root;
     }
-
 }
