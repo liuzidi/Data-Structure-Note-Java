@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8d33956-5387-4a65-b230-ea007695e92f" name="Default Changelist" comment="LeetCode刷题笔记">
-      <change afterPath="$PROJECT_DIR$/src/LeetCode/SwordOffer_43.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/LeetCode/SwordOffer51.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/LeetCode/topHot100_96.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LeetCode/SwordOffer_37.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LeetCode/SwordOffer_37.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tips.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../tips.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../数据结构与算法-LeetCode刷题.md" beforeDir="false" afterPath="$PROJECT_DIR$/../数据结构与算法-LeetCode刷题.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -74,15 +75,13 @@
     </key>
   </component>
   <component name="RunManager" selected="JUnit.SwordOffer_43.test1">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -218,14 +217,8 @@
       <workItem from="1628255176580" duration="2915000" />
       <workItem from="1628319491490" duration="25179000" />
       <workItem from="1628651011324" duration="7286000" />
-      <workItem from="1628689541625" duration="3232000" />
-    </task>
-    <task id="LOCAL-00104" summary="LeetCode刷题笔记">
-      <created>1623839710469</created>
-      <option name="number" value="00104" />
-      <option name="presentableId" value="LOCAL-00104" />
-      <option name="project" value="LOCAL" />
-      <updated>1623839710469</updated>
+      <workItem from="1628689541625" duration="3267000" />
+      <workItem from="1628925438145" duration="3583000" />
     </task>
     <task id="LOCAL-00105" summary="LeetCode刷题笔记">
       <created>1623915380296</created>
@@ -563,7 +556,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628667099275</updated>
     </task>
-    <option name="localTasksCounter" value="153" />
+    <task id="LOCAL-00153" summary="LeetCode刷题笔记">
+      <created>1628693681802</created>
+      <option name="number" value="00153" />
+      <option name="presentableId" value="LOCAL-00153" />
+      <option name="project" value="LOCAL" />
+      <updated>1628693681803</updated>
+    </task>
+    <option name="localTasksCounter" value="154" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

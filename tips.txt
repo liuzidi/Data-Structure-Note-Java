@@ -340,3 +340,119 @@ Comparable是一个类可以继承的接口，代表这个类可以用来比较�
 34.String[] dataString = data.split(","); String可以通过split方法进行分解为一个个String数组
 
 35.DFS中慎用++,因为会是本身自增或自减
+
+36.在求位数过程中，一种优美的写法是在while或者for循环中，先定义digit =1 然后
+
+int digit = 1;
+while(){
+	digit *= 10;
+}
+
+37.SQL中的join
+A
++------+---------+----------------+
+| id_P | name    | city           |
++------+---------+----------------+
+|    1 | Person1 | Oxford Street  |
+|    2 | person2 | Fifth Avenue   |
+|    3 | person3 | Changan Street |
++------+---------+----------------+
+
+B
++------+------------+------+
+| id_o | order_type | id_p |
++------+------------+------+
+|    1 | food       | 3    |
+|    2 | book       | 3    |
+|    3 | PC         | 1    |
+|    4 | water      | 1    |
+|    5 | card       | 25   |
++------+------------+------+
+1.
+table A 和 table B的重合以及非重合部分
+A ∩ （A ∪ B）= A，A中所有元素都有，并且可能有多条
+SELECT a.id_P , a.name, b.order_type FROM persons a LEFT JOIN orders b ON a.id_P = b.id_P ORDER BY id_P;
+SELECT <select_list> FROM TABLEA A LEFT JOIN TABLEB B ON A.key = B.key 
++------+---------+------------+
+| id_P | name    | order_type |
++------+---------+------------+
+|    1 | Person1 | PC         |
+|    1 | Person1 | water      |
+|    2 | person2 | NULL       |
+|    3 | person3 | food       |
+|    3 | person3 | book       |
++------+---------+------------+
+
+2.
+B ∩ （A ∪ B）= B，B中所有元素都有，并且可能有多条
+SELECT b.id_o , a.name, b.order_type FROM persons a right JOIN orders b ON a.id_P = b.id_P ORDER BY id_o;
+SELECT <select_list> FROM TABLEA A RIGHT JOIN TABLEB B ON A.key = B.key 
++------+--------+------------+
+| id_o | name   | order_type |
++------+--------+------------+
+|    1 | Carter | food      |
+|    2 | Carter | book       |
+|    3 | Adams  | PC         |
+|    4 | Adams  | water      |
+|    5 | NULL   | card       |
++------+--------+------------+
+
+3.A 和 B 中 A独有的
+SELECT a.id_p, a.name, b.order_type FROM persons a LEFT JOIN orders b ON a.id_p = b.id_p WHERE b.id_p IS NULL;
+SELECT <select_list> FROM TABLEA A RIGHT JOIN TABLEB B ON A.key = B.key WHERE B.key is NULL;
++------+---------+------------+
+| id_p | name    | order_type |
++------+---------+------------+
+|    2 | person2 | NULL       |
++------+---------+------------+
+4.A和B中B独有的
+SELECT b.id_o ,b.order_type FROM persons a RIGHT JOIN orders b ON a.id_p = b.id_p WHERE a.id_p IS NULL;
+SELECT <select_list> FROM TABLEA A RIGHT JOIN TABLEB B ON A.key = B.key WHERE A.key is NULL;
++------+------------+
+| id_o | order_type |
++------+------------+
+|    5 | card       |
++------+------------+
+
+5.A ∩ B
+SELECT a.id_P , a.name, a.city, b.order_type FROM persons a INNER JOIN orders b ON a.id_p = b.id_p ORDER BY a.id_p; 
+SELECT <select_list> FROM TABLEA A INNER JOIN TABLEB B ON A.key = B.key;
++------+---------+----------------+------------+
+| id_P | name    | city           | order_type |
++------+---------+----------------+------------+
+|    1 | Person1 | Oxford Street  | water      |
+|    1 | Person1 | Oxford Street  | PC         |
+|    3 | person3 | Changan Street | book       |
+|    3 | person3 | Changan Street | food       |
++------+---------+----------------+------------+
+
+6.A ∪ B
+mysql不支持full join 和 full outer join，会报错：
+You have an error in your SQL syntax; 
+check the manual that corresponds to your MySQL server version for the right syntax to use near 'full join 
+orders b on a.id_p = b.id_p order by a.id_p LIMIT 0, 1000' at line 1
+我们采取union的方式进行联合处理
+SELECT * FROM persons a LEFT JOIN orders b ON a.id_P = b.id_P
+UNION
+SELECT * FROM persons a RIGHT JOIN orders b ON a.id_p = b.id_p;
++------+---------+----------------+------+------------+------+
+| id_P | name    | city           | id_o | order_type | id_p |
++------+---------+----------------+------+------------+------+
+|    3 | person3 | Changan Street |    1 | food       | 3    |
+|    3 | person3 | Changan Street |    2 | book       | 3    |
+|    1 | Person1 | Oxford Street  |    3 | PC         | 1    |
+|    1 | Person1 | Oxford Street  |    4 | water      | 1    |
+|    2 | person2 | Fifth Avenue   | NULL | NULL       | NULL |
+| NULL | NULL    | NULL           |    5 | card       | 25   |
++------+---------+----------------+------+------------+------+
+
+7.A独有和B独有的
+ SELECT * FROM persons a LEFT JOIN orders b ON a.id_p = b.id_p WHERE b.id_p IS NULL
+UNION
+SELECT * FROM persons a RIGHT JOIN orders b ON a.id_p = b.id_p WHERE a.id_p IS NULL;
++------+---------+--------------+------+------------+------+
+| id_P | name    | city         | id_o | order_type | id_p |
++------+---------+--------------+------+------------+------+
+|    2 | person2 | Fifth Avenue | NULL | NULL       | NULL |
+| NULL | NULL    | NULL         |    5 | card       | 25   |
++------+---------+--------------+------+------------+------+
