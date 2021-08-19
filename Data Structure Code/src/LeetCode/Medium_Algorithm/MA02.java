@@ -36,7 +36,7 @@ public class MA02 {
             }
             res.add(new ArrayList<Integer>(list));
         }
-
+//        HashMap
         return res;
     }
 }

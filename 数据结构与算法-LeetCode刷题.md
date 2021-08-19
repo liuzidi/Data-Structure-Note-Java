@@ -943,6 +943,90 @@ public class Codec {
     }
 ```
 
+#### 17.二叉树的锯齿形遍历
+
+题目：
+
+```shell
+给定一个二叉树，返回其节点值的锯齿形层序遍历。（即先从左往右，再从右往左进行下一层遍历，以此类推，层与层之间交替进行）。
+```
+
+题解：(双栈)
+
+```java
+class Solution {
+    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+        List<List<Integer>> res = new ArrayList<>();
+        if(root == null) return res;
+        Queue<TreeNode> queue1 = new LinkedList<>();
+        Queue<TreeNode> queue2 = new LinkedList<>();
+        queue2.add(root);
+        while(!queue2.isEmpty()){
+            List<Integer> list = new ArrayList<>();
+            while(!queue2.isEmpty()){
+                TreeNode t = queue2.poll();
+                list.add(t.val);
+                queue1.add(t);
+            }
+            while(!queue1.isEmpty()){
+                TreeNode t = queue1.poll();
+                if(t.left != null){
+                    queue2.add(t.left);
+                }
+                if(t.right != null){
+                    queue2.add(t.right);
+                }
+            }
+            if(res.size() % 2 == 1){
+                Collections.reverse(list);
+            }
+            res.add(new ArrayList<Integer>(list));
+        }
+        return res;
+    }
+}
+```
+
+题解2：广度优先算法（双端队列）可以通过双端队列实现类似于list的reverse功能
+
+```java
+class Solution {
+    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+        List<List<Integer>> ans = new LinkedList<List<Integer>>();
+        if (root == null) {
+            return ans;
+        }
+
+        Queue<TreeNode> nodeQueue = new LinkedList<TreeNode>();
+        nodeQueue.offer(root);
+        boolean isOrderLeft = true;
+
+        while (!nodeQueue.isEmpty()) {
+            Deque<Integer> levelList = new LinkedList<Integer>();
+            int size = nodeQueue.size();
+            for (int i = 0; i < size; ++i) {
+                TreeNode curNode = nodeQueue.poll();
+                if (isOrderLeft) {
+                    levelList.offerLast(curNode.val);
+                } else {
+                    levelList.offerFirst(curNode.val);
+                }
+                if (curNode.left != null) {
+                    nodeQueue.offer(curNode.left);
+                }
+                if (curNode.right != null) {
+                    nodeQueue.offer(curNode.right);
+                }
+            }
+            ans.add(new LinkedList<Integer>(levelList));
+            isOrderLeft = !isOrderLeft;
+        }
+
+        return ans;
+    }
+}
+```
+
 
 
 ### 二. 尾递归
