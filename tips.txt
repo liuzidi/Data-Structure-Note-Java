@@ -456,3 +456,5 @@ SELECT * FROM persons a RIGHT JOIN orders b ON a.id_p = b.id_p WHERE a.id_p IS N
 |    2 | person2 | Fifth Avenue | NULL | NULL       | NULL |
 | NULL | NULL    | NULL         |    5 | card       | 25   |
 +------+---------+--------------+------+------------+------+
+
+37.PriorityQueue默认是小顶堆

@@ -4811,6 +4811,54 @@ class Solution {
 }
 ```
 
+#### 5.二叉搜索树中第K小的元素
+
+题目：
+
+```shell
+给定一个二叉搜索树的根节点 root ，和一个整数 k ，请你设计一个算法查找其中第 k 个最小元素（从 1 开始计数）。
+```
+
+题解：DFS
+
+```java
+class Solution {
+  public ArrayList<Integer> inorder(TreeNode root, ArrayList<Integer> arr) {
+    if (root == null) return arr;
+    inorder(root.left, arr);
+    arr.add(root.val);
+    inorder(root.right, arr);
+    return arr;
+  }
+
+  public int kthSmallest(TreeNode root, int k) {
+    ArrayList<Integer> nums = inorder(root, new ArrayList<Integer>());
+    return nums.get(k - 1);
+  }
+}
+```
+
+题解：迭代
+
+```JAVA
+class Solution {
+  public int kthSmallest(TreeNode root, int k) {
+    LinkedList<TreeNode> stack = new LinkedList<TreeNode>();
+    while (true) {
+      while (root != null) {
+        stack.add(root);
+        root = root.left;
+      }
+      root = stack.removeLast();
+      if (--k == 0) return root.val;
+      root = root.right;
+    }
+  }
+}
+```
+
+
+
 相关题型：
 
 [打印最大n位数](#topninarr)
