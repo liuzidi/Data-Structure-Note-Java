@@ -5,10 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8d33956-5387-4a65-b230-ea007695e92f" name="Default Changelist" comment="LeetCode刷题笔记">
-      <change afterPath="$PROJECT_DIR$/src/LeetCode/Medium_Algorithm/MA04.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/LeetCode/Medium_Algorithm/MA05.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/commons-cli-1.4.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/commons-codec-1.15.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/httpclient5-5.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/httpclient5-cache-5.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/httpclient5-fluent-5.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/httpclient5-testing-5.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/httpclient5-win-5.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/httpcore5-5.1.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/httpcore5-h2-5.1.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/httpcore5-reactive-5.1.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/httpcore5-testing-5.1.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/jna-5.2.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/jna-platform-5.2.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/reactive-streams-1.0.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/rxjava-2.2.8.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/slf4j-api-1.7.25.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/LeetCode/Medium_Algorithm/MA06.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tips.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../tips.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../数据结构与算法-LeetCode刷题.md" beforeDir="false" afterPath="$PROJECT_DIR$/../数据结构与算法-LeetCode刷题.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,7 +72,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../Program Files (x86)/Java/jdk1.8.0_291" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -74,7 +88,7 @@
       <recent name="TestFiles" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.SwordOffer_43.test1">
+  <component name="RunManager" selected="JUnit.MA06.test">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -82,6 +96,22 @@
         </value>
       </option>
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MA06.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Data Structure Code" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="LeetCode.Medium_Algorithm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="LeetCode.Medium_Algorithm" />
+      <option name="MAIN_CLASS_NAME" value="LeetCode.Medium_Algorithm.MA06" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -113,22 +143,6 @@
       <option name="PACKAGE_NAME" value="LeetCode" />
       <option name="MAIN_CLASS_NAME" value="LeetCode.topHot100_124_01" />
       <option name="METHOD_NAME" value="test1" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="topHot100_76.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Data Structure Code" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="LeetCode.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="LeetCode" />
-      <option name="MAIN_CLASS_NAME" value="LeetCode.topHot100_76" />
-      <option name="METHOD_NAME" value="test" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -168,11 +182,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MA06.test" />
         <item itemvalue="JUnit.SwordOffer_43.test1" />
         <item itemvalue="JUnit.topHot100_124_01.test1" />
         <item itemvalue="JUnit.topHot100_85.test" />
         <item itemvalue="JUnit.topHot100_84.test1" />
-        <item itemvalue="JUnit.topHot100_76.test" />
       </list>
     </recent_temporary>
   </component>
@@ -222,14 +236,9 @@
       <workItem from="1629255080997" duration="28000" />
       <workItem from="1629343364420" duration="4599000" />
       <workItem from="1629602418976" duration="8280000" />
-      <workItem from="1629686953446" duration="2154000" />
-    </task>
-    <task id="LOCAL-00113" summary="LeetCode刷题笔记">
-      <created>1624331164425</created>
-      <option name="number" value="00113" />
-      <option name="presentableId" value="LOCAL-00113" />
-      <option name="project" value="LOCAL" />
-      <updated>1624331164425</updated>
+      <workItem from="1629686953446" duration="9399000" />
+      <workItem from="1629716986789" duration="4000" />
+      <workItem from="1629809624994" duration="714000" />
     </task>
     <task id="LOCAL-00114" summary="LeetCode刷题笔记">
       <created>1624367426941</created>
@@ -567,7 +576,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629686304398</updated>
     </task>
-    <option name="localTasksCounter" value="162" />
+    <task id="LOCAL-00162" summary="LeetCode刷题笔记">
+      <created>1629689126489</created>
+      <option name="number" value="00162" />
+      <option name="presentableId" value="LOCAL-00162" />
+      <option name="project" value="LOCAL" />
+      <updated>1629689126489</updated>
+    </task>
+    <option name="localTasksCounter" value="163" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

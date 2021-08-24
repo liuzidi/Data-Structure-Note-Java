@@ -4134,7 +4134,7 @@ class Solution {
 }
 ```
 
-#### 3.找到数组中所有消失的数字（数目大于1）
+#### 3.找到数组中所有消失的数字
 
 题目：
 
@@ -4162,7 +4162,7 @@ class Solution {
 }
 ```
 
-4.跳跃游戏
+#### 4.跳跃游戏
 
 题目：
 
@@ -4211,7 +4211,7 @@ public class Solution {
 }
 ```
 
-#### 4.合并空间
+#### 5.合并空间
 
 题目：
 
@@ -4247,7 +4247,7 @@ class Solution {
 }
 ```
 
-#### 5.最长连续序列
+#### 6.最长连续序列
 
 题目：
 
@@ -4305,7 +4305,7 @@ class Solution {
 }
 ```
 
-#### 6.寻找重复的数
+#### 7.寻找重复的数
 
 题目：
 
@@ -4349,7 +4349,7 @@ class Solution {
 }
 ```
 
-#### 7.根据身高重建队列
+#### 8.根据身高重建队列
 
 题目：
 
@@ -4376,7 +4376,7 @@ class Solution {
 }
 ```
 
-#### 8.目标和
+#### 9.目标和
 
 题目：
 
@@ -4439,7 +4439,7 @@ public int findTargetSumWays(int[] nums, int target) {
 }
 ```
 
-#### 9.和为K的子数组
+#### 10.和为K的子数组
 
 题目：
 
@@ -4468,7 +4468,7 @@ public class topHot100_560 {
 }
 ```
 
-#### 10.最短无序连续子数组
+#### 11.最短无序连续子数组
 
 题目：
 
@@ -4499,6 +4499,50 @@ class Solution {
             maxNum = Math.max(maxNum, nums[i]);
         }
         return Math.max(right - left + 1, 0);
+    }
+}
+```
+
+#### 12.寻找峰值
+
+题目：
+
+```shell
+峰值元素是指其值大于左右相邻值的元素。
+
+给你一个输入数组 nums，找到峰值元素并返回其索引。数组可能包含多个峰值，在这种情况下，返回 任何一个峰值 所在位置即可。
+
+你可以假设 nums[-1] = nums[n] = -∞ 
+```
+
+题解：
+
+```java
+public class Solution {
+    public int findPeakElement(int[] nums) {
+        for (int i = 0; i < nums.length - 1; i++) {
+            if (nums[i] > nums[i + 1])
+                return i;
+        }
+        return nums.length - 1;
+    }
+}
+```
+
+题解2：二分
+
+```java
+public class Solution {
+    public int findPeakElement(int[] nums) {
+        return search(nums, 0, nums.length - 1);
+    }
+    public int search(int[] nums, int l, int r) {
+        if (l == r)
+            return l;
+        int mid = (l + r) / 2;
+        if (nums[mid] > nums[mid + 1])
+            return search(nums, l, mid);
+        return search(nums, mid + 1, r);
     }
 }
 ```
@@ -4833,7 +4877,7 @@ class Solution {
 
   public int kthSmallest(TreeNode root, int k) {
     ArrayList<Integer> nums = inorder(root, new ArrayList<Integer>());
-    return nums.get(k - 1);
+    return nums.get(k - 1);1
   }
 }
 ```
