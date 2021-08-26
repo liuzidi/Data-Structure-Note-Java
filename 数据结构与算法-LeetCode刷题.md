@@ -2407,6 +2407,91 @@ class Solution {
 }
 ```
 
+#### 10.快乐数
+
+题目：
+
+```shell
+编写一个算法来判断一个数 n 是不是快乐数。
+
+「快乐数」定义为：
+
+对于一个正整数，每一次将该数替换为它每个位置上的数字的平方和。
+然后重复这个过程直到这个数变为 1，也可能是 无限循环 但始终变不到 1。
+如果 可以变为  1，那么这个数就是快乐数。
+```
+
+题解：
+
+```java
+class Solution {
+     public int getNext(int n) {
+        int totalSum = 0;
+        while (n > 0) {
+            int d = n % 10;
+            n = n / 10;
+            totalSum += d * d;
+        }
+        return totalSum;
+    }
+
+    public boolean isHappy(int n) {
+        int slowRunner = n;
+        int fastRunner = getNext(n);
+        while (fastRunner != 1 && slowRunner != fastRunner) {
+            slowRunner = getNext(slowRunner);
+            fastRunner = getNext(getNext(fastRunner));
+        }
+        return fastRunner == 1;
+    }
+
+}
+```
+
+#### 11.阶乘后的尾数0的个数
+
+题目：
+
+```shell
+给定一个整数 n，返回 n! 结果尾数中零的数量。
+```
+
+题解：计算前n个可以拆成几个5的因子
+
+```java
+class Solution {
+    public int trailingZeroes(int n) {
+        if(n < 5){
+            return 0;
+        }
+        int res = 0;
+        for(int i = 5; i <= n; i+=5){
+            int temp = i;
+            while(temp % 5 == 0 && temp != 0){
+                temp /= 5;
+                res++;
+            }
+        }
+        return res;
+    }
+}
+```
+
+题解：问题转化为n/5 + n /25 + n/125+....
+
+```java
+class Solution {
+	public int trailingZeroes(int n) {
+        int zeroCount = 0;
+        while (n > 0) {
+            n /= 5;
+            zeroCount += n;
+        }
+        return zeroCount;
+    }
+}
+```
+
 
 
 ### 七. 链表

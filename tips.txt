@@ -458,3 +458,32 @@ SELECT * FROM persons a RIGHT JOIN orders b ON a.id_p = b.id_p WHERE a.id_p IS N
 +------+---------+--------------+------+------------+------+
 
 37.PriorityQueue默认是小顶堆
+38.ThreadLocal的get的方法是去查询当前线程的局部变量的threadLocals（是一个Map保存着线程（key）与我们set的值（value））
+线程对象被static 的 threadLocal强引用不会被清理
+
+阻塞态：进程在内存中并等待一个事件。
+阻塞/挂起态：进程在外存中并等待一个事件。
+就绪/挂起态：进程在外存中，但是只要被载入内存就可以执行
+处在挂起状态的进程映像在磁盘上， 目的是减少进程占用内存
+
+首先ReentrantLock和NonReentrantLock都继承父类AQS，其父类AQS中维护了一个同步状态status来计数重入次数，status初始值为0。
+
+当线程尝试获取锁时，可重入锁先尝试获取并更新status值，如果status == 0表示没有其他线程在执行同步代码，则把status置为1，当前线程开始执行。如果status != 0，则判断当前线程是否是获取到这个锁的线程，如果是的话执行status+1，且当前线程可以再次获取锁。而非可重入锁是直接去获取并尝试更新当前status的值，如果status != 0的话会导致其获取锁失败，当前线程阻塞。
+
+释放锁时，可重入锁同样先获取当前status的值，在当前线程是持有锁的线程的前提下。如果status-1 == 0，则表示当前线程所有重复获取锁的操作都已经执行完毕，然后该线程才会真正释放锁。而非可重入锁则是在确定当前线程是持有锁的线程之后，直接将status置为0，将锁释放。
+
+39.python在json模块有2个方法，
+
+loads()：将json数据转化成dict数据
+dumps()：将dict数据转化成json数据
+load()：读取json文件数据，转成dict数据
+dump()：将dict数据转化成json数据后写入json文件
+
+40.两种获取随机数的方法：
+double ran=Math.random()*(b-a)+a，设置一个随机a到b的变量。
+
+Random random = new Random（）；
+randomdom的nextInt(int n)生成的随机整数范围是0到n之间，不包括n
+
+
+
