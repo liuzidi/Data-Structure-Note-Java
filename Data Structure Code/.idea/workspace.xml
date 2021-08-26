@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8d33956-5387-4a65-b230-ea007695e92f" name="Default Changelist" comment="LeetCode刷题笔记">
-      <change afterPath="$PROJECT_DIR$/src/LeetCode/Medium_Algorithm/MA11.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/LeetCode/Medium_Algorithm/MA12.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../数据结构与算法-LeetCode刷题.md" beforeDir="false" afterPath="$PROJECT_DIR$/../数据结构与算法-LeetCode刷题.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +73,7 @@
       <recent name="TestFiles" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MA06.test">
+  <component name="RunManager" selected="JUnit.MA12.test">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -94,6 +95,22 @@
       </extension>
       <option name="PACKAGE_NAME" value="LeetCode.Medium_Algorithm" />
       <option name="MAIN_CLASS_NAME" value="LeetCode.Medium_Algorithm.MA06" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MA12.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Data Structure Code" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="LeetCode.Medium_Algorithm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="LeetCode.Medium_Algorithm" />
+      <option name="MAIN_CLASS_NAME" value="LeetCode.Medium_Algorithm.MA12" />
       <option name="METHOD_NAME" value="test" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -132,22 +149,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="topHot100_84.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Data Structure Code" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="LeetCode.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="LeetCode" />
-      <option name="MAIN_CLASS_NAME" value="LeetCode.topHot100_84" />
-      <option name="METHOD_NAME" value="test1" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="topHot100_85.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Data Structure Code" />
       <extension name="coverage">
@@ -166,11 +167,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MA12.test" />
         <item itemvalue="JUnit.MA06.test" />
         <item itemvalue="JUnit.SwordOffer_43.test1" />
         <item itemvalue="JUnit.topHot100_124_01.test1" />
         <item itemvalue="JUnit.topHot100_85.test" />
-        <item itemvalue="JUnit.topHot100_84.test1" />
       </list>
     </recent_temporary>
   </component>
@@ -224,14 +225,7 @@
       <workItem from="1629716986789" duration="4000" />
       <workItem from="1629809624994" duration="4189000" />
       <workItem from="1629859907893" duration="3805000" />
-      <workItem from="1629978577710" duration="2624000" />
-    </task>
-    <task id="LOCAL-00118" summary="LeetCode刷题笔记">
-      <created>1624622215788</created>
-      <option name="number" value="00118" />
-      <option name="presentableId" value="LOCAL-00118" />
-      <option name="project" value="LOCAL" />
-      <updated>1624622215788</updated>
+      <workItem from="1629978577710" duration="5291000" />
     </task>
     <task id="LOCAL-00119" summary="LeetCode刷题笔记">
       <created>1624768706570</created>
@@ -569,7 +563,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629979848698</updated>
     </task>
-    <option name="localTasksCounter" value="167" />
+    <task id="LOCAL-00167" summary="LeetCode刷题笔记">
+      <created>1629981484444</created>
+      <option name="number" value="00167" />
+      <option name="presentableId" value="LOCAL-00167" />
+      <option name="project" value="LOCAL" />
+      <updated>1629981484444</updated>
+    </task>
+    <option name="localTasksCounter" value="168" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -641,6 +642,11 @@
           <url>file://$PROJECT_DIR$/src/LeetCode/SwordOffer_43.java</url>
           <line>12</line>
           <option name="timeStamp" value="65" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/LeetCode/Medium_Algorithm/MA12.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="70" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
