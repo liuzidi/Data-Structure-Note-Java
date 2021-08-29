@@ -2563,6 +2563,82 @@ public int divide(int dividend, int divisor) {
     }
 ```
 
+#### 14.分数转小数
+
+题目：
+
+```shell
+给定两个整数，分别表示分数的分子 numerator 和分母 denominator，以 字符串形式返回小数 。
+如果小数部分为循环小数，则将循环的部分括在括号内。
+如果存在多个答案，只需返回 任意一个 。
+```
+
+题解：
+
+```java
+class Solution {
+    public String fractionToDecimal(int numerator, int denominator) {
+        if(numerator == 0) return "0";
+        if(denominator == -1 && numerator == Integer.MIN_VALUE){
+            return String.valueOf(-(long)Integer.MIN_VALUE);
+        }
+        StringBuilder res = new StringBuilder();
+        if((numerator < 0 && denominator > 0) || (numerator > 0 && denominator < 0)){
+            res.append("-");
+        }
+        long a = numerator > 0 ? (long) numerator : -(long)numerator;
+        long b = denominator > 0 ? (long)denominator : -(long)denominator;
+        long head = a / b;
+        long remainder = a % b;
+        res.append(head);
+        if(remainder == 0){
+            return res.toString();
+        }
+        res.append(".");
+        Map<Long, Integer> map = new HashMap<>();//余数和对应的值
+        StringBuilder tail = new StringBuilder();
+        int index = 0;
+        while(remainder != 0){
+            if(map.containsKey(remainder)){
+                tail.insert(map.get(remainder), "(");
+                tail.append(")");
+                break;
+            }
+            map.put(remainder, index++);
+            remainder *= 10;
+            long value = remainder / b;
+            remainder = remainder % b;
+            tail.append(value);
+        }
+        res.append(tail.toString());
+        return res.toString();
+    }
+}
+```
+
+#### 15.两整数之和
+
+题目：
+
+```shell
+不使用运算符 + 和 - ，计算两整数a 、b之和。
+```
+
+题解：
+
+```java
+class Solution {
+    public int getSum(int a, int b) {
+        while(b != 0){
+            int temp = a ^ b;
+            b = (a & b) << 1;
+            a = temp;
+        }
+        return a;
+    }
+}
+```
+
 
 
 ### 七. 链表
