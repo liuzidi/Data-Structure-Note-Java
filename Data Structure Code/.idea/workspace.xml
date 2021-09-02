@@ -73,17 +73,6 @@
     </key>
   </component>
   <component name="RunManager" selected="JUnit.MA14.test">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="MA06.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Data Structure Code" />
       <extension name="coverage">
@@ -227,14 +216,8 @@
       <workItem from="1629978577710" duration="5305000" />
       <workItem from="1630045685877" duration="11924000" />
       <workItem from="1630146365948" duration="620000" />
-      <workItem from="1630244983483" duration="2171000" />
-    </task>
-    <task id="LOCAL-00124" summary="LeetCode刷题笔记">
-      <created>1625130339944</created>
-      <option name="number" value="00124" />
-      <option name="presentableId" value="LOCAL-00124" />
-      <option name="project" value="LOCAL" />
-      <updated>1625130339944</updated>
+      <workItem from="1630244983483" duration="2180000" />
+      <workItem from="1630292590270" duration="1000" />
     </task>
     <task id="LOCAL-00125" summary="LeetCode刷题笔记">
       <created>1625231284934</created>
@@ -572,7 +555,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630248246404</updated>
     </task>
-    <option name="localTasksCounter" value="173" />
+    <task id="LOCAL-00173" summary="LeetCode刷题笔记">
+      <created>1630291851178</created>
+      <option name="number" value="00173" />
+      <option name="presentableId" value="LOCAL-00173" />
+      <option name="project" value="LOCAL" />
+      <updated>1630291851178</updated>
+    </task>
+    <option name="localTasksCounter" value="174" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
