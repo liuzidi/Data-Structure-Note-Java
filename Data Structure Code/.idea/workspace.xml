@@ -5,18 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8d33956-5387-4a65-b230-ea007695e92f" name="Default Changelist" comment="LeetCode刷题笔记">
-      <change afterPath="$PROJECT_DIR$/src/SortMethod/ChooseSort.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SortMethod/InsertSort.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/SortMethod/BubbleSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/SortMethod/BubbleSort.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/SortMethod/HeapSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/SortMethod/HeapSort.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/SortMethod/MergeSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/SortMethod/MergeSort.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/SortMethod/MergeSort2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/SortMethod/MergeSort2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/SortMethod/Person.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/SortMethod/Student.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LeetCode/classicProblem/P03.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LeetCode/classicProblem/P03.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SortMethod/BubbleSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SortMethod/BubbleSort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SortMethod/HeapSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SortMethod/HeapSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SortMethod/MergeSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SortMethod/MergeSort.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SortMethod/MergeSort2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SortMethod/MergeSort2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SortMethod/TestInstance.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,9 +77,9 @@
       <recent name="TestFiles" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ssddfdfd">
-    <configuration name="BubbleSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="SortMethod.BubbleSort" />
+  <component name="RunManager" selected="Application.MergeSort2">
+    <configuration name="InsertSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SortMethod.InsertSort" />
       <module name="Data Structure Code" />
       <extension name="coverage">
         <pattern>
@@ -97,8 +91,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InsertSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="SortMethod.InsertSort" />
+    <configuration name="MergeSort2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SortMethod.MergeSort2" />
       <module name="Data Structure Code" />
       <extension name="coverage">
         <pattern>
@@ -164,11 +158,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MergeSort2" />
         <item itemvalue="Application.ssddfdfd" />
         <item itemvalue="Application.ssfdfd" />
         <item itemvalue="Application.ssss" />
         <item itemvalue="Application.InsertSort" />
-        <item itemvalue="Application.BubbleSort" />
       </list>
     </recent_temporary>
   </component>
@@ -228,14 +222,7 @@
       <workItem from="1630244983483" duration="2180000" />
       <workItem from="1630292590270" duration="1000" />
       <workItem from="1630570328445" duration="4336000" />
-      <workItem from="1630682357267" duration="30129000" />
-    </task>
-    <task id="LOCAL-00130" summary="LeetCode刷题笔记">
-      <created>1625709897925</created>
-      <option name="number" value="00130" />
-      <option name="presentableId" value="LOCAL-00130" />
-      <option name="project" value="LOCAL" />
-      <updated>1625709897925</updated>
+      <workItem from="1630682357267" duration="31892000" />
     </task>
     <task id="LOCAL-00131" summary="LeetCode刷题笔记">
       <created>1625919340106</created>
@@ -573,7 +560,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630824450228</updated>
     </task>
-    <option name="localTasksCounter" value="179" />
+    <task id="LOCAL-00179" summary="LeetCode刷题笔记">
+      <created>1630928160288</created>
+      <option name="number" value="00179" />
+      <option name="presentableId" value="LOCAL-00179" />
+      <option name="project" value="LOCAL" />
+      <updated>1630928160288</updated>
+    </task>
+    <option name="localTasksCounter" value="180" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
