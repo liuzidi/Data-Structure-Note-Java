@@ -5,8 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8d33956-5387-4a65-b230-ea007695e92f" name="Default Changelist" comment="LeetCode刷题笔记">
-      <change afterPath="$PROJECT_DIR$/src/LeetCode/classicProblem/P03.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SortMethod/ChooseSort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SortMethod/InsertSort.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/SortMethod/BubbleSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/SortMethod/BubbleSort.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/SortMethod/HeapSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/SortMethod/HeapSort.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/SortMethod/MergeSort2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/SortMethod/MergeSort2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/SortMethod/Person.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/SortMethod/Student.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LeetCode/classicProblem/P03.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LeetCode/classicProblem/P03.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SortMethod/BubbleSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SortMethod/BubbleSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SortMethod/HeapSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SortMethod/HeapSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SortMethod/MergeSort2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SortMethod/MergeSort2.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,13 +83,65 @@
       <recent name="TestFiles" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.tetetest">
-    <configuration name="tetetest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="LeetCode.classicProblem.tetetest" />
+  <component name="RunManager" selected="Application.ssddfdfd">
+    <configuration name="BubbleSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SortMethod.BubbleSort" />
       <module name="Data Structure Code" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="LeetCode.classicProblem.*" />
+          <option name="PATTERN" value="SortMethod.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InsertSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SortMethod.InsertSort" />
+      <module name="Data Structure Code" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="SortMethod.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ssddfdfd" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SortMethod.ssddfdfd" />
+      <module name="Data Structure Code" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="SortMethod.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ssfdfd" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SortMethod.ssfdfd" />
+      <module name="Data Structure Code" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="SortMethod.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ssss" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SortMethod.ssss" />
+      <module name="Data Structure Code" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="SortMethod.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -100,77 +162,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LRUCache.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Data Structure Code" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="LeetCode.classicProblem.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="LeetCode.classicProblem" />
-      <option name="MAIN_CLASS_NAME" value="LeetCode.classicProblem.LRUCache" />
-      <option name="METHOD_NAME" value="test1" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MA12.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Data Structure Code" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="LeetCode.Medium_Algorithm.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="LeetCode.Medium_Algorithm" />
-      <option name="MAIN_CLASS_NAME" value="LeetCode.Medium_Algorithm.MA12" />
-      <option name="METHOD_NAME" value="test" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MA14.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Data Structure Code" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="LeetCode.Medium_Algorithm.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="LeetCode.Medium_Algorithm" />
-      <option name="MAIN_CLASS_NAME" value="LeetCode.Medium_Algorithm.MA14" />
-      <option name="METHOD_NAME" value="test" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="P01.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Data Structure Code" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="LeetCode.classicProblem.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="LeetCode.classicProblem" />
-      <option name="MAIN_CLASS_NAME" value="LeetCode.classicProblem.P01" />
-      <option name="METHOD_NAME" value="test" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.tetetest" />
-        <item itemvalue="JUnit.LRUCache.test1" />
-        <item itemvalue="JUnit.P01.test" />
-        <item itemvalue="JUnit.MA14.test" />
-        <item itemvalue="JUnit.MA12.test" />
+        <item itemvalue="Application.ssddfdfd" />
+        <item itemvalue="Application.ssfdfd" />
+        <item itemvalue="Application.ssss" />
+        <item itemvalue="Application.InsertSort" />
+        <item itemvalue="Application.BubbleSort" />
       </list>
     </recent_temporary>
   </component>
@@ -230,14 +228,7 @@
       <workItem from="1630244983483" duration="2180000" />
       <workItem from="1630292590270" duration="1000" />
       <workItem from="1630570328445" duration="4336000" />
-      <workItem from="1630682357267" duration="18917000" />
-    </task>
-    <task id="LOCAL-00129" summary="LeetCode刷题笔记">
-      <created>1625622135861</created>
-      <option name="number" value="00129" />
-      <option name="presentableId" value="LOCAL-00129" />
-      <option name="project" value="LOCAL" />
-      <updated>1625622135861</updated>
+      <workItem from="1630682357267" duration="30129000" />
     </task>
     <task id="LOCAL-00130" summary="LeetCode刷题笔记">
       <created>1625709897925</created>
@@ -575,7 +566,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630764555958</updated>
     </task>
-    <option name="localTasksCounter" value="178" />
+    <task id="LOCAL-00178" summary="LeetCode刷题笔记">
+      <created>1630824450228</created>
+      <option name="number" value="00178" />
+      <option name="presentableId" value="LOCAL-00178" />
+      <option name="project" value="LOCAL" />
+      <updated>1630824450228</updated>
+    </task>
+    <option name="localTasksCounter" value="179" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -17,6 +17,5 @@ public class P03 {
             res = pq.poll();
         }
         return res;
-
     }
 }

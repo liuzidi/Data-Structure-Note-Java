@@ -38,5 +38,6 @@ public class MergeSort2 {
         while(lIndex <= mid) res[resIndex++] = nums[lIndex++];
         while(rIndex <= r)   res[resIndex++] = nums[rIndex++];
         System.arraycopy(res, 0, nums, l, r + 1 - l);
+
     }
 }
