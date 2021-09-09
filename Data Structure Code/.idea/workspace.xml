@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a8d33956-5387-4a65-b230-ea007695e92f" name="Default Changelist" comment="LeetCode刷题笔记">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/排序算法复杂度总结.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,19 +138,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.MergeSort2" />
@@ -218,14 +204,8 @@
       <workItem from="1630244983483" duration="2180000" />
       <workItem from="1630292590270" duration="1000" />
       <workItem from="1630570328445" duration="4336000" />
-      <workItem from="1630682357267" duration="37439000" />
-    </task>
-    <task id="LOCAL-00133" summary="LeetCode刷题笔记">
-      <created>1626338814004</created>
-      <option name="number" value="00133" />
-      <option name="presentableId" value="LOCAL-00133" />
-      <option name="project" value="LOCAL" />
-      <updated>1626338814005</updated>
+      <workItem from="1630682357267" duration="38072000" />
+      <workItem from="1631095898128" duration="28000" />
     </task>
     <task id="LOCAL-00134" summary="LeetCode刷题笔记">
       <created>1626578839381</created>
@@ -563,7 +543,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630982078745</updated>
     </task>
-    <option name="localTasksCounter" value="182" />
+    <task id="LOCAL-00182" summary="LeetCode刷题笔记">
+      <created>1631017494295</created>
+      <option name="number" value="00182" />
+      <option name="presentableId" value="LOCAL-00182" />
+      <option name="project" value="LOCAL" />
+      <updated>1631017494295</updated>
+    </task>
+    <option name="localTasksCounter" value="183" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
