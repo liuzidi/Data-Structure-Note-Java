@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8d33956-5387-4a65-b230-ea007695e92f" name="Default Changelist" comment="LeetCode刷题笔记">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="a8d33956-5387-4a65-b230-ea007695e92f" name="Default Changelist" comment="LeetCode刷题笔记" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -206,13 +204,7 @@
       <workItem from="1630570328445" duration="4336000" />
       <workItem from="1630682357267" duration="38072000" />
       <workItem from="1631095898128" duration="28000" />
-    </task>
-    <task id="LOCAL-00134" summary="LeetCode刷题笔记">
-      <created>1626578839381</created>
-      <option name="number" value="00134" />
-      <option name="presentableId" value="LOCAL-00134" />
-      <option name="project" value="LOCAL" />
-      <updated>1626578839382</updated>
+      <workItem from="1631189665541" duration="12000" />
     </task>
     <task id="LOCAL-00135" summary="LeetCode刷题笔记">
       <created>1626618065293</created>
@@ -550,7 +542,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631017494295</updated>
     </task>
-    <option name="localTasksCounter" value="183" />
+    <task id="LOCAL-00183" summary="LeetCode刷题笔记">
+      <created>1631189669295</created>
+      <option name="number" value="00183" />
+      <option name="presentableId" value="LOCAL-00183" />
+      <option name="project" value="LOCAL" />
+      <updated>1631189669295</updated>
+    </task>
+    <option name="localTasksCounter" value="184" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
