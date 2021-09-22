@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8d33956-5387-4a65-b230-ea007695e92f" name="Default Changelist" comment="LeetCode刷题笔记" />
+    <list default="true" id="a8d33956-5387-4a65-b230-ea007695e92f" name="Default Changelist" comment="LeetCode刷题笔记">
+      <change afterPath="$PROJECT_DIR$/src/LeetCode/classicProblem/P04.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -70,20 +73,7 @@
       <recent name="TestFiles" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MergeSort2">
-    <configuration name="InsertSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="SortMethod.InsertSort" />
-      <module name="Data Structure Code" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="SortMethod.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.P04.test1">
     <configuration name="MergeSort2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="SortMethod.MergeSort2" />
       <module name="Data Structure Code" />
@@ -136,13 +126,40 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="P04.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Data Structure Code" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="LeetCode.classicProblem.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="LeetCode.classicProblem" />
+      <option name="MAIN_CLASS_NAME" value="LeetCode.classicProblem.P04" />
+      <option name="METHOD_NAME" value="test1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.P04.test1" />
         <item itemvalue="Application.MergeSort2" />
         <item itemvalue="Application.ssddfdfd" />
         <item itemvalue="Application.ssfdfd" />
         <item itemvalue="Application.ssss" />
-        <item itemvalue="Application.InsertSort" />
       </list>
     </recent_temporary>
   </component>
@@ -205,13 +222,9 @@
       <workItem from="1630682357267" duration="38072000" />
       <workItem from="1631095898128" duration="28000" />
       <workItem from="1631189665541" duration="12000" />
-    </task>
-    <task id="LOCAL-00135" summary="LeetCode刷题笔记">
-      <created>1626618065293</created>
-      <option name="number" value="00135" />
-      <option name="presentableId" value="LOCAL-00135" />
-      <option name="project" value="LOCAL" />
-      <updated>1626618065293</updated>
+      <workItem from="1631535911952" duration="108000" />
+      <workItem from="1631695688826" duration="55000" />
+      <workItem from="1632316696354" duration="1388000" />
     </task>
     <task id="LOCAL-00136" summary="LeetCode刷题笔记">
       <created>1626702407379</created>
@@ -549,7 +562,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631189669295</updated>
     </task>
-    <option name="localTasksCounter" value="184" />
+    <task id="LOCAL-00184" summary="LeetCode刷题笔记">
+      <created>1631536007863</created>
+      <option name="number" value="00184" />
+      <option name="presentableId" value="LOCAL-00184" />
+      <option name="project" value="LOCAL" />
+      <updated>1631536007863</updated>
+    </task>
+    <option name="localTasksCounter" value="185" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -646,6 +666,11 @@
           <url>file://$PROJECT_DIR$/src/LeetCode/classicProblem/LRUCache.java</url>
           <line>107</line>
           <option name="timeStamp" value="74" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/LeetCode/classicProblem/P04.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="83" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
