@@ -12,6 +12,27 @@ import java.util.List;
  *
  */
 public class topHot100_56 {
+    int name;
+    String age;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        topHot100_56 that = (topHot100_56) o;
+
+        if (name != that.name) return false;
+        return age != null ? age.equals(that.age) : that.age == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name;
+        result = 31 * result + age.hashCode();
+        return result;
+    }
+
     public static void main(String[] args) {
 
     }
