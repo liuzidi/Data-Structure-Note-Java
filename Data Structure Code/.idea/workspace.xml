@@ -5,16 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8d33956-5387-4a65-b230-ea007695e92f" name="Default Changelist" comment="LeetCode刷题笔记">
-      <change afterPath="$PROJECT_DIR$/src/LeetCode/classicProblem/P05.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/LeetCode/classicProblem/P06.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/LeetCode/classicProblem/P07.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/LeetCode/classicProblem/P08.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/LeetCode/classicProblem/P09.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/LeetCode/classicProblem/P10.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/topHot100_56.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/LeetCode/topHot100_56.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/SortMethod/MergeSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/SortMethod/MergeSort.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/SortMethod/MergeSort2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Data Structure Code/SortMethod/MergeSort2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Data Structure Code/SortMethod/TestInstance.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LeetCode/topHot100_56.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LeetCode/topHot100_56.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tips.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../tips.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,20 +75,7 @@
       <recent name="TestFiles" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.P08.test1">
-    <configuration name="P05" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="LeetCode.classicProblem.P05" />
-      <module name="Data Structure Code" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="LeetCode.classicProblem.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.P10.test1">
     <configuration name="P06" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="LeetCode.classicProblem.P06" />
       <module name="Data Structure Code" />
@@ -121,6 +102,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="P09" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="LeetCode.classicProblem.P09" />
+      <module name="Data Structure Code" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="LeetCode.classicProblem.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -130,22 +124,6 @@
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="P04.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Data Structure Code" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="LeetCode.classicProblem.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="LeetCode.classicProblem" />
-      <option name="MAIN_CLASS_NAME" value="LeetCode.classicProblem.P04" />
-      <option name="METHOD_NAME" value="test1" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -166,13 +144,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="P10.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Data Structure Code" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="LeetCode.classicProblem.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="LeetCode.classicProblem" />
+      <option name="MAIN_CLASS_NAME" value="LeetCode.classicProblem.P10" />
+      <option name="METHOD_NAME" value="test1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.P10.test1" />
+        <item itemvalue="Application.P09" />
         <item itemvalue="JUnit.P08.test1" />
         <item itemvalue="Application.P07" />
         <item itemvalue="Application.P06" />
-        <item itemvalue="Application.P05" />
-        <item itemvalue="JUnit.P04.test1" />
       </list>
     </recent_temporary>
   </component>
@@ -242,14 +236,9 @@
       <workItem from="1634560121959" duration="3130000" />
       <workItem from="1634730057701" duration="670000" />
       <workItem from="1635422288339" duration="1493000" />
-      <workItem from="1635769807912" duration="1301000" />
-    </task>
-    <task id="LOCAL-00137" summary="LeetCode刷题笔记">
-      <created>1626702569111</created>
-      <option name="number" value="00137" />
-      <option name="presentableId" value="LOCAL-00137" />
-      <option name="project" value="LOCAL" />
-      <updated>1626702569111</updated>
+      <workItem from="1635769807912" duration="1353000" />
+      <workItem from="1635936781707" duration="9774000" />
+      <workItem from="1637241287997" duration="613000" />
     </task>
     <task id="LOCAL-00138" summary="LeetCode刷题笔记">
       <created>1627034347106</created>
@@ -587,7 +576,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632319145472</updated>
     </task>
-    <option name="localTasksCounter" value="186" />
+    <task id="LOCAL-00186" summary="LeetCode刷题笔记">
+      <created>1635864388032</created>
+      <option name="number" value="00186" />
+      <option name="presentableId" value="LOCAL-00186" />
+      <option name="project" value="LOCAL" />
+      <updated>1635864388032</updated>
+    </task>
+    <option name="localTasksCounter" value="187" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -610,7 +606,7 @@
     <MESSAGE value="LeetCode刷题" />
     <MESSAGE value="commit" />
     <MESSAGE value="LeetCode刷题笔记" />
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <option name="LAST_COMMIT_MESSAGE" value="LeetCode刷题笔记" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -685,8 +681,23 @@
           <line>107</line>
           <option name="timeStamp" value="74" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/LeetCode/classicProblem/P09.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="77" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/LeetCode/classicProblem/P10.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="78" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="input.get(3)" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
